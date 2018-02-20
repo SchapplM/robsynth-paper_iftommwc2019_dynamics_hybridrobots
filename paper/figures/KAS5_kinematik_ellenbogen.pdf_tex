@@ -1,0 +1,92 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'KAS5_kinematik_ellenbogen.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{212.5984252bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.06666667)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.06779089,0.54344209){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\delta_{5}$}}}%
+    \put(0.24940419,0.4532759){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\delta_{6}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.1371304,0.37589377){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_{13}$}}}%
+    \put(0.25925142,0.25377294){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_{12}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.22435969,0.64293185){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_4$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.26264369,0.72404249){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_4$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.44694131,0.45599178){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_5$}}}%
+    \put(0.7128436,0.41078547){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_6$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.89490082,0.27121891){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_5$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.4159732,0.22345105){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\delta_{5}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.57717493,0.60300962){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{12}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.52387081,0.65025406){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{4}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.31900232,0.96464704){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{3}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.91404607,0.37493971){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.64999627,0.07492541){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{5}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.07109325,0.45186938){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{13}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.56364777,0.39014223){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$W_4$}}}%
+    \put(0.48863328,0.41419198){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$W_3$}}}%
+    \put(0.28804828,0.65021547){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$W_1$}}}%
+    \put(0.32727348,0.59141435){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$W_2$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.26264369,0.84404251){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}_4$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.40209555,0.54850316){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}_5$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{KAS5_kinematik_ellenbogen.pdf}}%
+  \end{picture}%
+\endgroup%
