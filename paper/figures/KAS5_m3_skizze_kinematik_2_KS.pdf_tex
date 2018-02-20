@@ -1,4 +1,4 @@
-%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
 %% Accompanies image file 'KAS5_m3_skizze_kinematik_2_KS.pdf' (pdf, eps, ps)
 %%
@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{212.59841309bp}%
+    \setlength{\unitlength}{212.59840357bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -49,59 +49,88 @@
   \global\let\svgscale\undefined%
   \makeatother%
   \begin{picture}(1,1)%
-    \put(0,0){\includegraphics[width=\unitlength]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
-    \put(0.02845623,0.90705029){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{G1}}}}%
-    \put(0.33620491,0.92762486){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{G2, G3}}}}%
-    \put(0.43631821,0.3219644){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{G4}}}}%
-    \put(0.47942086,0.26220968){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{G5}}}}%
-    \put(0.53976467,0.18403632){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{G6}}}}%
-    \put(0.87709058,0.24017737){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{G7}}}}%
-    \put(0.73643359,0.08013913){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{A}}}}%
-    \put(0.49642784,0.0337663){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{B}}}}%
-    \put(0.31024267,0.41842364){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{C}}}}%
-    \put(0.33398271,0.55788479){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{D}}}}%
-    \put(0.45179206,0.55303524){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{E}}}}%
-    \put(0.20356347,0.83919683){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{F}}}}%
-    \put(0.80454181,0.18601679){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_6$}}}%
-    \put(0.60231423,0.15330791){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_5$}}}%
-    \put(0.49401834,0.17917047){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_4$}}}%
-    \put(0.31674158,0.60644295){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_3$}}}%
-    \put(0.08768895,0.74437103){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_0$}}}%
-    \put(0.02189027,0.82571089){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$z_0$}}}%
-    \put(0.36735377,0.9019164){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_8$}}}%
-    \put(0.20999477,0.8995409){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$y_9$}}}%
-    \put(0.22080449,0.81333542){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_9$}}}%
-    \put(0.2944813,0.52767979){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_{10}$}}}%
-    \put(0.39212091,0.54668754){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$y_{10}$}}}%
-    \put(0.30818804,0.38230847){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_{11}$}}}%
-    \put(0.41495374,0.45871495){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$y_{11}$}}}%
-    \put(0.41232656,0.0864138){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_{14}$}}}%
-    \put(0.42559285,0.02447741){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$y_{14}$}}}%
-    \put(0.45355928,0.29610253){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_4$}}}%
-    \put(0.51390303,0.24437947){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_5$}}}%
-    \put(0.56562637,0.26246347){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_6$}}}%
-    \put(0.33287163,0.82195573){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_3$}}}%
-    \put(0.29897849,0.95363992){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$y_8$}}}%
-    \put(0.04458622,0.77260795){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_1$}}}%
-    \put(0.1394122,0.85394804){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_2$}}}%
-    \put(0.81253202,0.23683747){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_7$}}}%
-    \put(0.38025112,0.87605499){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$z_2$}}}%
-    \put(0.91381502,0.27103234){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$z_{7}$}}}%
-    \put(0.80174801,0.33247057){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_{7}$}}}%
-    \put(0.26449627,0.8480714){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_2$}}}%
-    \put(0.03596569,0.97796873){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$z_1$}}}%
-    \put(0.06182732,0.85787017){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$y_1$}}}%
-    \put(0.67597491,0.14415268){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_{15}$}}}%
-    \put(0.80715388,0.10447345){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$z_{15}$}}}%
-    \put(0.42933546,0.21542023){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x_{13}$}}}%
-    \put(0.34513815,0.22892293){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{11}}}%
-    \put(0.58788772,0.02483616){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{14}}}%
-    \put(0.70582374,0.04930598){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{15}}}%
-    \put(0.25861168,0.48287655){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{10}}}%
-    \put(0.68460333,0.29424379){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6}}}%
-    \put(0.93067899,0.34209571){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{7}}}%
-    \put(0.45030653,0.68847711){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{9}}}%
-    \put(0.44512985,0.78992071){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{3}}}%
-    \put(0.52593112,0.0923954){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{13}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.02845623,0.90705028){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{G1}}}}%
+    \put(0.33620492,0.92762485){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{G2, G3}}}}%
+    \put(0.74395955,0.07261316){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{A}}}}%
+    \put(0.49642786,0.02624033){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{B}}}}%
+    \put(0.28914322,0.42447113){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{C}}}}%
+    \put(0.32645679,0.55788477){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{D}}}}%
+    \put(0.45179208,0.55303522){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{E}}}}%
+    \put(0.19885977,0.80559887){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{F}}}}%
+    \put(0.80454184,0.18601676){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_6$}}}%
+    \put(0.60231426,0.15330787){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_5$}}}%
+    \put(0.49267443,0.16976303){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_4$}}}%
+    \put(0.31674159,0.60644293){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_3$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.08768895,0.74437102){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_0$}}}%
+    \put(0.02189028,0.82571088){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{z}_0$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.36735378,0.9019164){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_8$}}}%
+    \put(0.20529108,0.86594294){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}_9$}}}%
+    \put(0.2161008,0.77973745){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_9$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.29448131,0.52767977){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_{10}$}}}%
+    \put(0.39212092,0.54668752){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}_{10}$}}}%
+    \put(0.2931362,0.38230844){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_{11}$}}}%
+    \put(0.41495375,0.45871493){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}_{11}$}}}%
+    \put(0.39727473,0.08641375){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_{14}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.42559287,0.01695144){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}_{14}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.46108522,0.28857657){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_4$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.51390305,0.24437944){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_5$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.5656264,0.26246343){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_6$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.33287165,0.82195573){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_3$}}}%
+    \put(0.29897851,0.95363992){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}_8$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.04458623,0.77260794){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_1$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.13941221,0.85394803){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_2$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.81253205,0.23683743){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_7$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.38025113,0.87605498){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{z}_2$}}}%
+    \put(0.91381506,0.27103231){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{z}_{7}$}}}%
+    \put(0.80174804,0.33247054){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_{7}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.2610021,0.82052096){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_2$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.03596569,0.97796873){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{z}_1$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.06182732,0.85787016){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}_1$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.67597494,0.14415264){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_{15}$}}}%
+    \put(0.80715392,0.10447341){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{z}_{15}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.24258375,0.48329431){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{12}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.68533193,0.30104331){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.92865044,0.34869281){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{7}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.45112887,0.79295422){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{3}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.45635545,0.6917481){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{9}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.22210859,0.945001){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{8}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.12035099,0.9434994){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=25]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.33044182,0.22230418){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{12}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=26]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.59034961,0.01933223){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{14}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=27]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.69945097,0.03540612){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{15}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=28]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.51802235,0.09655428){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{13}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=29]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.57321836,0.34782786){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{5}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=30]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
+    \put(0.52214958,0.39759181){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{4}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=31]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
   \end{picture}%
 \endgroup%
