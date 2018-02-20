@@ -112,15 +112,14 @@ Fig.\,\ref{fig:KAS5_CAD} shows a CAD model of the complete exoskeleton to be car
 
 \begin{figure}[tb!]
     \includegraphics[width=\linewidth]{figures/KAS5_Seitenansicht_CAD_Ausschnitt_transp.png}
-    \caption{CAD-Modell KAS5}
+    \caption{CAD model of the exoskeleton mechanism.}
     \label{fig:KAS5_CAD}
 \end{figure} 
 
 \subsubsection{Three-Axis Elbow Joint}
 
 The elbow joint of the mechanism is supposed to be on the axis of rotation of the users elbow.
-To avoid constraint forces on the users elbow, the joint consists of three parallel axes which couple the upper and forearm via a central  through a gear wheel. The mechanism is shown in detail in Fig.\,\ref{fig:EllenbogenSimMech}.
-The coupling mechanism connecting to the shoulder is left out for clarity.
+To avoid constraint forces on the users elbow, the joint consists of three parallel axes which couple the upper arm and the forearm via a central gear wheel. The mechanism is shown in detail in Fig.\,\ref{fig:EllenbogenSimMech} with different poses.
 The lever mechanism connecting the linear spring-damper-system with the elbow is fixed to the central elbow gear.
 
 \begin{figure}[tb!]
@@ -130,16 +129,16 @@ The lever mechanism connecting the linear spring-damper-system with the elbow is
         \includegraphics[width=0.28\linewidth]{figures/KAS6m3_SimMech_3.png}
     \end{tabular}
 
-    \caption[Überprüfung der Kinematik in SimMechanics]{Überprüfung der Kinematik in SimMechanics am Beispiel unterschiedlicher Stellungen des KAS6. Damit lässt sich visuell ein korrektes Abrollen der Verzahnungen prüfen.}
+    \caption{Different poses for the three-axes elbow joint. The rigid bodies are emphasized with different colors. The coupling mechanism connecting to the shoulder is left out for clarity.}
     \label{fig:EllenbogenSimMech}
 \end{figure} 
 
-\subsubsection{Three-Axis Shoulder Joint}
+\subsubsection{Three-Axes Shoulder Joint}
 
 The shoulder joint imitates the degrees of freedom of a simplified model of the human shoulder with three consecutive rotations with perpendicular axes.
-The last axis of the shoulder joint corresponding to the shoulder flexion/extension is parallel to the axes of the elbow and coupling mechanism, leaving the greatest part of the joints in one axes to simplify manufacturing and kinematics modeling.
+The last axis of the shoulder joint corresponding to the shoulder flexion/extension is parallel to the axes of the elbow and coupling mechanism, leaving the greatest part of the joints in one plane to simplify manufacturing and kinematics modeling.
 
-\subsubsection{Coupling Mechanism for From the Shoulder to the Elbow}
+\subsubsection{Coupling Mechanism Between Shoulder and Elbow}
 
 The shoulder F/E joint and the elbow joint are coupled via a mechanism consisting of two crank-lever-mechanisms.
 This removes one degree of freedom of the system and forces the shoulder and first elbow rotation to move on a common trajectory.
@@ -150,13 +149,13 @@ This concept is known from industrial robots with parallelogram structure connec
 
 The elbow joint is connected via the central gear and a linear spring damper system with the forearm.
 These spring systems are known e.\,g. for their use in mountain bikes.
-The spring is transferring the moment created by the weight of the powertool towards the central gear.
+The spring is transferring the moment created by the weight of the powertool towards the central gear and reduces oscillations coming from processes like drilling.
 
 \section{Kinematics and Dynamics Modelling}
 
 \subsection{Kinematic Model}
 
-All rotational axes of the mechanism are describes as single-DoF joints using the modified Denavit-Hartenberg notation from \cite{KhalilKle1986} to describe the position and orientation of the frames attached to all rigid bodies of the mechanism.
+All rotational axes of the mechanism are described as single-DoF joints using the modified Denavit-Hartenberg notation from \cite{KhalilKle1986} to describe the position and orientation of the frames attached to all rigid bodies of the mechanism.
 The parameters describing the transformations between these frames are given in Tab.\,\ref{tab:mdh_parameter}.
 %
 \begin{table}
@@ -177,7 +176,7 @@ The parameters describing the transformations between these frames are given in 
         11 & $0$ & $0$ & $0$ & $l_{10}$ & $\pi-\delta_{4}$ & $0$ & 10 \\
         12 & $0$ & $0$ & $0$ & $2l_{5}$ & $\delta_{5}-\pi/2$ & $0$ & 4 \\
         13 & $0$ & $2$ & $0$ & $2l_{5}$ & $\delta_{6}-\pi/2$ & $0$ & 12 \\
-        14 & $0$ & $0$ & $0$ & $0$ & $3\pi/2-\delta_{7}$ & $0$ & 13 \\
+        14 & $0$ & $0$ & $0$ & $l_{11}$ & $3\pi/2-\delta_{7}$ & $0$ & 13 \\
         15 & $0$ & $1$ & $\pi/2$ & $0$ & $0$ & $l_{\mathrm{F}}$ & 14 \\
         \hline
     \end{tabular}
@@ -185,7 +184,7 @@ The parameters describing the transformations between these frames are given in 
     \label{tab:mdh_parameter}
 \end{table}
 %
-A kinematic sketch of the mechanism from Fig.\,\ref{fig:KAS5_CAD} is given in Fig.\,\ref{fig:KAS5_kinematik}.
+A kinematic sketch of the whole mechanism from Fig.\,\ref{fig:KAS5_CAD} is given in Fig.\,\ref{fig:KAS5_kinematik}.
 %
 \begin{figure}[tb]
     \small
@@ -198,8 +197,8 @@ A kinematic sketch of the mechanism from Fig.\,\ref{fig:KAS5_CAD} is given in Fi
     \label{fig:KAS5_kinematik}
 \end{figure}
 
-Due to the structure of the mechanism, the extended notation with antecessor index $a(i)$, joint type marker $\sigma_i$ (0 for rotational joint, 1 for prismatic, 2 for fixed connection) and actuation marker $\mu_i$ (0 for passive, 1 for active joint) are used.
-The marker $\mu_i$ is set to 1 for the joints representing the generalized coordinates, regardless whether they are actuated or not.
+Due to the structure of the mechanism, the extended notation with antecessor index $a(i)$, joint type marker $\sigma_i$ (0 for rotational joint, 1 for prismatic joint, 2 for fixed connection) and actuation marker $\mu_i$ (0 for passive, 1 for active joint) are used.
+The marker $\mu_i$ is set to 1 for the joints representing the generalized coordinates from (\ref{equ:gencoord}), regardless whether they are actuated or not.
 
 The mechanism is regarded without the kinematic constraints by virtually cutting the loop-closing joints resulting in a tree structure.
 
@@ -213,6 +212,7 @@ and the dependant coordinates
 %
 \begin{equation}
 \bm{q}_2=\begin{pmatrix}\rho_3 & \delta_2 & \delta_3 & \delta_4 & \delta_5 & \delta_7 \end{pmatrix}^\mathrm{T}.
+\label{equ:gencoord}
 \end{equation}
 %
 The joint coordinates of the main structure are denoted with $\rho$ and the coordinates of the parallel coupling and support mechanism with $\delta$.
@@ -224,7 +224,7 @@ In the following, the dependant coordinates are expressed in the explicit form
 \end{equation}
 %
 as a function of the generalized coordinates $\bm{q}_1$.
-This will be used to get determine the configuration of the complete system depending on the pose of the main structure and to generate dynamics equations for simulation and model based controllers.
+This will be used to determine the configuration of the complete system depending on the pose of the main structure and to generate dynamics equations for simulation and model based controllers.
 
 \subsection{Elimination of Kinematic Constraints}
 
@@ -283,6 +283,9 @@ where the integration constant $\delta_8$ corresponds to a gear offset, which al
 
 
 \subsubsection{elbow-shoulder-coupling}
+
+The crank-lever mechanism coupling the shoulder with the elbow joint can be described by intersecting circles. This is among others practiced in the geometric method for deducing the inverse kinematics of parallel robots.
+
 
 define circles: geometrical method to solve the kinematic constraints for the closed loops
 calculate intersection points of the two circles via quadratic equations 
