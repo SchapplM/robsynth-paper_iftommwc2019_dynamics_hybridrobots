@@ -22,9 +22,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="7.9195959"
-     inkscape:cx="31.788553"
-     inkscape:cy="224.02244"
+     inkscape:zoom="3.959798"
+     inkscape:cx="150.34465"
+     inkscape:cy="126.13648"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -779,6 +779,20 @@
          id="path3978-5-3"
          inkscape:connector-curvature="0" />
     </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Send-3"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Send">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path4374-6" />
+    </marker>
   </defs>
   <metadata
      id="metadata7">
@@ -788,7 +802,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1431,6 +1445,30 @@
        id="path4008-0-2-3-2-6"
        d="m 104.84864,779.70439 0.39893,78.06536"
        style="fill:none;stroke:#000000;stroke-width:1.30740881;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:7.84445286, 7.84445286;stroke-dashoffset:0;stroke-opacity:0.58823529"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path4032-0-7"
+       d="m 115.34357,954.34563 c 7.89531,-0.15228 11.27729,-3.40405 12.46206,-10.78368"
+       style="fill:none;stroke:#000000;stroke-width:0.64906818;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Send-3)" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4036-6-0-4-4-5-6-3-3-4-0-0-3-5"
+       y="968.26282"
+       x="78.685387"
+       style="font-style:normal;font-weight:normal;font-size:52.33756256px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         style="font-size:5.23375607px"
+         y="968.26282"
+         x="78.685387"
+         id="tspan4038-88-5-8-0-9-8-8-14-5-9-6-4-3"
+         sodipodi:role="line">$\rho_{5}$</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.64906818;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 124.87837,946.7036 -22.7732,14.22395"
+       id="path5244-5"
+       inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
   </g>
 </svg>

@@ -65,7 +65,7 @@
     \put(0,0){\includegraphics[width=\unitlength,page=6]{KAS5_kinematik_ellenbogen.pdf}}%
     \put(0.89490082,0.27121891){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_5$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{KAS5_kinematik_ellenbogen.pdf}}%
-    \put(0.4159732,0.22345105){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\delta_{5}$}}}%
+    \put(0.42349913,0.22345105){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\delta_{5}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{KAS5_kinematik_ellenbogen.pdf}}%
     \put(0.57717493,0.60300962){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{12}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{KAS5_kinematik_ellenbogen.pdf}}%
@@ -75,7 +75,7 @@
     \put(0,0){\includegraphics[width=\unitlength,page=11]{KAS5_kinematik_ellenbogen.pdf}}%
     \put(0.91404607,0.37493971){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=12]{KAS5_kinematik_ellenbogen.pdf}}%
-    \put(0.64999627,0.07492541){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{5}}}%
+    \put(0.541663,0.09583208){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{5}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=13]{KAS5_kinematik_ellenbogen.pdf}}%
     \put(0.07109325,0.45186938){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{13}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=14]{KAS5_kinematik_ellenbogen.pdf}}%
@@ -88,5 +88,8 @@
     \put(0,0){\includegraphics[width=\unitlength,page=16]{KAS5_kinematik_ellenbogen.pdf}}%
     \put(0.40209555,0.54850316){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}_5$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=17]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.33980361,0.32976693){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_{5}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.61392555,0.27641411){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}_6$}}}%
   \end{picture}%
 \endgroup%
