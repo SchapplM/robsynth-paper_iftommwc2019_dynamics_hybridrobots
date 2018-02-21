@@ -36,6 +36,8 @@
 \DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
 \newcommand{\body}[1]{\mathcal{B}_{#1}}
 \newcommand{\ks}[1]{\mathcal{F}_{#1}}
+\newcommand{\cc}[1]{\mathcal{C}_{#1}}
+\newcommand{\ortvek}[3]{{ }_{(#1)}{\boldsymbol{r}}^{#2}_{#3}}
 
 \title{\LARGE \bf
 Kinematics and Dynamics Model via explicit Elimination of Kinematic Constraints of an Exoskeleton for Craftsmen Force Assistance
@@ -124,9 +126,8 @@ The lever mechanism connecting the linear spring-damper-system with the elbow is
 
 \begin{figure}[tb!]
     \begin{tabular}{c c c}
-        \includegraphics[width=0.28\linewidth]{figures/KAS6m3_SimMech_1.png} &
-        \includegraphics[width=0.30\linewidth]{figures/KAS6m3_SimMech_2.png} &
-        \includegraphics[width=0.28\linewidth]{figures/KAS6m3_SimMech_3.png}
+        \includegraphics[height=0.5\linewidth]{figures/KAS6m3_SimMech_2.png} &
+        \includegraphics[height=0.5\linewidth]{figures/KAS6m3_SimMech_3.png}
     \end{tabular}
 
     \caption{Different poses for the three-axes elbow joint. The rigid bodies are emphasized with different colors. The coupling mechanism connecting to the shoulder is left out for clarity.}
@@ -215,6 +216,13 @@ and the dependant coordinates
 \label{equ:gencoord}
 \end{equation}
 %
+The constant kinematics parameters can be grouped in a separate vector
+%
+\begin{equation}
+\bm{p}_\mathrm{kin}=\begin{pmatrix}\delta_1 & \delta_6 & l_1 & l_2 & ... & l_{11} \end{pmatrix}^\mathrm{T}.
+\label{equ:kinparam}
+\end{equation}
+
 The joint coordinates of the main structure are denoted with $\rho$ and the coordinates of the parallel coupling and support mechanism with $\delta$.
 %
 In the following, the dependant coordinates are expressed in the explicit form
@@ -284,7 +292,105 @@ where the integration constant $\delta_8$ corresponds to a gear offset, which al
 
 \subsubsection{elbow-shoulder-coupling}
 
-The crank-lever mechanism coupling the shoulder with the elbow joint can be described by intersecting circles. This is among others practiced in the geometric method for deducing the inverse kinematics of parallel robots.
+The crank-lever mechanism coupling the shoulder with the elbow joint can be described by intersecting circles.
+%This is among others practiced in the geometric method for deducing the inverse kinematics of parallel robots.
+
+The coordinates of the intersection points can be calculated with a quadratic equation to solve the intersection of the line through these points with the circle.
+
+\begin{figure}[htb]
+    \small
+    \begin{minipage}[t]{7.5cm}
+        \vspace{0.2cm} % wird für bounding box des Bilds benötigt
+        \input{./figures/KAS5_parallelmech_unten.pdf_tex}
+    \end{minipage}
+    
+    \caption{Kinematic sketch of a detail of the lower part of the coupling mechanism}
+    \label{fig:KAS5_lower_coupling}
+\end{figure}
+
+The lower part of the mechanism is depicted in Fig.\,\ref{fig:KAS5_lower_coupling} with the circles $\cc{1}$ (center $B$, radius $|BC|$) and $\cc{2}$ (center $D$, radius $|DC|$) which have two possible intersections
+%
+\begin{align}
+\{C, C^\prime\} = \cc{1} \cap \cc{2}
+\end{align}
+%
+from which the desired configuration of the mechanism is chosen as depicted.
+The coordinates of point $C$ can be calculated efficiently expressed in frame $\ks{4}$ starting from $O_5$ to $\ortvek{4}{}{5,C}$.
+%
+With these coordinates the rotation angle $\delta_{16}$ of body $\body{10}$ is calculated with trigonometric functions of $\ortvek{3}{}{D,C}$ as
+%
+\begin{align}
+\mathrm{sin}(\delta_{16}) &= -\ortvek{3}{y}{D,C} / l_{22} \\
+\mathrm{cos}(\delta_{16}) &= \ortvek{3}{x}{D,C} / l_{22} \\
+\delta_{16} &= \mathrm{atan2}(\mathrm{sin}(\delta_{16}). \mathrm{cos}(\delta_{16}))
+\end{align}
+%
+The known position of the points $B$, $C$ and the configuration of the main structure can now be used to get the rotation of the connecting rod $\body{11}$.
+We use the position vector from $B$ to $D$ expressed in $\ks{4}$ as
+%
+\begin{align}
+\ortvek{4}{}{D,B} &= \ortvek{4}{}{D,C} + \ortvek{4}{}{C,B} \\
+ &= l_{22}\begin{pmatrix}\mathrm{cos}(\xi_2)\\ -\mathrm{sin}(\xi_2) \end{pmatrix} + l_{13}\begin{pmatrix}-\mathrm{cos}(\xi_1)\\ \mathrm{sin}(\xi_1) \end{pmatrix}
+\label{equ:delta3_r4DB}
+\end{align}
+%
+with the definitions
+%
+\begin{align}
+\xi_1 &= \delta_3+\delta_{16}+\rho_4 \\
+\xi_2 &= \delta_{16}+\rho_4
+\end{align}
+%
+which become useful in the angle sum identities of sine and cosine with
+%
+\begin{align}
+\mathrm{sin}(\xi_2)&=\mathrm{sin}(\rho4)\mathrm{cos}(\delta_{16})+\mathrm{cos}(\rho4)\mathrm{sin}(\delta_{16}) \nonumber \\
+\mathrm{cos}(\xi_2)&=\mathrm{cos}(\rho4)\mathrm{cos}(\delta_{16})-\mathrm{sin}(\rho4)\mathrm{sin}(\delta_{16}). \nonumber \\
+\label{equ:delta3_xi2_addtheorem}
+\end{align}
+%
+The angle $\delta_3$ of $\body{11}$ can now be written as
+%
+\begin{align}
+\mathrm{sin}(\delta_3) &= \mathrm{sin}(\xi_1)\mathrm{cos}(\xi_2)-\mathrm{cos}(\xi_1)\mathrm{sin}(\xi_2)\\
+\mathrm{cos}(\delta_3) &= \mathrm{cos}(\xi_1)\mathrm{cos}(\xi_2)+\mathrm{sin}(\xi_1)\mathrm{sin}(\xi_2)\\
+\delta_3 &= \xi_1 - \xi_2 =  \mathrm{atan2}(\mathrm{sin}(\xi_1),\mathrm{cos}(\xi_1)) - \xi_2 ,
+\end{align}
+%
+where the terms for $\xi_1$ and $\xi_2$ are obtained from (\ref{equ:delta3_r4DB}) and (\ref{equ:delta3_xi2_addtheorem}), respectively.
+The terms are written in such a way, that $\mathrm{arctan}$-functions are omitted where possible to reduce computational load in the dynamics part.
+
+To 
+
+For the forearm-coupling, first, the distance $|AB|$ can be regarded as the coordinate of the prismatic joint from Tab.\,\ref{tab:mdh_parameter} with
+%
+\begin{align}
+l_\mathrm{F} = \|\ortvek{5}{}{A,B}\| = \|-(\ortvek{5}{}{5,6}+\ortvek{5}{}{6,A}) + \ortvek{5}{}{5,B}\|.
+\end{align}
+%
+This represents the elongation of the spring together with an offset.
+The orientation $\beta_1$ of the spring-damper-system consisting of the bodies $\body{14}$ and $\body{15}$ can be calculated analytically by closing the loop over the two vector paths $O_5$-$O_6$-$A$ and $O_5$-$B$-$A$.
+
+
+The upper part of the coupling mechanism 
+
+
+
+%
+
+
+
+\begin{figure}[htb]
+    \small
+    \begin{minipage}[t]{7.5cm}
+        \vspace{0.2cm} % wird für bounding box des Bilds benötigt
+        \input{./figures/KAS5_parallelmech_oben.pdf_tex}
+    \end{minipage}
+    
+    \caption{Kinematic sketch of a detail of the upper part of the coupling mechanism}
+    \label{fig:KAS5_upper_coupling}
+\end{figure}
+
 
 
 define circles: geometrical method to solve the kinematic constraints for the closed loops

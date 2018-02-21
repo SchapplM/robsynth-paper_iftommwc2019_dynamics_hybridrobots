@@ -1,0 +1,110 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'KAS5_parallelmech_oben.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{212.5984252bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.8)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.03851184,0.65724655){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{G1}}}}%
+    \put(0.42411643,0.68604525){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textrm{G2, G3}}}}%
+    \put(0.50883285,0.17516538){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$D$}}}%
+    \put(0.68426642,0.16837785){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E$}}}%
+    \put(0.27702805,0.51524362){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$F$}}}%
+    \put(0.4488693,0.25724409){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_3$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.1214207,0.42954227){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_0$}}}%
+    \put(0.03985552,0.5223265){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{z}_0$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.50534555,0.63500892){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_8$}}}%
+    \put(0.30116057,0.47904508){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_9$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.45354217,0.13288671){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_{10}$}}}%
+    \put(0.60074387,0.15949272){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}_{10}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.47850025,0.58114393){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_3$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.06108922,0.46906579){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_1$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.17876661,0.57238443){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_2$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.70402036,0.613862){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{z}_2$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.3488233,0.32110376){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_2$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.04902293,0.75651215){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{z}_1$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.08522182,0.58840849){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}_1$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.36052453,0.07143218){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.65566707,0.49620097){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{3}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.69456478,0.32094345){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{9}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.30956973,0.71036671){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{8}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.1671382,0.70826497){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.16145001,0.49437139){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.26966425,0.58699738){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\delta_8$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.38763614,0.55321569){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\delta_6$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.73243677,0.45634098){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{z}_{i}, i \in \{3,8,9,10 \}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.53321368,0.09467187){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\delta_{16}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.73828626,0.2314045){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.82569046,0.69125469){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\cc{3}(E,|EF|)$}}}%
+    \put(0.45419924,0.75554569){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\cc{4}(3,|3F|)$}}}%
+    \put(0.57476773,0.64493125){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$F^\prime$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{KAS5_parallelmech_oben.pdf}}%
+  \end{picture}%
+\endgroup%
