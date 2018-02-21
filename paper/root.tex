@@ -229,6 +229,7 @@ In the following, the dependant coordinates are expressed in the explicit form
 %
 \begin{equation}
 \bm{q}_2=\bm{f}(\bm{q}_1)
+\label{equ:kinconstr_explicit}
 \end{equation}
 %
 as a function of the generalized coordinates $\bm{q}_1$.
@@ -285,17 +286,35 @@ which results in the relation
 %
 \begin{align}
 \rho_6 = \rho_5 - \rho_4 + \delta_8,
+\label{equ:rho6_explicit}
 \end{align}
 %
 where the integration constant $\delta_8$ corresponds to a gear offset, which allows taking into account a shifted assembly of the central gear $\body{12}$ and forearm $\body{6}$. This offset was assumed to zero in (\ref{equ:delta5_explicit}) forcing an assembly according to the kinematic sketch for the central gear relative to the upper arm $\body{3}$.
 
+\subsubsection{forearm coupling}
 
-\subsubsection{elbow-shoulder-coupling}
+To proceed with the forearm-coupling, the angles 
+%
+\begin{align}
+\delta_7 = \angle(O_5O_4, O_5B) = \delta_{17}+\delta_{19}
+\end{align}
+%
+and
+%
+\begin{align}
+\gamma_5 = \angle(O_5B, O_5O_6) = -\delta_7+\pi+\rho_5
+\end{align}
+%
+have to be defined which is annotated in Fig.\,\ref{fig:KAS5_lower_coupling}, where the lower part of the mechanism is depicted.
 
-The crank-lever mechanism coupling the shoulder with the elbow joint can be described by intersecting circles.
-%This is among others practiced in the geometric method for deducing the inverse kinematics of parallel robots.
-
-The coordinates of the intersection points can be calculated with a quadratic equation to solve the intersection of the line through these points with the circle.
+Next, the distance $|AB|$ can be regarded as the coordinate of the prismatic joint from Tab.\,\ref{tab:mdh_parameter} with
+%
+\begin{align}
+l_\mathrm{F} = \|\ortvek{5}{}{A,B}\| = \|-(\ortvek{5}{}{5,6}+\ortvek{5}{}{6,A}) + \ortvek{5}{}{5,B}\|.
+\end{align}
+%
+This represents the elongation of the spring together with an offset.
+The orientation $\beta_1$ of the spring-damper-system consisting of the bodies $\body{14}$ and $\body{15}$ can be calculated analytically by closing the loop over the two vector paths $O_5$-$O_6$-$A$ and $O_5$-$B$-$A$.
 
 \begin{figure}[htb]
     \small
@@ -307,6 +326,14 @@ The coordinates of the intersection points can be calculated with a quadratic eq
     \caption{Kinematic sketch of a detail of the lower part of the coupling mechanism}
     \label{fig:KAS5_lower_coupling}
 \end{figure}
+
+
+\subsubsection{elbow-shoulder-coupling}
+
+The crank-lever mechanism coupling the shoulder with the elbow joint can be described by intersecting circles.
+%This is among others practiced in the geometric method for deducing the inverse kinematics of parallel robots.
+
+The coordinates of the intersection points can be calculated with a quadratic equation to solve the intersection of the line through these points with the circle.
 
 The lower part of the mechanism is depicted in Fig.\,\ref{fig:KAS5_lower_coupling} with the circles $\cc{1}$ (center $B$, radius $|BC|$) and $\cc{2}$ (center $D$, radius $|DC|$) which have two possible intersections
 %
@@ -322,7 +349,8 @@ With these coordinates the rotation angle $\delta_{16}$ of body $\body{10}$ is c
 \begin{align}
 \mathrm{sin}(\delta_{16}) &= -\ortvek{3}{y}{D,C} / l_{22} \\
 \mathrm{cos}(\delta_{16}) &= \ortvek{3}{x}{D,C} / l_{22} \\
-\delta_{16} &= \mathrm{atan2}(\mathrm{sin}(\delta_{16}). \mathrm{cos}(\delta_{16}))
+\delta_{16} &= \mathrm{atan2}(\mathrm{sin}(\delta_{16}), \mathrm{cos}(\delta_{16}))
+\label{equ:delta16_explicit}
 \end{align}
 %
 The known position of the points $B$, $C$ and the configuration of the main structure can now be used to get the rotation of the connecting rod $\body{11}$.
@@ -337,8 +365,9 @@ We use the position vector from $B$ to $D$ expressed in $\ks{4}$ as
 with the definitions
 %
 \begin{align}
-\xi_1 &= \delta_3+\delta_{16}+\rho_4 \\
-\xi_2 &= \delta_{16}+\rho_4
+\xi_1 &= \delta_3+\delta_{16}+\rho_4 \nonumber \\
+\xi_2 &= \delta_{16}+\rho_4 \nonumber \\
+\label{equ:delta3_xi_def}
 \end{align}
 %
 which become useful in the angle sum identities of sine and cosine with
@@ -355,30 +384,20 @@ The angle $\delta_3$ of $\body{11}$ can now be written as
 \mathrm{sin}(\delta_3) &= \mathrm{sin}(\xi_1)\mathrm{cos}(\xi_2)-\mathrm{cos}(\xi_1)\mathrm{sin}(\xi_2)\\
 \mathrm{cos}(\delta_3) &= \mathrm{cos}(\xi_1)\mathrm{cos}(\xi_2)+\mathrm{sin}(\xi_1)\mathrm{sin}(\xi_2)\\
 \delta_3 &= \xi_1 - \xi_2 =  \mathrm{atan2}(\mathrm{sin}(\xi_1),\mathrm{cos}(\xi_1)) - \xi_2 ,
+\label{equ:delta3_explicit}
 \end{align}
 %
 where the terms for $\xi_1$ and $\xi_2$ are obtained from (\ref{equ:delta3_r4DB}) and (\ref{equ:delta3_xi2_addtheorem}), respectively.
 The terms are written in such a way, that $\mathrm{arctan}$-functions are omitted where possible to reduce computational load in the dynamics part.
 
-To 
-
-For the forearm-coupling, first, the distance $|AB|$ can be regarded as the coordinate of the prismatic joint from Tab.\,\ref{tab:mdh_parameter} with
+The upper part of the coupling mechanism is shown in Fig.\,\ref{fig:KAS5_upper_coupling}. The kinematics of this mechanism can be solved similar by intersecting the circles $\cc{3}$ (center $E$, radius $|EF|$) and $\cc{4}$ (center $O_2$, radius $|2F|$) which again have two possible intersections
 %
 \begin{align}
-l_\mathrm{F} = \|\ortvek{5}{}{A,B}\| = \|-(\ortvek{5}{}{5,6}+\ortvek{5}{}{6,A}) + \ortvek{5}{}{5,B}\|.
+\{F, F^\prime\} = \cc{3} \cap \cc{4}
 \end{align}
 %
-This represents the elongation of the spring together with an offset.
-The orientation $\beta_1$ of the spring-damper-system consisting of the bodies $\body{14}$ and $\body{15}$ can be calculated analytically by closing the loop over the two vector paths $O_5$-$O_6$-$A$ and $O_5$-$B$-$A$.
-
-
-The upper part of the coupling mechanism 
-
-
-
+from which the designated one is chosen.
 %
-
-
 
 \begin{figure}[htb]
     \small
@@ -391,25 +410,81 @@ The upper part of the coupling mechanism
     \label{fig:KAS5_upper_coupling}
 \end{figure}
 
+The intersection can be calculated efficiently as $\ortvek{3}{}{D,F}$ in frame $\ks{3}$ with $\ortvek{3}{}{D,E}$ and $\ortvek{3}{}{D,3}$ known from the minimal coordinates and the previous results.
 
+This result is first used to get the intermediate angle $\gamma_3$ between $\body{8}$ and $\body{3}$ with
+%
+\begin{align}
+\mathrm{sin}(\gamma_3) &= \ortvek{3}{y}{F,3} / l_{4} \\
+\mathrm{cos}(\gamma_3) &= -\ortvek{3}{x}{F,3} / l_{4} \\
+\gamma_3 &= \mathrm{atan2}(\mathrm{sin}(\gamma_3), \mathrm{cos}(\gamma_3)).
+\end{align}
+%
+This is used to determine the shoulder F/E joint coordinate, which is kinematically coupled with the elbow joint.
+The angle between $\body{2}$ and $\body{3}$ gives
+%
+\begin{align}
+\rho_3 = \gamma_3 + \delta_8 - \pi/2.
+\label{equ:rho3_explicit}
+\end{align}
+%
+By calculating $\mathrm{sin}(\rho_3)$ and $\mathrm{cos}(\rho_3)$ with the angle sum identities as done for $\delta_3$, it is again possible to obtain expressions not containing nested terms of the $\mathrm{arctan}$-function.
 
-define circles: geometrical method to solve the kinematic constraints for the closed loops
-calculate intersection points of the two circles via quadratic equations 
+The analysis of the mechanism is completed with the calculation of $\delta_6$, which describes the orientation of $\body{9}$ in Tab.\,\ref{tab:mdh_parameter}.
 
-iterative procedure (first circle, second circle)
+Since $\delta_6$ is the inner angle of the intersection point $F$, the approach is the same as for the inner angle angle $\delta_3$ of intersection point $C$ in (\ref{equ:delta3_xi_def}), (\ref{equ:delta3_xi2_addtheorem}). With the vector
+%
+\begin{align}
+\ortvek{3}{}{3,E} &= \ortvek{3}{}{3,F} + \ortvek{3}{}{F,E} \\
+\begin{pmatrix}\ortvek{3}{x}{3,E}\\ \ortvek{3}{y}{3,E} \end{pmatrix} &= l_{4}\begin{pmatrix}\mathrm{sin}(\xi_3)\\ -\mathrm{cos}(\xi_3) \end{pmatrix} + l_{20}\begin{pmatrix}\mathrm{sin}(\xi_4)\\ \mathrm{cos}(\xi_4) \end{pmatrix}
+\label{equ:delta6_r33E}
+\end{align}
+%
+providing expressions for the unknown $\xi_4$ and the definitions
+%
+\begin{align}
+\xi_3 &= -\rho_3+\delta_{8} \nonumber \\
+\xi_4 &= -\rho_3+\delta_{8}+\delta_{6} \nonumber \\
+\label{equ:delta6_xi_def}
+\end{align}
+%
+and by using the angle sum identities one gets
+%
+\begin{align}
+\mathrm{sin}(\delta_6) &= \mathrm{sin}(\xi_4)\mathrm{cos}(\xi_3)+\mathrm{cos}(\xi_4)\mathrm{sin}(\xi_3)\\
+\mathrm{cos}(\delta_6) &= \mathrm{cos}(\xi_4)\mathrm{cos}(\xi_3)-\mathrm{sin}(\xi_4)\mathrm{sin}(\xi_3)\\
+\delta_6 &= \xi_4 + \xi_3 =  \mathrm{atan2}(\mathrm{sin}(\xi_4),\mathrm{cos}(\xi_4)) + \xi_3,
+\label{equ:delta6_explicit}
+\end{align}
+%
+which describes the last unknown coordinate of the kinematic transformations of the frames of Tab.\,\ref{tab:mdh_parameter}.
+%
 
 \subsubsection{complete model}
 
+The expressions for the different coordinates $\delta_5$ (\ref{equ:delta5_explicit}), $\rho_6$ (\ref{equ:rho6_explicit}),  $\delta_{16}$ (\ref{equ:delta16_explicit}), $\delta_3$ (\ref{equ:delta3_explicit}), $\rho_3$ (\ref{equ:rho3_explicit}) and $\delta_6$ (\ref{equ:delta6_explicit}) of the parallel mechanism provide the explicit definition of the kinematic constraints defined in (\ref{equ:kinconstr_explicit}), which are needed for the complete kinematic description of the frames and rigid bodies defined in Tab.\,\ref{tab:mdh_parameter}.
 
-
-Es muss nicht die explizite Lösung der Zwangsbedingungen aus (\ref{equ:ZB_explizit}) gefunden werden, sondern nur die explizite Form für 
+It is emphasized, that the explicit form of the coordinates can be calculated using (\ref{equ:kinconstr_explicit}), but also a semi-explicit form can be given with the angles as an argument of the sine and cosine functions with
 %
 \begin{align}
-\mathrm{sin}(\bm{q}_2) =& \bm{f}_\mathrm{sin}(\bm{q}_1) \\
-\mathrm{cos}(\bm{q}_2) =& \bm{f}_\mathrm{cos}(\bm{q}_1) \\
-\dot{\bm{q}}_2 =& \bm{f}_\mathrm{diff}(\bm{q}_1,\dot{\bm{q}}_1).
+\mathrm{sin}(\bm{q}_2) =& \bm{f}_\mathrm{sin}(\bm{q}_1) \nonumber \\
+\mathrm{cos}(\bm{q}_2) =& \bm{f}_\mathrm{cos}(\bm{q}_1) \nonumber \\
+\dot{\bm{q}}_2 =& \bm{f}_\mathrm{diff}(\bm{q}_1,\dot{\bm{q}}_1). \nonumber \\
+\label{equ:kinconstr_semiexplicit}
 \end{align}
+%
 
+This is facilitated by the demonstrated use of the angle sum identities in the previous subsection.
+The specific implicit form of (\ref{equ:kinconstr_semiexplicit}) allows to produce simpler symbolic expressions when solving the set equations for the unknown joint variables.
+Using the semi-explicit form (\ref{equ:kinconstr_semiexplicit}) produces a solution with tendency to additions and products of sine and cosine terms.
+The explicit form (\ref{equ:kinconstr_explicit}) contains nested expressions with arctangens functions.
+The latter has shown to be very inefficient for further processing with the computer algebra system Maple, that was used to create the symbolic expressions and to generate code.
+
+%It is important to mention, that not the explicit form is needed for the calculation of the dynamics model of the system.
+%In the ela
+%The detailed deduction of the different coordinates of the parallel mechanism 
+%
+%Es muss nicht die explizite Lösung der Zwangsbedingungen aus (\ref{equ:ZB_explizit}) gefunden werden, sondern nur die explizite Form für 
 
 \subsection{Kinematic Constraints in Implicit Form}
 
@@ -459,7 +534,7 @@ coupling with musculo-skeletal model \cite{KuehnHuSchHad2018}
 
 energy consistency
 
-\begin{figure*}[tb!]
+\begin{figure*}[tb]
     \includegraphics{figures/KAS5m5_Gelenkgrenzmodell_q_E.pdf} 
     \caption[Zeitverläufe aus der Simulation zur Prüfung der Energiekonsistenz]{Zeitverläufe aus der Simulation zur Prüfung der Energiekonsistenz. Links: Gelenkwinkel. Rechts: Energien (kinetische Energie $T$, Gravitationspotential $U_\mathrm{grav}$, Federenergie der modellierten Gelenkwinkelanschläge $U_\mathrm{Grenz}$, Federenergie der Linearfeder $U_\mathrm{Feder}$, Gesamtenergie $E_\mathrm{ges}$, Dissipierte Energie $E_\mathrm{Diss}$)}
     \label{fig:SimulationEnergiekonsistenz}
