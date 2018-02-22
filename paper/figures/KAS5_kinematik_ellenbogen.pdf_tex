@@ -50,8 +50,8 @@
   \makeatother%
   \begin{picture}(1,1.06666667)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{KAS5_kinematik_ellenbogen.pdf}}%
-    \put(0.06779089,0.54344209){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\delta_{5}$}}}%
-    \put(0.24940419,0.4532759){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\delta_{6}$}}}%
+    \put(0.06779089,0.54344209){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gdelta19$}}}%
+    \put(0.24940419,0.4532759){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gdelta17$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{KAS5_kinematik_ellenbogen.pdf}}%
     \put(0.1371304,0.37589377){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_{13}$}}}%
     \put(0.25925142,0.25377294){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{x}_{12}$}}}%
@@ -65,31 +65,31 @@
     \put(0,0){\includegraphics[width=\unitlength,page=6]{KAS5_kinematik_ellenbogen.pdf}}%
     \put(0.89490082,0.27121891){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_5$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{KAS5_kinematik_ellenbogen.pdf}}%
-    \put(0.42349913,0.22345105){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\delta_{5}$}}}%
+    \put(0.42349913,0.22345105){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gdelta19$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{KAS5_kinematik_ellenbogen.pdf}}%
-    \put(0.57717493,0.60300962){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{12}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=9]{KAS5_kinematik_ellenbogen.pdf}}%
-    \put(0.52387081,0.65025406){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{4}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=10]{KAS5_kinematik_ellenbogen.pdf}}%
-    \put(0.31900232,0.96464704){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{3}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=11]{KAS5_kinematik_ellenbogen.pdf}}%
-    \put(0.91404607,0.37493971){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=12]{KAS5_kinematik_ellenbogen.pdf}}%
-    \put(0.541663,0.09583208){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{5}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=13]{KAS5_kinematik_ellenbogen.pdf}}%
-    \put(0.07109325,0.45186938){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{13}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=14]{KAS5_kinematik_ellenbogen.pdf}}%
     \put(0.56364777,0.39014223){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$W_4$}}}%
     \put(0.48863328,0.41419198){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$W_3$}}}%
     \put(0.28804828,0.65021547){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$W_1$}}}%
     \put(0.32727348,0.59141435){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$W_2$}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=15]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{KAS5_kinematik_ellenbogen.pdf}}%
     \put(0.26264369,0.84404251){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}_4$}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=16]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{KAS5_kinematik_ellenbogen.pdf}}%
     \put(0.40209555,0.54850316){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}_5$}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=17]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{KAS5_kinematik_ellenbogen.pdf}}%
     \put(0.33980361,0.32976693){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_{5}$}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=18]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{KAS5_kinematik_ellenbogen.pdf}}%
     \put(0.61392555,0.27641411){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{y}_6$}}}%
+    \put(0.57297611,0.59975447){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\body{12}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.01155813,0.44420933){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\body{13}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.30751445,0.96947086){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\body{3}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.49945094,0.66637572){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\body{4}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.89082131,0.38750788){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\body{6}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.51741924,0.08483626){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\body{5}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{KAS5_kinematik_ellenbogen.pdf}}%
   \end{picture}%
 \endgroup%
