@@ -22,9 +22,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="116.78263"
-     inkscape:cy="132.12284"
+     inkscape:zoom="5.6"
+     inkscape:cx="157.22124"
+     inkscape:cy="151.19795"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -1149,16 +1149,16 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.53404075;stroke-miterlimit:4;stroke-dasharray:1.60212225,1.60212225;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:0.53404075;stroke-miterlimit:4;stroke-dasharray:1.60212225, 1.60212225;stroke-dashoffset:0;stroke-opacity:1"
        id="path3012-3-1-9-3-3-7-2-6-1-3"
        sodipodi:type="arc"
        sodipodi:cx="175.91182"
        sodipodi:cy="999.69098"
        sodipodi:rx="132.22847"
        sodipodi:ry="132.22847"
-       sodipodi:start="2.7521136"
+       sodipodi:start="3.3666581"
        sodipodi:end="5.4435899"
-       d="m 53.586337,1049.899 a 132.22847,132.22847 0 0 1 46.085128,-158.24402 132.22847,132.22847 0 0 1 164.537775,9.6087"
+       d="m 47.018217,970.18153 a 132.22847,132.22847 0 0 1 88.900723,-96.52601 132.22847,132.22847 0 0 1 128.2903,27.60816"
        sodipodi:open="true" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.53803104;stroke-miterlimit:4;stroke-dasharray:1.61409316, 1.61409316;stroke-dashoffset:0;stroke-opacity:1"
@@ -1177,7 +1177,7 @@
          y="868.66339"
          x="219.42561"
          id="tspan4038-8-6-8-9-0"
-         sodipodi:role="line">$\cc{3}(E,|EF|)$</tspan></text>
+         sodipodi:role="line">$\cc{3}(E,\gl20)$</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4036-1-2-8-62-7-7"
@@ -1189,7 +1189,7 @@
          y="851.57819"
          x="120.70255"
          id="tspan4038-8-6-8-9-0-5"
-         sodipodi:role="line">$\cc{4}(O_3,|O_3F|)$</tspan></text>
+         sodipodi:role="line">$\cc{4}(O_2,\gl4)$</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4036-1-2-8-6-0-6-3"
@@ -1372,5 +1372,48 @@
        id="path3012-3-1-9-3-3-7-2-28-9-6-1-6"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.70866144;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        r="10.100903" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4690533;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4581"
+       width="77.452057"
+       height="46.543427"
+       x="4.0296936"
+       y="977.58051" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4036-6-0-4-3-7-3-7"
+       y="990.78589"
+       x="11.210599"
+       style="font-style:normal;font-weight:normal;font-size:36.19889069px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         style="font-size:3.61988902px"
+         y="990.78589"
+         x="11.210599"
+         id="tspan4038-88-5-8-01-1-6-5"
+         sodipodi:role="line">$\gl4=|O_2F|$</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4036-6-0-4-3-7-3-7-3"
+       y="1003.1914"
+       x="12.019093"
+       style="font-style:normal;font-weight:normal;font-size:36.19889069px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         style="font-size:3.61988902px"
+         y="1003.1914"
+         x="12.019093"
+         id="tspan4038-88-5-8-01-1-6-5-5"
+         sodipodi:role="line">$\gl6=|O_4D|$</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4036-6-0-4-3-7-3-7-3-6"
+       y="1015.5969"
+       x="7.9909716"
+       style="font-style:normal;font-weight:normal;font-size:36.19889069px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         style="font-size:3.61988902px"
+         y="1015.5969"
+         x="7.9909716"
+         id="tspan4038-88-5-8-01-1-6-5-5-2"
+         sodipodi:role="line">$\gl20=|EF|$</tspan></text>
   </g>
 </svg>

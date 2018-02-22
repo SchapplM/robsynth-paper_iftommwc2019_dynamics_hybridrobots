@@ -91,5 +91,7 @@
     \put(0,0){\includegraphics[width=\unitlength,page=17]{KAS5_kinematik_ellenbogen.pdf}}%
     \put(0.51741924,0.08483626){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\body{5}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=18]{KAS5_kinematik_ellenbogen.pdf}}%
+    \put(0.50758079,0.9834336){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\ghl11=|O_4W_1|=|O_5W_2|$}}}%
+    \put(0.50758079,0.92420391){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\ghl12=|O_5W_3|=|O_6W_4|$}}}%
   \end{picture}%
 \endgroup%

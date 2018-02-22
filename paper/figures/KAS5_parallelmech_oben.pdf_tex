@@ -86,8 +86,8 @@
     \put(0,0){\includegraphics[width=\unitlength,page=15]{KAS5_parallelmech_oben.pdf}}%
     \put(0.53321368,0.09467187){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gdelta16$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=16]{KAS5_parallelmech_oben.pdf}}%
-    \put(0.82569046,0.69125469){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\cc{3}(E,|EF|)$}}}%
-    \put(0.45419924,0.75554569){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\cc{4}(O_3,|O_3F|)$}}}%
+    \put(0.82569046,0.69125469){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\cc{3}(E,\gl20)$}}}%
+    \put(0.45419924,0.75554569){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\cc{4}(O_2,\gl4)$}}}%
     \put(0.57476773,0.64493125){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$F^\prime$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=17]{KAS5_parallelmech_oben.pdf}}%
     \put(0.36096947,0.65988228){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\ggamma3$}}}%
@@ -106,5 +106,8 @@
     \put(0,0){\includegraphics[width=\unitlength,page=24]{KAS5_parallelmech_oben.pdf}}%
     \put(0.35049256,0.0762769){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\body{10}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=25]{KAS5_parallelmech_oben.pdf}}%
+    \put(0.04218507,0.23171226){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl4=|O_2F|$}}}%
+    \put(0.0452274,0.18503076){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl6=|O_4D|$}}}%
+    \put(0.03006973,0.13834925){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl20=|EF|$}}}%
   \end{picture}%
 \endgroup%
