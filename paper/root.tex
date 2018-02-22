@@ -50,7 +50,13 @@
 \newcommand{\ggamma@aux}{\csname ggamma\the\count0\endcsname}
 \newcommand{\gbeta}{\afterassignment\gbeta@aux\count0=}
 \newcommand{\gbeta@aux}{\csname gbeta\the\count0\endcsname}
+\newcommand{\gl}{\afterassignment\gl@aux\count0=}
+\newcommand{\gl@aux}{\csname gl\the\count0\endcsname}
+\newcommand{\ghl}{\afterassignment\ghl@aux\count0=}
+\newcommand{\ghl@aux}{\csname ghl\the\count0\endcsname}
 \makeatother
+
+% Neue Bezeichnungen:
 \expandafter\newcommand\csname gdelta8\endcsname{%
     \eta_1}
 \expandafter\newcommand\csname gdelta6\endcsname{%
@@ -75,6 +81,38 @@
     \eta_{10}}
 \expandafter\newcommand\csname gdelta7\endcsname{%
     \eta_{11}}
+\expandafter\newcommand\csname gl1\endcsname{%
+    L_1}
+\expandafter\newcommand\csname gl2\endcsname{%
+    L_2}
+\expandafter\newcommand\csname gl3\endcsname{%
+    L_3}
+\expandafter\newcommand\csname gl4\endcsname{%
+    L_8}
+\expandafter\newcommand\csname gl5\endcsname{%
+    L_4}
+\expandafter\newcommand\csname gl6\endcsname{%
+    L_9}
+\expandafter\newcommand\csname gl11\endcsname{%
+    2L_5}
+\expandafter\newcommand\csname ghl11\endcsname{%
+    L_5}
+\expandafter\newcommand\csname gl12\endcsname{%
+    2L_6}
+\expandafter\newcommand\csname ghl12\endcsname{%
+    L_6}
+\expandafter\newcommand\csname gl13\endcsname{%
+    L_{13}}
+\expandafter\newcommand\csname gl14\endcsname{%
+    L_{11}}
+\expandafter\newcommand\csname gl15\endcsname{%
+    L_7}
+\expandafter\newcommand\csname gl20\endcsname{%
+    L_{12}}
+\expandafter\newcommand\csname gl22\endcsname{%
+    L_{10}}
+
+
 % Original-Bezeichnungen:
 %\expandafter\newcommand\csname gdelta8\endcsname{%
 %    \delta_8}
@@ -100,6 +138,37 @@
 %    \gamma_3}
 %\expandafter\newcommand\csname gdelta7\endcsname{%
 %    \delta_7}
+%\expandafter\newcommand\csname gl1\endcsname{%
+%    l_1}
+%\expandafter\newcommand\csname gl2\endcsname{%
+%    l_2}
+%\expandafter\newcommand\csname gl3\endcsname{%
+%    l_3}
+%\expandafter\newcommand\csname gl4\endcsname{%
+%    l_4}
+%\expandafter\newcommand\csname gl5\endcsname{%
+%    l_5}
+%\expandafter\newcommand\csname gl6\endcsname{%
+%    l_6}
+%\expandafter\newcommand\csname gl11\endcsname{%
+%    l_{11}}
+%\expandafter\newcommand\csname ghl11\endcsname{%
+%    l_{11}/2}
+%\expandafter\newcommand\csname gl12\endcsname{%
+%    l_{12}}
+%\expandafter\newcommand\csname ghl12\endcsname{%
+%    l_{12}/2}
+%\expandafter\newcommand\csname gl13\endcsname{%
+%    l_{12}}
+%\expandafter\newcommand\csname gl14\endcsname{%
+%    l_{14}}
+%\expandafter\newcommand\csname gl15\endcsname{%
+%    l_{15}}
+%\expandafter\newcommand\csname gl20\endcsname{%
+%    l_{20}}
+%\expandafter\newcommand\csname gl22\endcsname{%
+%    l_{22}}
+
 \title{\LARGE \bf
 Kinematics and Dynamics Model via explicit Elimination of Kinematic Constraints of an Exoskeleton for Craftsmen Force Assistance
 }
@@ -224,20 +293,20 @@ The parameters describing the transformations between these frames are given in 
         \hline
         $i$ & $\mu_i$ & $\sigma_i$ & $\alpha_i$ & $d_i$ & $\theta_i$ & $r_i$ & $a(i)$ \\
         \hline
-        1 & $1$ & $0$ & $0$ & $0$ & $\rho_1-\pi/2$ & $l_1$ & 0 \\
-        2 & $1$ & $0$ & $-\pi/2$ & $0$ & $\rho_2+\pi/2$ & $l_2$ & 1 \\
-        3 & $0$ & $0$ & $\pi/2$ & $0$ & $\rho_3$ & $l_3$ & 2 \\
-        4 & $1$ & $0$ & $0$ & $l_4$ & $\rho_4$ & $0$ & 3 \\
-        5 & $1$ & $0$ & $0$ & $2l_{5}$ & $\rho_5$ & $0$ & 4 \\
-        6 & $0$ & $0$ & $0$ & $2l_{6}$ & $\rho_6$ & $0$ & 5 \\
-        7 & $1$ & $0$ & $\pi/2$ & $0$ & $\rho_7$ & $l_{7}$ & 6 \\
-        8 & $0$ & $2$ & $\pi/2$ & $0$ & $\gdelta8+\pi/2$ & $l_{3}$ & 2 \\
-        9 & $0$ & $0$ & $0$ & $-l_{8}$ & $-\gdelta6$ & $0$ & 8 \\
-        10 & $0$ & $0$ & $0$ & $l_{9}$ & $-\gdelta16$ & $0$ & 3 \\
-        11 & $0$ & $0$ & $0$ & $l_{10}$ & $\pi-\gdelta3$ & $0$ & 10 \\
-        12 & $0$ & $0$ & $0$ & $2l_{5}$ & $\gdelta19-\pi/2$ & $0$ & 4 \\
-        13 & $0$ & $2$ & $0$ & $2l_{5}$ & $\gdelta17-\pi/2$ & $0$ & 12 \\
-        14 & $0$ & $0$ & $0$ & $l_{11}$ & $3\pi/2-\gbeta1$ & $0$ & 13 \\
+        1 & $1$ & $0$ & $0$ & $0$ & $\rho_1-\pi/2$ & $\gl1$ & 0 \\
+        2 & $1$ & $0$ & $-\pi/2$ & $0$ & $\rho_2+\pi/2$ & $\gl2$ & 1 \\
+        3 & $0$ & $0$ & $\pi/2$ & $0$ & $\rho_3$ & $\gl3$ & 2 \\
+        4 & $1$ & $0$ & $0$ & $\gl5$ & $\rho_4$ & $0$ & 3 \\
+        5 & $1$ & $0$ & $0$ & $\gl11$ & $\rho_5$ & $0$ & 4 \\
+        6 & $0$ & $0$ & $0$ & $\gl12$ & $\rho_6$ & $0$ & 5 \\
+        7 & $1$ & $0$ & $\pi/2$ & $0$ & $\rho_7$ & $\gl15$ & 6 \\
+        8 & $0$ & $2$ & $\pi/2$ & $0$ & $\gdelta8+\pi/2$ & $\gl3$ & 2 \\
+        9 & $0$ & $0$ & $0$ & $-\gl4$ & $-\gdelta6$ & $0$ & 8 \\
+        10 & $0$ & $0$ & $0$ & $\gl6$ & $-\gdelta16$ & $0$ & 3 \\
+        11 & $0$ & $0$ & $0$ & $\gl22$ & $\pi-\gdelta3$ & $0$ & 10 \\
+        12 & $0$ & $0$ & $0$ & $\gl11$ & $\gdelta19-\pi/2$ & $0$ & 4 \\
+        13 & $0$ & $2$ & $0$ & $0$ & $\gdelta17-\pi/2$ & $0$ & 12 \\
+        14 & $0$ & $0$ & $0$ & $\gl14$ & $3\pi/2-\gbeta1$ & $0$ & 13 \\
         15 & $0$ & $1$ & $\pi/2$ & $0$ & $0$ & $l_{\mathrm{F}}$ & 14 \\
         \hline
     \end{tabular}
@@ -279,7 +348,7 @@ and the dependant coordinates
 The constant kinematics parameters can be grouped in a separate vector
 %
 \begin{equation}
-\bm{p}_\mathrm{kin}=\begin{pmatrix}\gdelta8 & \gdelta17 & l_1 & l_2 & ... & l_{11} \end{pmatrix}^\mathrm{T}.
+\bm{p}_\mathrm{kin}=\begin{pmatrix}\gdelta8 & \gdelta17 & \gl1 & \gl2 & ... & \gl13 \end{pmatrix}^\mathrm{T}.
 \label{equ:kinparam}
 \end{equation}
 
@@ -323,7 +392,7 @@ Describing the velocity of the pitch points $W_1$ and $W_2$ of the gears of $\bo
 \begin{align}
 \bm{v}_{W_1} &= \bm{v}_{W_2} \\
 \bm{v}_{3} +\bm{\omega}_{4,3} \times \bm{r}_{4,W_1} &= \bm{v}_{12} +\bm{\omega}_{4,12} \times \bm{r}_{12,W_2} \\
--l_{5}\dot{\rho}_4\bm{e}_y &= -l_{5} \gdotdelta19 \bm{e}_y
+-\ghl11\dot{\rho}_4\bm{e}_y &= -\ghl11 \gdotdelta19 \bm{e}_y
 \end{align}
 %
 and results in the kinematic relation
@@ -338,8 +407,8 @@ Similarly, the rolling condition of the central gear ($\body{12}$, $W_3$) with t
 \begin{align}
 \bm{v}_{W_3} &= \bm{v}_{W_4} \\
 \bm{v}_{12} +\bm{\omega}_{5,12} \times \bm{r}_{5,W_3} &= \bm{v}_{6} +\bm{\omega}_{5,6} \times \bm{r}_{6,W_4} \\
-(-\dot{\rho}_5+\gdotdelta19) \bm{e}_z \times l_5\bm{e}_x &= \dot{\rho}_6\bm{e}_z \times (-l_6)\bm{e}_x \\
-(-\dot{\rho}_5+\gdotdelta19) l_5 \bm{e}_y &= -l_6 \dot{\rho}_6\bm{e}_y
+(-\dot{\rho}_5+\gdotdelta19) \bm{e}_z \times \ghl12 \bm{e}_x &= \dot{\rho}_6\bm{e}_z \times (-\ghl12)\bm{e}_x \\
+(-\dot{\rho}_5+\gdotdelta19) \ghl12 \bm{e}_y &= -\ghl12 \dot{\rho}_6\bm{e}_y
 \end{align}
 %
 which results in the relation
@@ -407,8 +476,8 @@ The coordinates of point $C$ can be calculated efficiently expressed in frame $\
 With these coordinates the rotation angle $\gdelta16$ of body $\body{10}$ is calculated with trigonometric functions of $\ortvek{3}{}{D,C}$ as
 %
 \begin{align}
-\mathrm{sin}(\gdelta16) &= -\ortvek{3}{y}{D,C} / l_{22} \\
-\mathrm{cos}(\gdelta16) &= \ortvek{3}{x}{D,C} / l_{22} \\
+\mathrm{sin}(\gdelta16) &= -\ortvek{3}{y}{D,C} / \gl22 \\
+\mathrm{cos}(\gdelta16) &= \ortvek{3}{x}{D,C} / \gl22 \\
 \gdelta16 &= \mathrm{atan2}(\mathrm{sin}(\gdelta16), \mathrm{cos}(\gdelta16))
 \label{equ:delta16_explicit}
 \end{align}
@@ -418,7 +487,7 @@ We use the position vector from $B$ to $D$ expressed in $\ks{4}$ as
 %
 \begin{align}
 \ortvek{4}{}{D,B} &= \ortvek{4}{}{D,C} + \ortvek{4}{}{C,B} \\
- &= l_{22}\begin{pmatrix}\mathrm{cos}(\xi_2)\\ -\mathrm{sin}(\xi_2) \end{pmatrix} + l_{13}\begin{pmatrix}-\mathrm{cos}(\xi_1)\\ \mathrm{sin}(\xi_1) \end{pmatrix}
+ &= \gl22\begin{pmatrix}\mathrm{cos}(\xi_2)\\ -\mathrm{sin}(\xi_2) \end{pmatrix} + \gl13\begin{pmatrix}-\mathrm{cos}(\xi_1)\\ \mathrm{sin}(\xi_1) \end{pmatrix}
 \label{equ:delta3_r4DB}
 \end{align}
 %
@@ -450,7 +519,7 @@ The angle $\gdelta3$ of $\body{11}$ can now be written as
 where the terms for $\xi_1$ and $\xi_2$ are obtained from (\ref{equ:delta3_r4DB}) and (\ref{equ:delta3_xi2_addtheorem}), respectively.
 The terms are written in such a way, that $\mathrm{arctan}$-functions are omitted where possible to reduce computational load in the dynamics part.
 
-The upper part of the coupling mechanism is shown in Fig.\,\ref{fig:KAS5_upper_coupling}. The kinematics of this mechanism can be solved similar by intersecting the circles $\cc{3}$ (center $E$, radius $|EF|$) and $\cc{4}$ (center $O_2$, radius $|2F|$) which again have two possible intersections
+The upper part of the coupling mechanism is shown in Fig.\,\ref{fig:KAS5_upper_coupling}. The kinematics of this mechanism can be solved similar by intersecting the circles $\cc{3}$ (center $E$, radius $|EF|$) and $\cc{4}$ (center $O_2$, radius $|O_2F|$) which again have two possible intersections
 %
 \begin{align}
 \{F, F^\prime\} = \cc{3} \cap \cc{4}
@@ -475,8 +544,8 @@ The intersection can be calculated efficiently as $\ortvek{3}{}{D,F}$ in frame $
 This result is first used to get the intermediate angle $\ggamma3$ between $\body{8}$ and $\body{3}$ with
 %
 \begin{align}
-\mathrm{sin}(\ggamma3) &= \ortvek{3}{y}{F,3} / l_{4} \\
-\mathrm{cos}(\ggamma3) &= -\ortvek{3}{x}{F,3} / l_{4} \\
+\mathrm{sin}(\ggamma3) &= \ortvek{3}{y}{F,3} / \gl4 \\
+\mathrm{cos}(\ggamma3) &= -\ortvek{3}{x}{F,3} / \gl4 \\
 \ggamma3 &= \mathrm{atan2}(\mathrm{sin}(\ggamma3), \mathrm{cos}(\ggamma3)).
 \end{align}
 %
@@ -496,7 +565,7 @@ Since $\gdelta6$ is the inner angle of the intersection point $F$, the approach 
 %
 \begin{align}
 \ortvek{3}{}{3,E} &= \ortvek{3}{}{3,F} + \ortvek{3}{}{F,E} \\
-\begin{pmatrix}\ortvek{3}{x}{3,E}\\ \ortvek{3}{y}{3,E} \end{pmatrix} &= l_{4}\begin{pmatrix}\mathrm{sin}(\xi_3)\\ -\mathrm{cos}(\xi_3) \end{pmatrix} + l_{20}\begin{pmatrix}\mathrm{sin}(\xi_4)\\ \mathrm{cos}(\xi_4) \end{pmatrix}
+\begin{pmatrix}\ortvek{3}{x}{3,E}\\ \ortvek{3}{y}{3,E} \end{pmatrix} &= \gl4\begin{pmatrix}\mathrm{sin}(\xi_3)\\ -\mathrm{cos}(\xi_3) \end{pmatrix} + \gl20\begin{pmatrix}\mathrm{sin}(\xi_4)\\ \mathrm{cos}(\xi_4) \end{pmatrix}
 \label{equ:delta6_r33E}
 \end{align}
 %
