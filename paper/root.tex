@@ -56,121 +56,129 @@
 \newcommand{\ghl@aux}{\csname ghl\the\count0\endcsname}
 \makeatother
 
+\newif\ifneuenomenklatur
+\neuenomenklaturtrue
+
 % Neue Bezeichnungen:
-\expandafter\newcommand\csname gdelta8\endcsname{%
-    \eta_1}
-\expandafter\newcommand\csname gdelta6\endcsname{%
-    \eta_2}
-\expandafter\newcommand\csname gdelta16\endcsname{%
-    \eta_3}
-\expandafter\newcommand\csname gdelta3\endcsname{%
-    \eta_4}
-\expandafter\newcommand\csname gdelta19\endcsname{%
-    \eta_5}
-\expandafter\newcommand\csname gdotdelta19\endcsname{%
-    \dot{\eta}_5}
-\expandafter\newcommand\csname gdelta17\endcsname{%
-    \eta_6}
-\expandafter\newcommand\csname gbeta1\endcsname{%
-    \eta_7}
-\expandafter\newcommand\csname gdelta18\endcsname{%
-    \eta_8}
-\expandafter\newcommand\csname ggamma5\endcsname{%
-    \eta_9}
-\expandafter\newcommand\csname ggamma3\endcsname{%
-    \eta_{10}}
-\expandafter\newcommand\csname gdelta7\endcsname{%
-    \eta_{11}}
-\expandafter\newcommand\csname gl1\endcsname{%
-    L_1}
-\expandafter\newcommand\csname gl2\endcsname{%
-    L_2}
-\expandafter\newcommand\csname gl3\endcsname{%
-    L_3}
-\expandafter\newcommand\csname gl4\endcsname{%
-    L_8}
-\expandafter\newcommand\csname gl5\endcsname{%
-    L_4}
-\expandafter\newcommand\csname gl6\endcsname{%
-    L_9}
-\expandafter\newcommand\csname gl11\endcsname{%
-    2L_5}
-\expandafter\newcommand\csname ghl11\endcsname{%
-    L_5}
-\expandafter\newcommand\csname gl12\endcsname{%
-    2L_6}
-\expandafter\newcommand\csname ghl12\endcsname{%
-    L_6}
-\expandafter\newcommand\csname gl13\endcsname{%
-    L_{13}}
-\expandafter\newcommand\csname gl14\endcsname{%
-    L_{11}}
-\expandafter\newcommand\csname gl15\endcsname{%
-    L_7}
-\expandafter\newcommand\csname gl20\endcsname{%
-    L_{12}}
-\expandafter\newcommand\csname gl22\endcsname{%
-    L_{10}}
-
-
-% Original-Bezeichnungen:
-%\expandafter\newcommand\csname gdelta8\endcsname{%
-%    \delta_8}
-%\expandafter\newcommand\csname gdelta6\endcsname{%
-%    \delta_6}
-%\expandafter\newcommand\csname gdelta16\endcsname{%
-%    \delta_{16}}
-%\expandafter\newcommand\csname gdelta3\endcsname{%
-%    \delta_3}
-%\expandafter\newcommand\csname gdelta19\endcsname{%
-%    \delta_{19}}
-%\expandafter\newcommand\csname gdotdelta19\endcsname{%
-%    \dot{\delta}_{19}}
-%\expandafter\newcommand\csname gdelta17\endcsname{%
-%    \delta_{17}}
-%\expandafter\newcommand\csname gbeta1\endcsname{%
-%    \beta_1}
-%\expandafter\newcommand\csname gdelta18\endcsname{%
-%    \delta_{18}}
-%\expandafter\newcommand\csname ggamma5\endcsname{%
-%    \gamma_5}
-%\expandafter\newcommand\csname ggamma3\endcsname{%
-%    \gamma_3}
-%\expandafter\newcommand\csname gdelta7\endcsname{%
-%    \delta_7}
-%\expandafter\newcommand\csname gl1\endcsname{%
-%    l_1}
-%\expandafter\newcommand\csname gl2\endcsname{%
-%    l_2}
-%\expandafter\newcommand\csname gl3\endcsname{%
-%    l_3}
-%\expandafter\newcommand\csname gl4\endcsname{%
-%    l_4}
-%\expandafter\newcommand\csname gl5\endcsname{%
-%    l_5}
-%\expandafter\newcommand\csname gl6\endcsname{%
-%    l_6}
-%\expandafter\newcommand\csname gl11\endcsname{%
-%    l_{11}}
-%\expandafter\newcommand\csname ghl11\endcsname{%
-%    l_{11}/2}
-%\expandafter\newcommand\csname gl12\endcsname{%
-%    l_{12}}
-%\expandafter\newcommand\csname ghl12\endcsname{%
-%    l_{12}/2}
-%\expandafter\newcommand\csname gl13\endcsname{%
-%    l_{12}}
-%\expandafter\newcommand\csname gl14\endcsname{%
-%    l_{14}}
-%\expandafter\newcommand\csname gl15\endcsname{%
-%    l_{15}}
-%\expandafter\newcommand\csname gl20\endcsname{%
-%    l_{20}}
-%\expandafter\newcommand\csname gl22\endcsname{%
-%    l_{22}}
+\ifneuenomenklatur
+    \expandafter\newcommand\csname gdelta8\endcsname{%
+        \eta_1}
+    \expandafter\newcommand\csname gdelta6\endcsname{%
+        \eta_2}
+    \expandafter\newcommand\csname gdelta16\endcsname{%
+        \eta_3}
+    \expandafter\newcommand\csname gdelta3\endcsname{%
+        \eta_4}
+    \expandafter\newcommand\csname gdelta19\endcsname{%
+        \eta_5}
+    \expandafter\newcommand\csname gdotdelta19\endcsname{%
+        \dot{\eta}_5}
+    \expandafter\newcommand\csname gdelta17\endcsname{%
+        \eta_6}
+    \expandafter\newcommand\csname gbeta1\endcsname{%
+        \eta_7}
+    \expandafter\newcommand\csname gdelta18\endcsname{%
+        \eta_8}
+    \expandafter\newcommand\csname ggamma5\endcsname{%
+        \eta_9}
+    \expandafter\newcommand\csname ggamma3\endcsname{%
+        \eta_{10}}
+    \expandafter\newcommand\csname gdelta7\endcsname{%
+        \eta_{11}}
+    \expandafter\newcommand\csname gl1\endcsname{%
+        L_1}
+    \expandafter\newcommand\csname gl2\endcsname{%
+        L_2}
+    \expandafter\newcommand\csname gl3\endcsname{%
+        L_3}
+    \expandafter\newcommand\csname gl4\endcsname{%
+        L_8}
+    \expandafter\newcommand\csname gl5\endcsname{%
+        L_4}
+    \expandafter\newcommand\csname gl6\endcsname{%
+        L_9}
+    \expandafter\newcommand\csname gl11\endcsname{%
+        2L_5}
+    \expandafter\newcommand\csname ghl11\endcsname{%
+        L_5}
+    \expandafter\newcommand\csname gl12\endcsname{%
+        2L_6}
+    \expandafter\newcommand\csname ghl12\endcsname{%
+        L_6}
+    \expandafter\newcommand\csname gl13\endcsname{%
+        L_{13}}
+    \expandafter\newcommand\csname gl14\endcsname{%
+        L_{11}}
+    \expandafter\newcommand\csname gl15\endcsname{%
+        L_7}
+    \expandafter\newcommand\csname gl20\endcsname{%
+        L_{12}}
+    \expandafter\newcommand\csname gl22\endcsname{%
+        L_{10}}
+    \expandafter\newcommand\csname gl16\endcsname{%
+        L_\mathrm{spring}}
+\else
+    % Original-Bezeichnungen:
+    \expandafter\newcommand\csname gdelta8\endcsname{%
+        \delta_8}
+    \expandafter\newcommand\csname gdelta6\endcsname{%
+        \delta_6}
+    \expandafter\newcommand\csname gdelta16\endcsname{%
+        \delta_{16}}
+    \expandafter\newcommand\csname gdelta3\endcsname{%
+        \delta_3}
+    \expandafter\newcommand\csname gdelta19\endcsname{%
+        \delta_{19}}
+    \expandafter\newcommand\csname gdotdelta19\endcsname{%
+        \dot{\delta}_{19}}
+    \expandafter\newcommand\csname gdelta17\endcsname{%
+        \delta_{17}}
+    \expandafter\newcommand\csname gbeta1\endcsname{%
+        \beta_1}
+    \expandafter\newcommand\csname gdelta18\endcsname{%
+        \delta_{18}}
+    \expandafter\newcommand\csname ggamma5\endcsname{%
+        \gamma_5}
+    \expandafter\newcommand\csname ggamma3\endcsname{%
+        \gamma_3}
+    \expandafter\newcommand\csname gdelta7\endcsname{%
+        \delta_7}
+    \expandafter\newcommand\csname gl1\endcsname{%
+        l_1}
+    \expandafter\newcommand\csname gl2\endcsname{%
+        l_2}
+    \expandafter\newcommand\csname gl3\endcsname{%
+        l_3}
+    \expandafter\newcommand\csname gl4\endcsname{%
+        l_4}
+    \expandafter\newcommand\csname gl5\endcsname{%
+        l_5}
+    \expandafter\newcommand\csname gl6\endcsname{%
+        l_6}
+    \expandafter\newcommand\csname gl11\endcsname{%
+        l_{11}}
+    \expandafter\newcommand\csname ghl11\endcsname{%
+        l_{11}/2}
+    \expandafter\newcommand\csname gl12\endcsname{%
+        l_{12}}
+    \expandafter\newcommand\csname ghl12\endcsname{%
+        l_{12}/2}
+    \expandafter\newcommand\csname gl13\endcsname{%
+        l_{12}}
+    \expandafter\newcommand\csname gl14\endcsname{%
+        l_{14}}
+    \expandafter\newcommand\csname gl15\endcsname{%
+        l_{15}}
+    \expandafter\newcommand\csname gl20\endcsname{%
+        l_{20}}
+    \expandafter\newcommand\csname gl22\endcsname{%
+        l_{22}}
+    \expandafter\newcommand\csname gl16\endcsname{%
+        l_\mathrm{F}}
+\fi
 
 \title{\LARGE \bf
-Kinematics and Dynamics Model via explicit Elimination of Kinematic Constraints of an Exoskeleton for Craftsmen Force Assistance
+Kinematics and Dynamics Model via Explicit Trigonometric Elimination of Kinematic Constraints for an Force Assistance Exoskeleton
 }
 
 
@@ -307,7 +315,7 @@ The parameters describing the transformations between these frames are given in 
         12 & $0$ & $0$ & $0$ & $\gl11$ & $\gdelta19-\pi/2$ & $0$ & 4 \\
         13 & $0$ & $2$ & $0$ & $0$ & $\gdelta17-\pi/2$ & $0$ & 12 \\
         14 & $0$ & $0$ & $0$ & $\gl14$ & $3\pi/2-\gbeta1$ & $0$ & 13 \\
-        15 & $0$ & $1$ & $\pi/2$ & $0$ & $0$ & $l_{\mathrm{F}}$ & 14 \\
+        15 & $0$ & $1$ & $\pi/2$ & $0$ & $0$ & $\gl16$ & 14 \\
         \hline
     \end{tabular}
     \caption{MDH parameters of the structure}
@@ -439,7 +447,7 @@ have to be defined which is annotated in Fig.\,\ref{fig:KAS5_lower_coupling}, wh
 Next, the distance $|AB|$ can be regarded as the coordinate of the prismatic joint from Tab.\,\ref{tab:mdh_parameter} with
 %
 \begin{align}
-l_\mathrm{F} = \|\ortvek{5}{}{A,B}\| = \|-(\ortvek{5}{}{5,6}+\ortvek{5}{}{6,A}) + \ortvek{5}{}{5,B}\|.
+\gl16 = \|\ortvek{5}{}{A,B}\| = \|-(\ortvek{5}{}{5,6}+\ortvek{5}{}{6,A}) + \ortvek{5}{}{5,B}\|.
 \end{align}
 %
 This represents the elongation of the spring together with an offset.
@@ -494,17 +502,15 @@ We use the position vector from $B$ to $D$ expressed in $\ks{4}$ as
 with the definitions
 %
 \begin{align}
-\xi_1 &= \gdelta3+\gdelta16+\rho_4 \nonumber \\
-\xi_2 &= \gdelta16+\rho_4 \nonumber \\
-\label{equ:delta3_xi_def}
+\xi_1 &= \gdelta3+\gdelta16+\rho_4 \label{equ:delta3_xi_def1} \\
+\xi_2 &= \gdelta16+\rho_4 \label{equ:delta3_xi_def2}
 \end{align}
 %
 which become useful in the angle sum identities of sine and cosine with
 %
 \begin{align}
-\mathrm{sin}(\xi_2)&=\mathrm{sin}(\rho4)\mathrm{cos}(\gdelta16)+\mathrm{cos}(\rho4)\mathrm{sin}(\gdelta16) \nonumber \\
-\mathrm{cos}(\xi_2)&=\mathrm{cos}(\rho4)\mathrm{cos}(\gdelta16)-\mathrm{sin}(\rho4)\mathrm{sin}(\gdelta16). \nonumber \\
-\label{equ:delta3_xi2_addtheorem}
+\mathrm{sin}(\xi_2)&=\mathrm{sin}(\rho4)\mathrm{cos}(\gdelta16)+\mathrm{cos}(\rho4)\mathrm{sin}(\gdelta16) \label{equ:delta3_xi2_addtheorem1} \\
+\mathrm{cos}(\xi_2)&=\mathrm{cos}(\rho4)\mathrm{cos}(\gdelta16)-\mathrm{sin}(\rho4)\mathrm{sin}(\gdelta16). \label{equ:delta3_xi2_addtheorem2}
 \end{align}
 %
 The angle $\gdelta3$ of $\body{11}$ can now be written as
@@ -516,7 +522,7 @@ The angle $\gdelta3$ of $\body{11}$ can now be written as
 \label{equ:delta3_explicit}
 \end{align}
 %
-where the terms for $\xi_1$ and $\xi_2$ are obtained from (\ref{equ:delta3_r4DB}) and (\ref{equ:delta3_xi2_addtheorem}), respectively.
+where the terms for $\xi_1$ and $\xi_2$ are obtained from (\ref{equ:delta3_r4DB}) and (\ref{equ:delta3_xi2_addtheorem1})-(\ref{equ:delta3_xi2_addtheorem2}), respectively.
 The terms are written in such a way, that $\mathrm{arctan}$-functions are omitted where possible to reduce computational load in the dynamics part.
 
 The upper part of the coupling mechanism is shown in Fig.\,\ref{fig:KAS5_upper_coupling}. The kinematics of this mechanism can be solved similar by intersecting the circles $\cc{3}$ (center $E$, radius $|EF|$) and $\cc{4}$ (center $O_2$, radius $|O_2F|$) which again have two possible intersections
@@ -561,7 +567,7 @@ By calculating $\mathrm{sin}(\rho_3)$ and $\mathrm{cos}(\rho_3)$ with the angle 
 
 The analysis of the mechanism is completed with the calculation of $\gdelta6$, which describes the orientation of $\body{9}$ in Tab.\,\ref{tab:mdh_parameter}.
 
-Since $\gdelta6$ is the inner angle of the intersection point $F$, the approach is the same as for the inner angle angle $\gdelta3$ of intersection point $C$ in (\ref{equ:delta3_xi_def}), (\ref{equ:delta3_xi2_addtheorem}). With the vector
+Since $\gdelta6$ is the inner angle of the intersection point $F$, the approach is the same as for the inner angle angle $\gdelta3$ of intersection point $C$ in (\ref{equ:delta3_xi_def1})-(\ref{equ:delta3_xi_def2}), (\ref{equ:delta3_xi2_addtheorem1})-(\ref{equ:delta3_xi2_addtheorem2}). With the vector
 %
 \begin{align}
 \ortvek{3}{}{3,E} &= \ortvek{3}{}{3,F} + \ortvek{3}{}{F,E} \\
