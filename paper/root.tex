@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_US
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %2345678901234567890123456789012345678901234567890123456789012345678901234567890
 %        1         2         3         4         5         6         7         8
@@ -178,14 +179,14 @@
 \fi
 
 \title{\LARGE \bf
-Kinematics and Dynamics Model via Explicit Trigonometric Elimination of Kinematic Constraints for an Force Assistance Exoskeleton
+Kinematics and Dynamics Model via Explicit Trigonometric Elimination of Kinematic Constraints for a Force Assistance Exoskeleton
 }
 
 
 \author{Moritz Schappler$^{1}$ and Sami Haddadin$^{2}$% <-this % stops a space
-\thanks{*This work was supported by the German Federal Ministry of Education and Research under Grant no. 16SV6175}% <-this % stops a space
+\thanks{*This work was supported by the German Federal Ministry of Education and Research (BMBF) under Grant no. 16SV6175}% <-this % stops a space
 \thanks{$^{1}$Moritz Schappler
-        {\tt\small schappler@irt.uni-hannover.de}}%
+        {\tt\small moritz.schappler@imes.uni-hannover.de}}%
 \thanks{$^{2}$Sami Haddadin
         {\tt\small haddadin@irt.uni-hannover.de}}%
 }
@@ -250,7 +251,7 @@ Fig.\,\ref{fig:KAS5_CAD} shows a CAD model of the complete exoskeleton to be car
 
 
 \begin{figure}[tb!]
-    \includegraphics[width=\linewidth]{figures/KAS5_Seitenansicht_CAD_Ausschnitt_transp.png}
+    \input{./figures/KAS5_Seitenansicht_beschriftet.pdf_tex}
     \caption{CAD model of the exoskeleton mechanism.}
     \label{fig:KAS5_CAD}
 \end{figure} 
@@ -336,21 +337,27 @@ A kinematic sketch of the whole mechanism from Fig.\,\ref{fig:KAS5_CAD} is given
 \end{figure}
 
 Due to the structure of the mechanism, the extended notation with antecessor index $a(i)$, joint type marker $\sigma_i$ (0 for rotational joint, 1 for prismatic joint, 2 for fixed connection) and actuation marker $\mu_i$ (0 for passive, 1 for active joint) are used.
-The marker $\mu_i$ is set to 1 for the joints representing the generalized coordinates from (\ref{equ:gencoord}), regardless whether they are actuated or not.
+The marker $\mu_i$ is set to 1 for the joints representing the generalized coordinates from (\ref{equ:mincoord}), regardless whether they are actuated or not.
 
 The mechanism is regarded without the kinematic constraints by virtually cutting the loop-closing joints resulting in a tree structure.
-
-The coordinates $\bm{q}$ of the single-DoF joints of this unconstrained system can according to \cite{NakamuraGho1989} be separated into the generalized coordinates
+The coordinates 
+%
+\begin{equation}
+\bm{q}=\begin{pmatrix}\bm{q}_1^\mathrm{T} & \bm{q}_2^\mathrm{T} \end{pmatrix}^\mathrm{T}
+\end{equation}
+%
+of the single-DoF joints of this unconstrained system can according to \cite{NakamuraGho1989} be separated into the generalized coordinates
 %
 \begin{equation}
 \bm{q}_1=\begin{pmatrix}\rho_1 & \rho_2 & \rho_4 & \rho_5 &\rho_7 \end{pmatrix}^\mathrm{T}
+\label{equ:mincoord}
 \end{equation}
 %
-and the dependant coordinates
+and the dependent coordinates
 %
 \begin{equation}
-\bm{q}_2=\begin{pmatrix}\rho_3 & \gdelta6 & \gdelta16 & \gdelta3 & \gdelta19 & \gbeta1 \end{pmatrix}^\mathrm{T}.
-\label{equ:gencoord}
+\bm{q}_2=\begin{pmatrix}\rho_3 & \rho_6 & \gdelta6 & \gdelta16 & \gdelta3 & \gdelta19 & \gbeta1 & \gl16 \end{pmatrix}^\mathrm{T}.
+\label{equ:depcoord}
 \end{equation}
 %
 The constant kinematics parameters can be grouped in a separate vector
@@ -360,14 +367,22 @@ The constant kinematics parameters can be grouped in a separate vector
 \label{equ:kinparam}
 \end{equation}
 
-The joint coordinates of the main structure are denoted with $\rho$ and the coordinates of the parallel coupling and support mechanism with $\delta$.
+The joint coordinates of the main structure are denoted with $\rho$ and the coordinates of the parallel coupling and support mechanism with $\eta$.
 %
-In the following, the dependant coordinates are expressed in the explicit form
+%
+These can without loss of generality be grouped according the joint type into rotational coordinates $\bm{q}_{2\mathrm{R}}$ corresponding to $\sigma_i=0$ and translational coordinates $\bm{q}_{2\mathrm{T}}$ corresponding to $\sigma_i=1$ with
 %
 \begin{equation}
-\bm{q}_2=\bm{f}(\bm{q}_1)
-\label{equ:kinconstr_explicit}
+\bm{q}_1=\begin{pmatrix}\bm{q}_{1\mathrm{R}}^\mathrm{T} & \bm{q}_{1\mathrm{T}}^\mathrm{T} \end{pmatrix}^\mathrm{T},
+\bm{q}_2=\begin{pmatrix}\bm{q}_{2\mathrm{R}}^\mathrm{T} & \bm{q}_{2\mathrm{T}}^\mathrm{T} \end{pmatrix}^\mathrm{T}.
 \end{equation}
+%
+In the following, the dependent coordinates are expressed in the explicit form
+%
+\begin{align}
+\bm{q}_2 &= \bm{f}(\bm{q}_1) \label{equ:kinconstr_explicit} \\
+\begin{pmatrix}\bm{q}_{2\mathrm{R}}\\\bm{q}_{2\mathrm{T}}\end{pmatrix} &= \begin{pmatrix}\bm{f}_{\mathrm{R}}(\bm{q}_1)\\\bm{f}_{\mathrm{T}}(\bm{q}_1)\end{pmatrix}
+\end{align}
 %
 as a function of the generalized coordinates $\bm{q}_1$.
 This will be used to determine the configuration of the complete system depending on the pose of the main structure and to generate dynamics equations for simulation and model based controllers.
@@ -381,7 +396,7 @@ The kinematic constraints of the system originate from the rolling condition of 
 The gear constraints in the elbow joint originate from two gear mechanisms on both sides of the central gear.
 The elbow CAD view of Fig.\,\ref{fig:EllenbogenSimMech} is detailed as a kinematic sketch in Fig.\,\ref{fig:KAS5_elbow}.
 %
-\begin{figure}[htb]
+\begin{figure}[tb]
     \small
     \begin{minipage}[t]{7.5cm}
         \vspace{0.2cm} % wird für bounding box des Bilds benötigt
@@ -448,12 +463,13 @@ Next, the distance $|AB|$ can be regarded as the coordinate of the prismatic joi
 %
 \begin{align}
 \gl16 = \|\ortvek{5}{}{A,B}\| = \|-(\ortvek{5}{}{5,6}+\ortvek{5}{}{6,A}) + \ortvek{5}{}{5,B}\|.
+\label{equ:l16_explicit}
 \end{align}
 %
 This represents the elongation of the spring together with an offset.
 The orientation $\gbeta1$ of the spring-damper-system consisting of the bodies $\body{14}$ and $\body{15}$ can be calculated analytically by closing the loop over the two vector paths $O_5$-$O_6$-$A$ and $O_5$-$B$-$A$.
 
-\begin{figure}[htb]
+\begin{figure}[tb]
     \small
     \begin{minipage}[t]{7.5cm}
         \vspace{0.2cm} % wird für bounding box des Bilds benötigt
@@ -484,8 +500,8 @@ The coordinates of point $C$ can be calculated efficiently expressed in frame $\
 With these coordinates the rotation angle $\gdelta16$ of body $\body{10}$ is calculated with trigonometric functions of $\ortvek{3}{}{D,C}$ as
 %
 \begin{align}
-\mathrm{sin}(\gdelta16) &= -\ortvek{3}{y}{D,C} / \gl22 \\
-\mathrm{cos}(\gdelta16) &= \ortvek{3}{x}{D,C} / \gl22 \\
+\mathrm{sin}(\gdelta16) &= -\ortvek{3}{y}{D,C} / \gl22 \label{equ:delta16_sin} \\
+\mathrm{cos}(\gdelta16) &= \ortvek{3}{x}{D,C} / \gl22 \label{equ:delta16_cos} \\
 \gdelta16 &= \mathrm{atan2}(\mathrm{sin}(\gdelta16), \mathrm{cos}(\gdelta16))
 \label{equ:delta16_explicit}
 \end{align}
@@ -516,14 +532,14 @@ which become useful in the angle sum identities of sine and cosine with
 The angle $\gdelta3$ of $\body{11}$ can now be written as
 %
 \begin{align}
-\mathrm{sin}(\gdelta3) &= \mathrm{sin}(\xi_1)\mathrm{cos}(\xi_2)-\mathrm{cos}(\xi_1)\mathrm{sin}(\xi_2)\\
-\mathrm{cos}(\gdelta3) &= \mathrm{cos}(\xi_1)\mathrm{cos}(\xi_2)+\mathrm{sin}(\xi_1)\mathrm{sin}(\xi_2)\\
+\mathrm{sin}(\gdelta3) &= \mathrm{sin}(\xi_1)\mathrm{cos}(\xi_2)-\mathrm{cos}(\xi_1)\mathrm{sin}(\xi_2) \label{equ:delta3_sin} \\
+\mathrm{cos}(\gdelta3) &= \mathrm{cos}(\xi_1)\mathrm{cos}(\xi_2)+\mathrm{sin}(\xi_1)\mathrm{sin}(\xi_2) \label{equ:delta3_cos} \\
 \gdelta3 &= \xi_1 - \xi_2 =  \mathrm{atan2}(\mathrm{sin}(\xi_1),\mathrm{cos}(\xi_1)) - \xi_2 ,
 \label{equ:delta3_explicit}
 \end{align}
 %
 where the terms for $\xi_1$ and $\xi_2$ are obtained from (\ref{equ:delta3_r4DB}) and (\ref{equ:delta3_xi2_addtheorem1})-(\ref{equ:delta3_xi2_addtheorem2}), respectively.
-The terms are written in such a way, that $\mathrm{arctan}$-functions are omitted where possible to reduce computational load in the dynamics part.
+The terms are written in such a way, that arctangent functions\footnote{$\mathrm{arctan}$ is implemented using the quadrant-aware function $\mathrm{atan2}$.} are omitted where possible to reduce computational load in the dynamics part.
 
 The upper part of the coupling mechanism is shown in Fig.\,\ref{fig:KAS5_upper_coupling}. The kinematics of this mechanism can be solved similar by intersecting the circles $\cc{3}$ (center $E$, radius $|EF|$) and $\cc{4}$ (center $O_2$, radius $|O_2F|$) which again have two possible intersections
 %
@@ -585,8 +601,8 @@ providing expressions for the unknown $\xi_4$ and the definitions
 and by using the angle sum identities one gets
 %
 \begin{align}
-\mathrm{sin}(\gdelta6) &= \mathrm{sin}(\xi_4)\mathrm{cos}(\xi_3)+\mathrm{cos}(\xi_4)\mathrm{sin}(\xi_3)\\
-\mathrm{cos}(\gdelta6) &= \mathrm{cos}(\xi_4)\mathrm{cos}(\xi_3)-\mathrm{sin}(\xi_4)\mathrm{sin}(\xi_3)\\
+\mathrm{sin}(\gdelta6) &= \mathrm{sin}(\xi_4)\mathrm{cos}(\xi_3)+\mathrm{cos}(\xi_4)\mathrm{sin}(\xi_3) \label{equ:delta6_sin}\\
+\mathrm{cos}(\gdelta6) &= \mathrm{cos}(\xi_4)\mathrm{cos}(\xi_3)-\mathrm{sin}(\xi_4)\mathrm{sin}(\xi_3) \label{equ:delta6_cos}\\
 \gdelta6 &= \xi_4 + \xi_3 =  \mathrm{atan2}(\mathrm{sin}(\xi_4),\mathrm{cos}(\xi_4)) + \xi_3,
 \label{equ:delta6_explicit}
 \end{align}
@@ -596,90 +612,139 @@ which describes the last unknown coordinate of the kinematic transformations of 
 
 \subsubsection{complete model}
 
-The expressions for the different coordinates $\gdelta19$ (\ref{equ:delta19_explicit}), $\rho_6$ (\ref{equ:rho6_explicit}),  $\gdelta16$ (\ref{equ:delta16_explicit}), $\gdelta3$ (\ref{equ:delta3_explicit}), $\rho_3$ (\ref{equ:rho3_explicit}) and $\gdelta6$ (\ref{equ:delta6_explicit}) of the parallel mechanism provide the explicit definition of the kinematic constraints defined in (\ref{equ:kinconstr_explicit}), which are needed for the complete kinematic description of the frames and rigid bodies defined in Tab.\,\ref{tab:mdh_parameter}.
+The expressions for the different coordinates $\gl16$ (\ref{equ:l16_explicit}), $\gbeta1$, $\gdelta19$ (\ref{equ:delta19_explicit}), $\rho_6$ (\ref{equ:rho6_explicit}),  $\gdelta16$ (\ref{equ:delta16_explicit}), $\gdelta3$ (\ref{equ:delta3_explicit}), $\rho_3$ (\ref{equ:rho3_explicit}) and $\gdelta6$ (\ref{equ:delta6_explicit}) of the parallel mechanism provide the explicit definitions of the kinematic constraints defined in (\ref{equ:kinconstr_explicit}), which are needed for the complete kinematic description of the frames and rigid bodies defined in Tab.\,\ref{tab:mdh_parameter}.
 
-It is emphasized, that the explicit form of the coordinates can be calculated using (\ref{equ:kinconstr_explicit}), but also a semi-explicit form can be given with the angles as an argument of the sine and cosine functions with
+It is emphasized, that the explicit form of the coordinates can be calculated using (\ref{equ:kinconstr_explicit}), but also an explicit trigonometric form can be given with the angles as an argument of the sine and cosine functions with
 %
 \begin{align}
-\mathrm{sin}(\bm{q}_2) =& \bm{f}_\mathrm{sin}(\bm{q}_1) \nonumber \\
-\mathrm{cos}(\bm{q}_2) =& \bm{f}_\mathrm{cos}(\bm{q}_1) \nonumber \\
-\dot{\bm{q}}_2 =& \bm{f}_\mathrm{diff}(\bm{q}_1,\dot{\bm{q}}_1). \nonumber \\
-\label{equ:kinconstr_semiexplicit}
+\mathrm{sin}(\bm{q}_{2\mathrm{R}}) &= \bm{f}_{\mathrm{R}\mathrm{sin}}(\bm{q}_1) \label{equ:kinconstr_semiexplicit_sin} \\
+\mathrm{cos}(\bm{q}_{2\mathrm{R}}) &= \bm{f}_{\mathrm{R}\mathrm{cos}}(\bm{q}_1) \label{equ:kinconstr_semiexplicit_cos} \\
+\bm{q}_{2\mathrm{T}} &= \bm{f}_{\mathrm{T}}(\bm{q}_1)  \label{equ:kinconstr_semiexplicit_transl} \\
+\dot{\bm{q}}_2 &= \bm{f}_\mathrm{diff}(\bm{q}_1,\dot{\bm{q}}_1). \label{equ:kinconstr_semiexplicit_diff}
 \end{align}
 %
 
-This is facilitated by the demonstrated use of the angle sum identities in the previous subsection.
-The specific implicit form of (\ref{equ:kinconstr_semiexplicit}) allows to produce simpler symbolic expressions when solving the set equations for the unknown joint variables.
-Using the semi-explicit form (\ref{equ:kinconstr_semiexplicit}) produces a solution with tendency to additions and products of sine and cosine terms.
-The explicit form (\ref{equ:kinconstr_explicit}) contains nested expressions with arctangens functions.
-The latter has shown to be very inefficient for further processing with the computer algebra system Maple, that was used to create the symbolic expressions and to generate code.
+This is facilitated by the demonstrated use of the angle sum identities in the previous subsection, e.\,g. in (\ref{equ:delta16_sin})-(\ref{equ:delta16_cos}), (\ref{equ:delta3_sin})-(\ref{equ:delta3_cos}) or (\ref{equ:delta6_sin})-(\ref{equ:delta6_cos}).
+The specific implicit form of (\ref{equ:kinconstr_semiexplicit_sin})-(\ref{equ:kinconstr_semiexplicit_cos}) allows to produce simpler symbolic expressions when solving the set equations for the unknown joint variables.
+Using the trigonometric explicit form (\ref{equ:kinconstr_semiexplicit_sin})-(\ref{equ:kinconstr_semiexplicit_cos}) produces a solution with tendency to additions and products of sine and cosine terms.
+The explicit form (\ref{equ:kinconstr_explicit}) contains nested expressions with arctangent functions.
+The latter has shown to be very inefficient for further processing with the computer algebra system Maple, that was used to create the symbolic expressions and to generate code for dynamics functions.
 
-%It is important to mention, that not the explicit form is needed for the calculation of the dynamics model of the system.
-%In the ela
-%The detailed deduction of the different coordinates of the parallel mechanism 
+%\subsection{Kinematic Constraints in Implicit Form}
 %
-%Es muss nicht die explizite Lösung der Zwangsbedingungen aus (\ref{equ:ZB_explizit}) gefunden werden, sondern nur die explizite Form für 
-
-\subsection{Kinematic Constraints in Implicit Form}
-
-
+%
 
 \subsection{Dynamics Model}
-
 \label{sec:Lagrange2Elim}
+
+The dynamics equations are derived using Lagrange equations of the second kind. This method needs the Lagrangian 
 %
-Diese Form wird in den Energiegleichungen benötigt.
-Vor der Elimination der ZB ist das Lagrange-Funktional $L$ in der Form
+\begin{align}
+L(\bm{q},\dot{\bm{q}}) = T(\bm{q},\dot{\bm{q}})-(U_\mathrm{g}(\bm{q})+U_\mathrm{s}(\bm{q}))
+\label{equ:Lagrange_energy}
+\end{align}
+%
+expressed in the minimal coordinates $\bm{q}}_1$. Since rotational matrices from the frame transformations from Tab.\,\ref{tab:mdh_parameter} are used to calculate the kinetic energy $T$ and the potential energies from gravity $U_\mathrm{g}$ and from the spring $U_\mathrm{s}$, the Lagrangian has the structure
+%
+\begin{align}
+L(\bm{q},\dot{\bm{q}}) =L( & \mathrm{sin}  (\bm{q}_{\mathrm{R}}),\mathrm{cos}(\bm{q}_{\mathrm{R}}), \bm{q}_{\mathrm{T}},\dot{\bm{q}}) \\
+=L( & \mathrm{sin}  (\bm{q}_{1\mathrm{R}}),\mathrm{cos}(\bm{q}_{1\mathrm{R}}), \bm{q}_{1\mathrm{T}},\dot{\bm{q}}_{1}, \nonumber \\
+& \mathrm{sin}  (\bm{q}_{2\mathrm{R}}),\mathrm{cos}(\bm{q}_{2\mathrm{R}}), \bm{q}_{2\mathrm{T}},\dot{\bm{q}}_{2}).
+\end{align}
+%
+After substitution with (\ref{equ:kinconstr_semiexplicit_sin}) to (\ref{equ:kinconstr_semiexplicit_diff}), the Lagrangian 
+%
+\begin{align}
+L(\bm{q}_1,\dot{\bm{q}}_1)=L( & \mathrm{sin} (\bm{q}_{1\mathrm{R}}),\mathrm{cos}(\bm{q}_{1\mathrm{R}}), \bm{q}_{1\mathrm{T}},\dot{\bm{q}}_{1}, \\
+ & \bm{f}_{\mathrm{R}\mathrm{sin}}(\bm{q}_1),
+\bm{f}_{\mathrm{R}\mathrm{cos}}(\bm{q}_1),
+\bm{f}_{\mathrm{T}}(\bm{q}_1),
+\bm{f}_\mathrm{diff}(\bm{q}_1,\dot{\bm{q}}_1))) \nonumber
+\end{align}
+%
+is represented in the minimal coordinates $\bm{q}_1$.
+This allows using the Lagrange equations
+%
 \begin{equation}
-L(\bm{q},\dot{\bm{q}})=L(\mathrm{sin}(\bm{q}_1),\mathrm{cos}(\bm{q}_1),\dot{\bm{q}}_1,\mathrm{sin}(\bm{q}_2),\mathrm{cos}(\bm{q}_2),\dot{\bm{q}}_2).
+\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L(\bm{q}_1,\dot{\bm{q}}_1)}{\partial \dot{\bm{q}}_1} - \frac{\partial L(\bm{q}_1,\dot{\bm{q}}_1)}{\partial \bm{q}_1}= \bm{\tau}^c_1,
 \end{equation}
-Nach der Substitution sind sie in der für Lagrange 2. Art geeigneten Form in Darstellung der Minimalkoordinaten $\bm{q}_1$
+%
+to get the inverse dynamics joint forces $\bm{\tau}^c_1$ of the constrained system in $\bm{q}_1$-coordinates, which allows to get the dynamics equations in explicit form
 %
 \begin{equation}
-L(\bm{q}_1,\dot{\bm{q}}_1)=L(\mathrm{sin}(\bm{q}_1),\mathrm{cos}(\bm{q}_1),\dot{\bm{q}}_1,\bm{f}_\mathrm{sin}(\bm{q}_1),\bm{f}_\mathrm{cos}(\bm{q}_1), \bm{f}_\mathrm{diff}(\bm{q}_1,\dot{\bm{q}}_1)).
+\bm{M}_1\ddot{\bm{q}}_1+\bm{c}_1(\bm{q}_1,\dot{\bm{q}}_1)+\bm{g}_1(\bm{q}_1) + \bm{\tau}_{1\mathrm{s}}(\bm{q}_1) = \bm{\tau}^c_1,
+\label{equ:Dyn_MinKoord}
 \end{equation}
 %
-Mit dem Lagrange-Formalismus
-%
-\begin{equation}
-\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L(\bm{q}_1,\dot{\bm{q}}_1)}{\partial \dot{\bm{q}}_1} - \frac{\partial L(\bm{q}_1,\dot{\bm{q}}_1)}{\partial \bm{q}_1} = \bm{\tau}^c_1,
-\end{equation}
-%
-der auch in \cite{NakamuraGho1989} zur Herleitung von (\ref{equ:tau_Projektion}) benutzt wurde, folgt wieder die gesuchte Dynamik-Darstellung aus (\ref{equ:Dyn_MinKoord}).
+where $\bm{M}$, $\bm{c}$, $\bm{g}$, $\bm{\tau}_{\mathrm{s}}$ denote the effects of inertia, centrifugal/Coriolis, gravity and the spring, respectively.
+%der auch in \cite{NakamuraGho1989} zur Herleitung von (\ref{equ:tau_Projektion}) benutzt wurde, folgt wieder die gesuchte Dynamik-Darstellung aus (\ref{equ:Dyn_MinKoord}).
 
 %
 %Für Newton-Euler bräuchte man noch $d^2(x)/dt^2=...$.
 %Diese Formen sind effizienter zu berechnen als die explizite Form $x=...$ (auf die dann wieder $sin()$, $cos()$ angewendet würde).
-Das wurde in \cite{WangGosselin1998} schon so gemacht. Dort aber nicht wirklich hervorgehoben.
+%Das wurde in \cite{WangGosselin1998} schon so gemacht. Dort aber nicht wirklich hervorgehoben.
 
-\section{Control Concept}
+\section{Actuation and Control Concept}
 
-joint torque based gravity compensation
+To enable force assistance for the exoskeleton, a basic gravity compensation is defined similar to the partial linearization in robotics with the motor forces
+%
+\begin{equation}
+\bm{\tau}_{1\mathrm{m}} = \hat{\bm{g}}_1(\bm{q}_1) + \hat{\bm{\tau}}_{1\mathrm{s}}(\bm{q}_1)
+\label{equ:GravKomp}
+\end{equation}
+%
+in $\bm{q}_1$-coordinates and the motor affecting the joint torque
+%
+\begin{equation}
+\bm{\tau}^c_1 = \bm{\tau}_{1\mathrm{m}} + \bm{\tau}_{1\mathrm{ext}}
+\label{equ:JointTorque}
+\end{equation}
+%
+together with external forces $\bm{\tau}_{1\mathrm{ext}}$ resulting from user interaction or process forces, which are not regarded further.
+If all joints in $\bm{q}_1$ are actuated, the closed loop behaviour with gravity compensation is
+%
+\begin{equation}
+\bm{M}_1\ddot{\bm{q}}_1+\bm{c}_1(\bm{q}_1,\dot{\bm{q}}_1) = \bm{\tau}_{1\mathrm{ext}},
+\label{equ:closedloop}
+\end{equation}
+%
+where the user can statically hold the exoskeleton and the attached powertool without static forces.
+The assumption of complete actuation contradicts the exoskeleton design, is however sufficient for the scope of this paper presenting the kinematics and dynamics model.
 
-\section{Simulation Environment}
+\section{Simulation Environment and Results}
 
-forward dynamics
-simulink model
-human user as force/torque in free space for first evaluations
-coupling with musculo-skeletal model \cite{KuehnHuSchHad2018}
-
-
-\section{Simulation Results}
-
-energy consistency
-
-\begin{figure*}[tb]
+The forward dynamics
+\begin{align}
+\ddot{\bm{q}}_1 = \bm{M}_1^{-1}( &-\bm{c}_1(\bm{q}_1,\dot{\bm{q}}_1)-\bm{g}_1(\bm{q}_1) -\bm{\tau}_{1\mathrm{s}}(\bm{q}_1) \nonumber \\
+& - \bm{\tau}_{1\mathrm{lim}}(\bm{q}_1,\dot{\bm{q}}_1)  + \bm{\tau}_{1\mathrm{m}} + \bm{\tau}_{1\mathrm{ext}})
+\label{equ:ForwDyn}
+\end{align}
+derived from (\ref{equ:Dyn_MinKoord}) and (\ref{equ:JointTorque}) with an additional joint limit model $\bm{\tau}_{1\mathrm{lim}}$ using Hunt-Crossley stiffness and damping model.
+The simulation is implemented in Matlab/Simulink using the constant step Runge-Kutta solver and the terms of the dynamics equations are derived using generated optimized code from Maple.
+With $\bm{\tau}_{1\mathrm{m}} = \bm{\tau}_{1\mathrm{ext}} = \bm{0}$, the mechanism is modeled in free movement and the single energy terms of $\ref{equ:Lagrange_energy}$ are in sum constant when incorporating the damping, as shown in Fig.\,\ref{fig:SimulationEnergiekonsistenz}.
+%
+\begin{figure*}[htb]
     \includegraphics{figures/KAS5m5_Gelenkgrenzmodell_q_E.pdf} 
-    \caption[Zeitverläufe aus der Simulation zur Prüfung der Energiekonsistenz]{Zeitverläufe aus der Simulation zur Prüfung der Energiekonsistenz. Links: Gelenkwinkel. Rechts: Energien (kinetische Energie $T$, Gravitationspotential $U_\mathrm{grav}$, Federenergie der modellierten Gelenkwinkelanschläge $U_\mathrm{Grenz}$, Federenergie der Linearfeder $U_\mathrm{Feder}$, Gesamtenergie $E_\mathrm{ges}$, Dissipierte Energie $E_\mathrm{Diss}$)}
+    \caption{varioations in time of a simulation to check energy consistency. Left: Minimal coordinates from (\ref{equ:mincoord}). Right: Energies (kinetic $T$, gravity $U_\mathrm{g}$, elasticity of modeled joint limits $U_\mathrm{limit}$, linear spring $U_\mathrm{s}$, total energy $E_\mathrm{total}$, Dissipated energy $E_\mathrm{Diss}$)}
     \label{fig:SimulationEnergiekonsistenz}
 \end{figure*} 
+%
+Further, the results were compared against a SimMechanics model of the mechanism.
+
+This simulation is extended by the use of a human upper body musculoskeletal model, coupled with an elasticity to the tool handle of the exoskeleton via the term $\bm{\tau}_{1\mathrm{ext}}$ in (\ref{equ:ForwDyn}), which is elaborated in \cite{KuehnHuSchHad2018}.
+%This allows to ...
 
 
-improving gravity compensation
+\section{Conclusions and future work}
 
-\section{Conclusions}
+%conclusion:
+We presented a novel concept for a force assistance exoskeleton to support workers in carrying and using powertools.
+In the concept of this work, the mechanism can be regarded as an academic example.
+The details on the solution of the kinematic constraints of the multi-loop mechanism focus the elimination of trigonometric expressions of dependent variables to improve computational efficiency.
 
-A conclusion.
+%Future work:
+The featured approach of implementing kinematic constraints will be applied to different serial-chain industrial robots with parallel mechanisms invoking kinematic constraints, i.\,e. hybrid robots. 
+The results will be compared to the classical approach using the projection of constraint forces and with non-trigonometric elimination of the constraints.
 
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens
