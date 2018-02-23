@@ -1,4 +1,4 @@
-% !TeX spellcheck = en_US
+% !TeX spellcheck = en_GB
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %2345678901234567890123456789012345678901234567890123456789012345678901234567890
 %        1         2         3         4         5         6         7         8
@@ -184,9 +184,9 @@ Kinematics and Dynamics Model via Explicit Trigonometric Elimination of Kinemati
 
 
 \author{Moritz Schappler$^{1}$ and Sami Haddadin$^{2}$% <-this % stops a space
-\thanks{*This work was supported by the German Federal Ministry of Education and Research (BMBF) under Grant no. 16SV6175}% <-this % stops a space
+\thanks{*This work was supported by the German Federal Ministry of Education and Research (BMBF) under Grant no. 16SV6175.}% <-this % stops a space
 \thanks{$^{1}$Moritz Schappler
-        {\tt\small moritz.schappler@imes.uni-hannover.de}}%
+        {\tt\small schappler@imes.uni-hannover.de}}%
 \thanks{$^{2}$Sami Haddadin
         {\tt\small haddadin@irt.uni-hannover.de}}%
 }
@@ -211,24 +211,116 @@ abstract
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction and State of the Art}
 
-Exoskeletons for assistance and rehabilitation
+%Die Einsatzgebiete körpergetragene Systeme teilen sich u.a. auf in Exoskelette zur Rehabilitation und Kraftunterstützung, haptische Eingabegeräte und Prothesen.
+%Exoskelette werden körpernah getragen und verlaufen in ihrer Gelenkstruktur parallel zu den menschlichen Gliedmaßen.
+%Daher müssen die Gelenke des Mechanismus die Freiheitsgrade der Gelenke des Menschen nicht beschränken, um Zwangskräfte zu vermeiden, die dauerhaft zu Diskomfort und gesundheitlicher Schädigung führen.
 
-list different upper limb exoskeletons with different concepts
+Body mounted robotic systems are an increasing field of research to encounter the challenges of augmenting the humans capabilities.
+The domain can be clustered in exoskeletons for rehabilitation and force assistance, devices for human-machine-interaction and telepresence and prostheses.
+Exoskeletons are aligned close to the human body along the structure of the human limbs and joints.
+Constraining the human joint movements results in constraint forces leading to discomfort and long-term wear \cite{Pons2008}.
 
-techniques and tools for kinematics and dynamics modeling
 
-model assumptions for wearable robots: kinematic coupling of human and exoskeleton. Exoskeleton may contain passive joints (unlike serial chain robots), floating base assumption for base forces
+%Die Mechanismen für Exoskelette verfügen daher über mehr Gelenke als klassische Industrieroboter mit derselben Zahl an Freiheitsgraden.
 
-contributions of the paper:
-presentation of a novel exoskeleton mechanism designed
-explicit kinematics and dynamics modeling for hybrid mechanism with gear and closed loop kinematic constraints
-new approach for implementation of kinematic constraints in explicit form optimized for processing with computer algebra systems.
+Therefore exoskeleton mechanisms have more degrees of freedom (DoF) than classical robots with the same number of end-effector DoF.
 
-paper structured as follows: scenario and system presentation, detailed kinematics and dynamics model, control concepts for the system, simulation environment and simulation results.
+%Zusätzlich müssen Je nach Szenario nicht alle Bewegungsrichtungen aktuiert werden.
+%Während Rehabilitations-Exoskelette je nach Einschränkung des Patienten mehr Führung bieten, ist bei Kraftunterstützungssystemen hauptsächlich eine Unterstützung in Gravitationsrichtung notwendig.
+
+Depending on the application area not all directions of motion have to be actuated.
+While exoskeletons for rehabilitation provide more guidance to the user depending on the impairment of the patient, force assistance exoskeletons mainly need to assist in the direction of gravity.
+%
+%%ESA Space robotics telepresence exoskeleton \cite{SchieleVis2003}, 
+%
+%%Beispiele für Reha-Exos sind z.B. ... 
+%%WOTAS für Tremor
+%
+An example for an upper limb rehabilitation exoskeletons are the WOTAS exoskeleton for tremor suppression \cite{RoconBelRuiMan2007} and the shoulder rehabilitation exoskeleton from Carignan et al. \cite{CarignanLis2005}.
+
+%Kraftunterstützungs-Exos z.B. ...
+Representative examples of force assistance exoskeletons are the Bleex lower limb exoskeleton \cite{ChuKazZos2005} and the HAL \cite{Sankai2010} and Raytheon XOS upper and lower body exoskeletons as well as the upper limb exoskeletons from Hsieh et al. \cite{HsiehChiLan2015}. 
+The Fraunhofer upper limbs Exo-Jacket \cite{Ebrahimi2017} and full-body exoskeleton Robo-Mate \cite{StadlerAltSchSch2017} are systems designed for the use in industrial scenarios.
+
+%Da die Systeme oftmals erst durch eine modellbasierte Regelung ein gutes Nutzerverhalten z.B. durch Impedanz- oder Kraftregelung erhalten, ist eine effiziente Modellierung dieser Systeme mit in Echtzeit ausführbaren Modellen  höchst relevant.
+Since a good user experience of these active systems is only possible with a model-based control like impedance and force control, a computationally efficient model of the system, which has to run in real-time, is crucial.
+
+
+%Modellierung:
+%Die mechanische Modellierung der Systeme kann durch ein Starrkörpermodell mit diskreten Gelenken vorgenommen werden.
+%Dies kann bei Mechanismen mit flexiblen Elementen wie ... eine erste Näherung darstellen oder bereits eine gute Beschreibung des Verhaltens von Systemen wie ... darstellen.
+The mechanics modelling of the systems can be performed with the assumption of rigid bodies and basic joints.
+For systems with flexible elements this approach can be completely insufficient or with modifications a usable approximation. For other systems this can be a good description of the system behaviour.
+
+%Die Modellierung kann durch die gleichen Methoden wie für Roboter erfolgen, jedoch sind hier passive Freiheitsgrade des Endeffektors vorhanden, die durch den Benutzer ausgeglichen werden.
+In this case, the modelling can be done with the same multi body dynamics methods as for industrial robots.
+However unlike in classical robotics, the exoskeleton systems contain passive end-effector DoF that are levelled out by the user.
+
+%Die Kopplung der Systeme mit dem Nutzer kann zum Einen kinematisch durch Zwangsbedingungen beschrieben werden, dazu ist jedoch eine Schätzung des Nutzerverhaltens wie in ... notwendig.
+%Hier wird eine einfachere isolierte Betrachtung des Nutzers durch extern angreifende Kräfte angenommen.
+If the coupling of the systems with the user is be described kinematically with constraint equations, an estimation of the users pose is necessary.
+In this work, an isolated view of the system is taken with the user considered via external forces and moments.
+%
+%Mechanische Zwangsbedingungen treten dann nur noch im Mechanismus selbst auf, z.B. durch parallele mechanische Strukturen.
+With this assumption mechanical constraints may only occur in the mechanism itself, e.\,g. due to closed kinematic loops.
+
+%Die Lösung von kinematischen Zwangsbedingungen für mechanische Systeme kann allgemein durch die implizite Darstellung erfolgen.
+%Die Lösung der Dynamikgleichungen kann durch die Invertierung der daraus resultierenden Jacobi-Matrix mit den Lagrange-Gleichungen erster Art [Quelle] oder der Udwadia-Kalaba-Gleichung [Quelle] erfolgen.
+%Ersteres ist in den symbolischen Rechenprogrammen Robotran [Quelle] und openSYMORO [Quelle] implementiert.
+%Die Jacobi-Matrix der Zwangsbedingungen kann entweder aus der expliziten Form der ZB [Quelle] oder der impliziten Form [Quelle] erfolgen.
+
+The equations of motion of mechanic systems with kinematic constraints can be found in general with the implicit formulation of these constraints.
+The dynamics equations can be derived via the inverse of the resulting Jacobian with Lagrange multipliers \cite{NakamuraGho1989} or the Udwadia-Kalaba-equation \cite{UdwadiaKal1992}.
+The former is implemented in symbolic multi body algorithms such as Robotran \cite{SaminFis2013} or openSymoro \cite{KhalilVijKhoMuk2014}.
+The constraints Jacobian can be either derived from the explicit form of the constraints \cite{NakamuraGho1989} or from the time derivative of the implicit form \cite{ParkChoPlo1999}.
+
+%Für die rechentechnisch effiziente Beschreibung sind symbolisch generierte Modellgleichungen vorteilhaft [Quelle]. Damit sind auch weitere Untersuchungen möglich wie die Gruppierung der Dynamikparameter in der parameterlinearer Form \cite{KhalilBen1995} oder weitere Untersuchungen [Quelle Park?].
+For the computationally efficient analysis of mechanisms it is advantageous to derive the equations of motion in symbolic form \cite{SaminFis2013}.
+Then also further steps such as grouping dynamics parameters to a minimal set  in the regressor form of the dynamics equations \cite{KhalilBen1995} or aspects as linearisation, control and optimization are facilitated and improved \cite{ParkChoPlo1999}.
+
+%Die explizite Darstellung erfordert eine händische Untersuchung des Mechanismus und ist nur für eine eingeschränkte Klasse von Mechanismen verfügbar während sich die implizite Darstellung für alle Systeme und den Einsatz automatischer Programme eignet. Dieser Ansatz wird daher auch in o.g. CAS standardmäßig eingesetzt
+
+An explicit representation of the constraints often requires manual generation of the expressions and is only possible for a small set of mechanisms, e.\,g. some types of planar closed loops.
+The implicit representation is available for all systems and is therefore used in the methods and tools mentioned above.
+
+%Eine analytische Beschreibung aller kinematischer Größen ist nur bei expliziter Berechnung der Zwangsbedingungen möglich. Bei impliziter Berechnung müssen diese numerisch iterativ bestimmt werden.
+
+The direct calculation for all active and passive joint coordinates of a mechanism is only possible with the explicit form of the kinematic constraints.
+If only the implicit form is available, dependant coordinates have to be determined with numeric iterative procedures \cite{ParkChoPlo1999}.
+
+%Die Herleitung symbolischer Gleichungen für Kinematik und Dynamik werden in diesem Paper anhand eines Beispielsystems aus der Klasse der Exoskelette untersucht. Dabei wird die explizite Darstellung der Zwangsbedingungen verwendet und die Struktur der Dynamikgleichungen für symbolische Vereinfachungen genutzt.
+In this paper, the derivation of symbolic equations for the kinematics and dynamics is demonstrated at the example of an upper limb exoskeleton.
+The explicit form of the kinematic constraints is given and the structure of the dynamics equations is used for symbolic simplifications leading to improved computational efficiency.
+
+%
+%
+%The field of wearable robotic systems aims to 
+%Exoskeletons for assistance and rehabilitation
+%
+%list different upper limb exoskeletons with different concepts
+%
+%techniques and tools for kinematics and dynamics modelling
+%
+%model assumptions for wearable robots: kinematic coupling of human and exoskeleton. Exoskeleton may contain passive joints (unlike serial chain robots), floating base assumption for base forces
+
+The contributions of the paper are
+\begin{itemize}
+    \item the presentation of a novel exoskeleton mechanism,
+    \item the detailed mathematical description of the kinematic modelling of  constraints like gears and multiple closed loops with
+    \item a focus on the implementation of these constraints in explicit form optimized for symbolic processing with computer algebra systems.
+\end{itemize}
+
+The exoskeleton mechanism can be regarded as an example to emphasize the advantage for the proposed approach of explicit trigonometric elimination of kinematic constraints.
+
+Therefore, the paper is structured as follows:
+In Sec.\,\ref{sec:exo_scenario} the components of the exoskeleton are briefly presented together with the envisioned scenario of its field of application. In Sec.\,\ref{sec:model} the kinematics and dynamics modelling is presented in detail focussing on the formulation of the explicit constraint equations with substitution variables based on trigonometric expressions.
+The Sections \ref{sec:actuation_control} and
+\ref{sec:simulation} provide an exemplary concept for the actuation and the control of the system and simulation results to validate the model. Sec.\,\ref{sec:conclusion} summarizes the results.
 
 \section{Exoskeleton and Scenario}
-
+\label{sec:exo_scenario}
 \subsection{Scenario}
+
 
 force assistance for craftsmen
 project goals \cite{NuelleSchTapLil2017}: 
@@ -263,12 +355,9 @@ To avoid constraint forces on the users elbow, the joint consists of three paral
 The lever mechanism connecting the linear spring-damper-system with the elbow is fixed to the central elbow gear.
 
 \begin{figure}[tb!]
-    \begin{tabular}{c c c}
-        \includegraphics[height=0.5\linewidth]{figures/KAS6m3_SimMech_2.png} &
-        \includegraphics[height=0.5\linewidth]{figures/KAS6m3_SimMech_3.png}
-    \end{tabular}
-
-    \caption{Different poses for the three-axes elbow joint. The rigid bodies are emphasized with different colors. The coupling mechanism connecting to the shoulder is left out for clarity.}
+    \small
+    \input{./figures/KAS6m3_Ellenbogen_beschriftet.pdf_tex}
+    \caption{Different poses for the three-axes elbow joint. The rigid bodies are emphasized with different colours and the numbers in circles. The coupling mechanism connecting to the shoulder is left out for clarity.}
     \label{fig:EllenbogenSimMech}
 \end{figure} 
 
@@ -291,6 +380,7 @@ These spring systems are known e.\,g. for their use in mountain bikes.
 The spring is transferring the moment created by the weight of the powertool towards the central gear and reduces oscillations coming from processes like drilling.
 
 \section{Kinematics and Dynamics Modelling}
+\label{sec:model}
 
 \subsection{Kinematic Model}
 
@@ -539,7 +629,7 @@ The angle $\gdelta3$ of $\body{11}$ can now be written as
 \end{align}
 %
 where the terms for $\xi_1$ and $\xi_2$ are obtained from (\ref{equ:delta3_r4DB}) and (\ref{equ:delta3_xi2_addtheorem1})-(\ref{equ:delta3_xi2_addtheorem2}), respectively.
-The terms are written in such a way, that arctangent functions\footnote{$\mathrm{arctan}$ is implemented using the quadrant-aware function $\mathrm{atan2}$.} are omitted where possible to reduce computational load in the dynamics part.
+The terms are written in such a way, that arctangent functions\footnote{$\mathrm{arctan}$ is implemented using the quadrant-aware function $\mathrm{atan2}$.} are omitted wherever possible to reduce computational load in the dynamics part.
 
 The upper part of the coupling mechanism is shown in Fig.\,\ref{fig:KAS5_upper_coupling}. The kinematics of this mechanism can be solved similar by intersecting the circles $\cc{3}$ (center $E$, radius $|EF|$) and $\cc{4}$ (center $O_2$, radius $|O_2F|$) which again have two possible intersections
 %
@@ -610,7 +700,7 @@ and by using the angle sum identities one gets
 which describes the last unknown coordinate of the kinematic transformations of the frames of Tab.\,\ref{tab:mdh_parameter}.
 %
 
-\subsubsection{complete model}
+\subsubsection{Complete Kinematics Model}
 
 The expressions for the different coordinates $\gl16$ (\ref{equ:l16_explicit}), $\gbeta1$, $\gdelta19$ (\ref{equ:delta19_explicit}), $\rho_6$ (\ref{equ:rho6_explicit}),  $\gdelta16$ (\ref{equ:delta16_explicit}), $\gdelta3$ (\ref{equ:delta3_explicit}), $\rho_3$ (\ref{equ:rho3_explicit}) and $\gdelta6$ (\ref{equ:delta6_explicit}) of the parallel mechanism provide the explicit definitions of the kinematic constraints defined in (\ref{equ:kinconstr_explicit}), which are needed for the complete kinematic description of the frames and rigid bodies defined in Tab.\,\ref{tab:mdh_parameter}.
 
@@ -630,6 +720,14 @@ Using the trigonometric explicit form (\ref{equ:kinconstr_semiexplicit_sin})-(\r
 The explicit form (\ref{equ:kinconstr_explicit}) contains nested expressions with arctangent functions.
 The latter has shown to be very inefficient for further processing with the computer algebra system Maple, that was used to create the symbolic expressions and to generate code for dynamics functions.
 
+\subsubsection{Variations of the Model}
+
+Adaptations on the mechanism can be incorporated in the definition of the variable coordinates (\ref{equ:mincoord}), (\ref{equ:depcoord}) and the constant parameters (\ref{equ:kinparam}).
+To enable switching between manipulation in front of or above the user, a coupling can be added between the central elbow gear $\body{12}$ and the lever $\body{13}$, which moves the angle $\gdelta6$ to the vector of independent joint coordinates $\bm{q}_1$.
+Similarly, the fixed angle between the shoulder $\body{2}$ and the crank $\body{8}$ can be connected with a rotatory joint or a motor which moves the shoulder F/E angle $\rho_3$ to the independent coordinates $\bm{q}_1$ and the crank angle $\gdelta8$ to the dependant coordinates $\bm{q}_2$.
+
+With these modifications, the calculations for the kinematic constraints as presented above stay the same. However, their order needs to be changed, e.\,g. for $\rho_3$ as independent coordinate, first the circle intersections ${\cc{4}\cap\cc{3}}$ and ${\cc{2}\cap\cc{1}}$ have to be calculated before assessing the elbow gear mechanism.
+
 %\subsection{Kinematic Constraints in Implicit Form}
 %
 %
@@ -644,7 +742,7 @@ L(\bm{q},\dot{\bm{q}}) = T(\bm{q},\dot{\bm{q}})-(U_\mathrm{g}(\bm{q})+U_\mathrm{
 \label{equ:Lagrange_energy}
 \end{align}
 %
-expressed in the minimal coordinates $\bm{q}}_1$. Since rotational matrices from the frame transformations from Tab.\,\ref{tab:mdh_parameter} are used to calculate the kinetic energy $T$ and the potential energies from gravity $U_\mathrm{g}$ and from the spring $U_\mathrm{s}$, the Lagrangian has the structure
+expressed in the minimal coordinates $\bm{q}_1$. Since rotational matrices from the frame transformations from Tab.\,\ref{tab:mdh_parameter} are used to calculate the kinetic energy $T$ and the potential energies from gravity $U_\mathrm{g}$ and from the spring $U_\mathrm{s}$, the Lagrangian has the structure
 %
 \begin{align}
 L(\bm{q},\dot{\bm{q}}) =L( & \mathrm{sin}  (\bm{q}_{\mathrm{R}}),\mathrm{cos}(\bm{q}_{\mathrm{R}}), \bm{q}_{\mathrm{T}},\dot{\bm{q}}) \\
@@ -685,6 +783,7 @@ where $\bm{M}$, $\bm{c}$, $\bm{g}$, $\bm{\tau}_{\mathrm{s}}$ denote the effects 
 %Das wurde in \cite{WangGosselin1998} schon so gemacht. Dort aber nicht wirklich hervorgehoben.
 
 \section{Actuation and Control Concept}
+\label{sec:actuation_control}
 
 To enable force assistance for the exoskeleton, a basic gravity compensation is defined similar to the partial linearization in robotics with the motor forces
 %
@@ -712,6 +811,7 @@ where the user can statically hold the exoskeleton and the attached powertool wi
 The assumption of complete actuation contradicts the exoskeleton design, is however sufficient for the scope of this paper presenting the kinematics and dynamics model.
 
 \section{Simulation Environment and Results}
+\label{sec:simulation}
 
 The forward dynamics
 \begin{align}
@@ -723,7 +823,7 @@ derived from (\ref{equ:Dyn_MinKoord}) and (\ref{equ:JointTorque}) with an additi
 The simulation is implemented in Matlab/Simulink using the constant step Runge-Kutta solver and the terms of the dynamics equations are derived using generated optimized code from Maple.
 With $\bm{\tau}_{1\mathrm{m}} = \bm{\tau}_{1\mathrm{ext}} = \bm{0}$, the mechanism is modeled in free movement and the single energy terms of $\ref{equ:Lagrange_energy}$ are in sum constant when incorporating the damping, as shown in Fig.\,\ref{fig:SimulationEnergiekonsistenz}.
 %
-\begin{figure*}[htb]
+\begin{figure*}[htb!]
     \includegraphics{figures/KAS5m5_Gelenkgrenzmodell_q_E.pdf} 
     \caption{varioations in time of a simulation to check energy consistency. Left: Minimal coordinates from (\ref{equ:mincoord}). Right: Energies (kinetic $T$, gravity $U_\mathrm{g}$, elasticity of modeled joint limits $U_\mathrm{limit}$, linear spring $U_\mathrm{s}$, total energy $E_\mathrm{total}$, Dissipated energy $E_\mathrm{Diss}$)}
     \label{fig:SimulationEnergiekonsistenz}
@@ -734,8 +834,8 @@ Further, the results were compared against a SimMechanics model of the mechanism
 This simulation is extended by the use of a human upper body musculoskeletal model, coupled with an elasticity to the tool handle of the exoskeleton via the term $\bm{\tau}_{1\mathrm{ext}}$ in (\ref{equ:ForwDyn}), which is elaborated in \cite{KuehnHuSchHad2018}.
 %This allows to ...
 
-
 \section{Conclusions and future work}
+\label{sec:conclusion}
 
 %conclusion:
 We presented a novel concept for a force assistance exoskeleton to support workers in carrying and using powertools.
@@ -746,7 +846,7 @@ The details on the solution of the kinematic constraints of the multi-loop mecha
 The featured approach of implementing kinematic constraints will be applied to different serial-chain industrial robots with parallel mechanisms invoking kinematic constraints, i.\,e. hybrid robots. 
 The results will be compared to the classical approach using the projection of constraint forces and with non-trigonometric elimination of the constraints.
 
-\addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
+%\addtolength{\textheight}{-1cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens
                                   % the textheight of the last page by a suitable amount.
                                   % This command does not take effect until the next page
