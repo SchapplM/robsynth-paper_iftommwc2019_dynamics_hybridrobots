@@ -104,7 +104,7 @@
     \put(0.40987118,0.18734312){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\body{13}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=20]{KAS5_parallelmech_unten.pdf}}%
     \put(0.70005191,0.84439846){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl14=|O_5B|$}}}%
-    \put(0.70005191,0.79269469){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl13=|CB|$}}}%
+    \put(0.70005191,0.79269469){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl13=|BC|$}}}%
     \put(0.70005191,0.68928738){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl16=|AB|$}}}%
     \put(0.70005191,0.74099115){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl22=|DC|$}}}%
   \end{picture}%
