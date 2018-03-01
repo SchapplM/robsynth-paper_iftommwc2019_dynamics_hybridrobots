@@ -23,7 +23,7 @@
 \usepackage{float}
 \usepackage{ngerman}
 \usepackage[utf8]{inputenc}
-\usepackage{color}
+\usepackage{color, colortbl}
 \usepackage{amsmath}
 \usepackage{bm}
 \usepackage{amssymb}
@@ -33,6 +33,9 @@
 % Symbole für Tabelle: grüner Haken und rotes Kreuz
 \newcommand{\ok}{{\color{green}\checkmark}}
 \newcommand{\no}{{\color{red}$\boldsymbol\times$}}
+
+\definecolor{Gray}{gray}{0.9}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
 
 \usepackage{calrsfs}
 \DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
@@ -59,7 +62,7 @@
 \makeatother
 
 \newif\ifneuenomenklatur
-\neuenomenklaturtrue
+\neuenomenklaturfalse
 
 % Neue Bezeichnungen:
 \ifneuenomenklatur
@@ -87,6 +90,10 @@
         \eta_{10}}
     \expandafter\newcommand\csname gdelta7\endcsname{%
         \eta_{11}}
+    \expandafter\newcommand\csname gdelta9\endcsname{%
+        \eta_{12}}
+    \expandafter\newcommand\csname gdelta20\endcsname{%
+        \eta_{13}}
     \expandafter\newcommand\csname gl1\endcsname{%
         L_1}
     \expandafter\newcommand\csname gl2\endcsname{%
@@ -115,6 +122,8 @@
         L_7}
     \expandafter\newcommand\csname gl20\endcsname{%
         L_{12}}
+    \expandafter\newcommand\csname gl21\endcsname{%
+        L_{14}}
     \expandafter\newcommand\csname gl22\endcsname{%
         L_{10}}
     \expandafter\newcommand\csname gl16\endcsname{%
@@ -145,6 +154,10 @@
         \gamma_3}
     \expandafter\newcommand\csname gdelta7\endcsname{%
         \delta_7}
+    \expandafter\newcommand\csname gdelta9\endcsname{%
+        \delta_9}
+    \expandafter\newcommand\csname gdelta20\endcsname{%
+        \delta_{20}}
     \expandafter\newcommand\csname gl1\endcsname{%
         l_1}
     \expandafter\newcommand\csname gl2\endcsname{%
@@ -173,6 +186,8 @@
         l_{15}}
     \expandafter\newcommand\csname gl20\endcsname{%
         l_{20}}
+    \expandafter\newcommand\csname gl21\endcsname{%
+        l_{21}}
     \expandafter\newcommand\csname gl22\endcsname{%
         l_{22}}
     \expandafter\newcommand\csname gl16\endcsname{%
@@ -401,28 +416,43 @@ All rotational axes of the mechanism are described as single-DoF joints using th
 The parameters describing the transformations between these frames are given in Tab.\,\ref{tab:mdh_parameter}.
 %
 \begin{table}
-    \begin{tabular}[t]{|c|c|c||c|c|c|c|c|}
+    \setlength\tabcolsep{3pt}
+    \begin{tabular}[t]{|c||c|c||c|c||c|c|c|c|c|}
         \hline
-        $i$ & $\mu_i$ & $\sigma_i$ & $\alpha_i (\bm{R}_{\mathrm{}x})$ & $d_i (\bm{T}_{\mathrm{}x})$ & $\theta_i (\bm{R}_{\mathrm{}z})$ & $r_i (\bm{T}_{\mathrm{}z})$ & $a(i)$ \\
+        $i$ & $\mu_i$ & $\sigma_i$ & $\gamma_i$ & $\epsilon_i$ & $\alpha_i$ & $d_i$ & $\theta_i$ & $r_i$ & $a(i)$ \\
         \hline
-        1 & $1$ & $0$ & $0$ & $0$ & $\rho_1-\pi/2$ & $\gl1$ & 0 \\
-        2 & $1$ & $0$ & $-\pi/2$ & $0$ & $\rho_2+\pi/2$ & $\gl2$ & 1 \\
-        3 & $0$ & $0$ & $\pi/2$ & $0$ & $\rho_3$ & $\gl3$ & 2 \\
-        4 & $1$ & $0$ & $0$ & $\gl5$ & $\rho_4$ & $0$ & 3 \\
-        5 & $1$ & $0$ & $0$ & $\gl11$ & $\rho_5$ & $0$ & 4 \\
-        6 & $0$ & $0$ & $0$ & $\gl12$ & $\rho_6$ & $0$ & 5 \\
-        7 & $1$ & $0$ & $\pi/2$ & $0$ & $\rho_7$ & $\gl15$ & 6 \\
-        8 & $0$ & $2$ & $\pi/2$ & $0$ & $\gdelta8+\pi/2$ & $\gl3$ & 2 \\
-        9 & $0$ & $0$ & $0$ & $-\gl4$ & $-\gdelta6$ & $0$ & 8 \\
-        10 & $0$ & $0$ & $0$ & $\gl6$ & $-\gdelta16$ & $0$ & 3 \\
-        11 & $0$ & $0$ & $0$ & $\gl22$ & $\pi-\gdelta3$ & $0$ & 10 \\
-        12 & $0$ & $0$ & $0$ & $\gl11$ & $\gdelta19-\pi/2$ & $0$ & 4 \\
-        13 & $0$ & $2$ & $0$ & $0$ & $\gdelta17-\pi/2$ & $0$ & 12 \\
-        14 & $0$ & $0$ & $0$ & $\gl14$ & $3\pi/2-\gbeta1$ & $0$ & 13 \\
-        15 & $0$ & $1$ & $\pi/2$ & $0$ & $0$ & $\gl16$ & 14 \\
+          &   &   & $\bm{R}_{\mathrm{}z}$ & $\bm{T}_{\mathrm{z}}$  & $\bm{R}_{\mathrm{}x}$  & $\bm{T}_{\mathrm{}x}$  &   $\bm{R}_{\mathrm{}z}$ & $ \bm{T}_{\mathrm{z}$  &   \\
+        \hline
+        1 & $1$ & $0$ & $0$ & $0$ & $0$ & $0$ & $\rho_1-\pi/2$ & $\gl1$ & 0 \\
+        2 & $1$ & $0$ & $0$ & $0$ & $-\pi/2$ & $0$ & $\rho_2+\pi/2$ & $\gl2$ & 1 \\
+        3 & $0$ & $0$ & $0$ & $0$ & $\pi/2$ & $0$ & $\rho_3$ & $\gl3$ & 2 \\
+        4 & $1$ & $0$ & $0$ & $0$ & $0$ & $\gl5$ & $\rho_4$ & $0$ & 3 \\
+        5 & $1$ & $0$ & $0$ & $0$ & $0$ & $\gl11$ & $\rho_5$ & $0$ & 4 \\
+        6 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl12$ & $\rho_6 + \pi/2$ & $0$ & 5 \\
+        7 & $1$ & $0$ & $0$ & $0$ & $\pi/2$ & $0$ & $\rho_7$ & $\gl15$ & 6 \\
+        8 & $0$ & $2$ & $0$ & $0$ & $\pi/2$ & $0$ & $\gdelta8+\pi/2$ & $\gl3$ & 2 \\
+        9 & $0$ & $0$ & $0$ & $0$ & $0$ & $-\gl4$ & $-\gdelta6$ & $0$ & 8 \\
+        10 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl6$ & $-\gdelta16$ & $0$ & 3 \\
+        11 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl22$ & $\pi-\gdelta3$ & $0$ & 10 \\
+        12 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl11$ & $\gdelta19-\pi/2$ & $0$ & 4 \\
+        13 & $0$ & $2$ & $0$ & $0$ & $0$ & $0$ & $\gdelta17-\pi/2$ & $0$ & 12 \\
+        14 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl14$ & $3\pi/2-\gbeta1$ & $0$ & 13 \\
+        15 & $0$ & $1$ & $0$ & $0$ & $\pi/2$ & $0$ & $0$ & $\gl16$ & 14 \\
+        \rowcolor{LightCyan}
+        16 & $0$ & $0$ & $\gdelta9$ & $0$ & $0$ & $\gl21$ & $*$ & $0$ & 10 \\
+        \rowcolor{LightCyan}
+        17 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl14$ & $*$ & $0$ & 13 \\
+        \rowcolor{LightCyan}
+        18 & $0$ & $0$ & $-\pi/2-\gdelta20$ & $0$ & $0$ & $\gl22$ & $*$ & $0$ & 6 \\
+        \rowcolor{Gray}
+        19 & $2$ & $0$ & $0$ & $\gl20$ & $0$ & $0$ & $0$ & $0$ & 9 \\
+        \rowcolor{Gray}
+        20 & $2$ & $0$ & $0$ & $\gl13$ & $0$ & $0$ & $0$ & $0$ & 11 \\
+        \rowcolor{Gray}
+        21 & $2$ & $0$ & $-\pi/2$ & $0$ & $0$ & $0$ & $0$ & $0$ & 15 \\
         \hline
     \end{tabular}
-    \caption{Kinematic parameters of the structure}
+    \caption{Kinematic parameters of the structure.}
     \label{tab:mdh_parameter}
 \end{table}
 %
@@ -439,9 +469,11 @@ A kinematic sketch of the whole mechanism from Fig.\,\ref{fig:KAS5_CAD} is given
     \label{fig:KAS5_kinematik}
 \end{figure}
 
-Due to the structure of the mechanism, the extended notation with antecessor index $a(i)$, joint type marker $\sigma_i$ (0 for rotational joint, 1 for prismatic joint, 2 for fixed connection) and actuation marker $\mu_i$ (0 for passive, 1 for active joint) are used.
+Due to the structure of the mechanism, the extended notation with anteceding link index $a(i)$, joint type marker $\sigma_i$ (0 for rotational joint, 1 for prismatic joint, 2 for fixed connection) and actuation marker $\mu_i$ (0 for passive, 1 for active joint) is used.
 The marker $\mu_i$ is set to 1 for the joints representing the generalized coordinates from (\ref{equ:mincoord}), regardless whether they are actuated or not.
-The order of rotations $\bm{R}$ and translations $\bm{T}$ is given in the head row for $\alpha_i$ to $r_i$.
+The order of rotations $\bm{R}$ and translations $\bm{T}$ is given in the head row for $\gamma_i$ to $r_i$.
+Only the rows 1 to 15 of the table mark frames associated with rigid bodies.
+The rows 16-18 denote the first frame and the rows 19-21 the second frame of the cut joints belonging to the three closed kinematic loops.
 
 The mechanism is regarded without the kinematic constraints by virtually cutting the loop-closing joints resulting in a tree structure \cite{KhalilBen1995} and removing the other constraints that are referred to as ``user constraints'' in \cite{SaminFis2013}.
 The coordinates 
