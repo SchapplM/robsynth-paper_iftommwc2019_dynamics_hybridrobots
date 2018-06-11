@@ -245,7 +245,7 @@ The method is applied on an exoskeleton designed for craftsmen force assistance,
 %Die Einsatzgebiete körpergetragene Systeme teilen sich u.a. auf in Exoskelette zur Rehabilitation und Kraftunterstützung, haptische Eingabegeräte und Prothesen.
 %Exoskelette werden körpernah getragen und verlaufen in ihrer Gelenkstruktur parallel zu den menschlichen Gliedmaßen.
 %Daher müssen die Gelenke des Mechanismus die Freiheitsgrade der Gelenke des Menschen nicht beschränken, um Zwangskräfte zu vermeiden, die dauerhaft zu Diskomfort und gesundheitlicher Schädigung führen.
-Body mounted robotic systems are an increasing field of research to encounter the challenges of augmenting the humans capabilities.
+Body mounted robotic systems are an increasing field of research to encounter the challenges of augmenting the humans capabilities\added[id=Lg]{, especially when facing the demographic change}.
 The domain can be clustered in exoskeletons for rehabilitation and force assistance, devices for human-machine-interaction and telepresence and prostheses.
 Exoskeletons are aligned close to the human body along the structure of the human limbs and joints.
 Constraining the human joint movements results in constraint forces leading to discomfort and long-term wear \cite{Pons2008}.
@@ -304,7 +304,7 @@ The constraints Jacobian can be either derived from the explicit form of the con
 
 %Für die rechentechnisch effiziente Beschreibung sind symbolisch generierte Modellgleichungen vorteilhaft [Quelle]. Damit sind auch weitere Untersuchungen möglich wie die Gruppierung der Dynamikparameter in der parameterlinearer Form \cite{KhalilBen1995} oder weitere Untersuchungen [Quelle Park?].
 For the computationally efficient analysis of mechanisms it is advantageous to derive the equations of motion in symbolic form \cite{SaminFis2013}.
-Then also further steps such as grouping dynamics parameters to a minimal set  in the regressor form of the dynamics equations \cite{KhalilBen1995} or aspects such as linearisation, control and optimization are facilitated or improved \cite{ParkChoPlo1999}.
+\replaced[id=Lg]{This also facilitates or improves}{Then also} further steps such as grouping dynamics parameters to a minimal set  in the regressor form of the dynamics equations \cite{KhalilBen1995} or aspects such as linearisation, control and optimization\deleted[id=Lg]{ are facilitated or improved} \cite{ParkChoPlo1999}.
 
 %Die explizite Darstellung erfordert eine händische Untersuchung des Mechanismus und ist nur für eine eingeschränkte Klasse von Mechanismen verfügbar während sich die implizite Darstellung für alle Systeme und den Einsatz automatischer Programme eignet. Dieser Ansatz wird daher auch in o.g. CAS standardmäßig eingesetzt
 
@@ -334,6 +334,7 @@ The explicit form of the kinematic constraints is given and the structure of the
 The contributions of the paper are
 \begin{itemize}
     \item the presentation of a novel exoskeleton mechanism,
+    \item \added[id=Lg]{a formalism for derivation of related models in symbolic form based on the explicit elimination of the kinematic constraints using substitution variables with trigonometric expressions and the Lagrange equations of the second kind,}
     \item the detailed mathematical description of the kinematic modelling of the mechanisms constraints containing gears and multiple closed loops with
     \item a focus on the implementation of these constraints in \emph{trigonometric explicit form} optimized for symbolic processing with computer algebra systems.
 \end{itemize}
