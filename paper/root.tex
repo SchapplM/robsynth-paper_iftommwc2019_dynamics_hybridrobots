@@ -430,11 +430,12 @@ The parameters describing the transformations between these frames are given in 
 \begin{table}
     \centering
     \setlength\tabcolsep{3pt}
+    \caption{Kinematic parameters of the structure.}\par\vspace{-3.5ex}
     \begin{tabular}[t]{|c||c|c||c|c||c|c|c|c|c|}
         \hline
         $i$ & $\mu_i$ & $\sigma_i$ & $\gamma_i$ & $\epsilon_i$ & $\alpha_i$ & $d_i$ & $\theta_i$ & $r_i$ & $a(i)$ \\
         \hline
-          &   &   & $\bm{R}_{\mathrm{}z}$ & $\bm{T}_{\mathrm{z}}$  & $\bm{R}_{\mathrm{}x}$  & $\bm{T}_{\mathrm{}x}$  &   $\bm{R}_{\mathrm{}z}$ & $ \bm{T}_{\mathrm{z}$  &   \\
+          &   &   & $\bm{R}_{\mathrm{}z}$ & $\bm{T}_{\mathrm{z}}$  & $\bm{R}_{\mathrm{}x}$  & $\bm{T}_{\mathrm{}x}$  &   $\bm{R}_{\mathrm{}z}$ & $ \bm{T}_{\mathrm{z}}$  &   \\
         \hline
         1 & $1$ & $0$ & $0$ & $0$ & $0$ & $0$ & $\rho_1-\pi/2$ & $\gl1$ & 0 \\
         2 & $1$ & $0$ & $0$ & $0$ & $-\pi/2$ & $0$ & $\rho_2+\pi/2$ & $\gl2$ & 1 \\
@@ -465,11 +466,10 @@ The parameters describing the transformations between these frames are given in 
         21 & $2$ & $0$ & $-\pi/2$ & $0$ & $0$ & $0$ & $0$ & $0$ & 15 \\
         \hline
     \end{tabular}
-    \caption{Kinematic parameters of the structure.}
     \label{tab:mdh_parameter}
 \end{table}
 %
-A kinematic sketch of the whole mechanism from Fig.\,\ref{fig:KAS5_CAD} is given in Fig.\,\ref{fig:KAS5_kinematik} with annotations for frames, bodies and coordinates according to Tab.\,\ref{tab:mdh_parameter}.
+\deleted[id=Lg]{A kinematic sketch of the whole mechanism from Fig.\,\ref{fig:KAS5_CAD} is given in Fig.\,\ref{fig:KAS5_kinematik} with annotations for frames, bodies and coordinates according to Tab.\,\ref{tab:mdh_parameter}.}
 %
 \begin{figure}[tb]
     \small
@@ -487,15 +487,17 @@ The marker $\mu_i$ is set to 1 for the joints representing the generalized coord
 The order of rotations $\bm{R}$ and translations $\bm{T}$ is given in the head row for $\gamma_i$ to $r_i$.
 Only the rows 1 to 15 of the table mark frames associated with rigid bodies.
 The rows 16-18 denote the first frame and the rows 19-21 the second frame of the cut joints belonging to the three closed kinematic loops.
+\added[id=Lg]{A kinematic sketch of the whole mechanism from Fig.\,\ref{fig:KAS5_CAD} is given in Fig.\,\ref{fig:KAS5_kinematik} with annotations for frames, bodies and coordinates according to Tab.\,\ref{tab:mdh_parameter}.}
 
 The mechanism is regarded without the kinematic constraints by virtually cutting the loop-closing joints resulting in a tree structure \cite{KhalilBen1995} and removing the other constraints that are referred to as ``user constraints'' in \cite{SaminFis2013}.
-The coordinates 
+\added[id=Lg]{The joint coordinates of the main structure are denoted with $\rho$ and the coordinates of the parallel coupling and support mechanism with $\eta$.}
+\replaced[id=Lg]{According to \cite{NakamuraGho1989}, the}{The} coordinates 
 %
 \begin{equation}
 \bm{q}=\begin{pmatrix}\bm{q}_1^\mathrm{T} & \bm{q}_2^\mathrm{T} \end{pmatrix}^\mathrm{T}
 \end{equation}
 %
-of the single-DoF joints of this unconstrained system can according to \cite{NakamuraGho1989} be separated into the generalized coordinates
+of the single-DoF joints of this unconstrained system can \deleted[id=Lg]{according to \cite{NakamuraGho1989}} be separated into the generalized coordinates
 %
 \begin{equation}
 \bm{q}_1=\begin{pmatrix}\rho_1 & \rho_2 & \rho_4 & \rho_5 &\rho_7 \end{pmatrix}^\mathrm{T}
@@ -515,11 +517,9 @@ The constant kinematics parameters can be grouped in a separate vector
 \bm{p}_\mathrm{kin}=\begin{pmatrix}\gdelta8 & \gdelta17 & \gl1 & \gl2 & ... & \gl13 \end{pmatrix}^\mathrm{T}.
 \label{equ:kinparam}
 \end{equation}
+\added[id=Lg,remark={Is it intended that some $\eta_i$ are parameters and some $L_i$ are dependant coordinates? This might be confusing. Can this be avoided by other namings?}]{}
 
-The joint coordinates of the main structure are denoted with $\rho$ and the coordinates of the parallel coupling and support mechanism with $\eta$.
-%
-%
-These can without loss of generality be grouped according to the joint type into rotational coordinates $\bm{q}_{\mathrm{R}}$ corresponding to $\sigma_i=0$ and translational coordinates $\bm{q}_{\mathrm{T}}$ corresponding to $\sigma_i=1$ with
+\replaced[id=Lg]{Without loss of generality, the coordinates $\rho$ and $\eta$ can}{The joint coordinates of the main structure are denoted with $\rho$ and the coordinates of the parallel coupling and support mechanism with $\eta$. These can without loss of generality} be grouped according to the joint type into rotational coordinates $\bm{q}_{\mathrm{R}}$ corresponding to $\sigma_i=0$ and translational coordinates $\bm{q}_{\mathrm{T}}$ corresponding to $\sigma_i=1$ with
 %
 \begin{equation}
 \bm{q}_1=\begin{pmatrix}\bm{q}_{1\mathrm{R}}^\mathrm{T} & \bm{q}_{1\mathrm{T}}^\mathrm{T} \end{pmatrix}^\mathrm{T},
