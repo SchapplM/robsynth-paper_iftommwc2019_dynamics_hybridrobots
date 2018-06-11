@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{212.5984252bp}%
+    \setlength{\unitlength}{212.59840357bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,22 +48,22 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.8)%
+  \begin{picture}(1,0.70005571)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{KAS5_Seitenansicht_beschriftet.pdf}}%
-    \put(0.55687092,0.64429758){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{upper arm}}}%
+    \put(0.54356688,0.57525825){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{upper arm}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{KAS5_Seitenansicht_beschriftet.pdf}}%
-    \put(0.77212737,0.35093048){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{forearm}}}%
+    \put(0.77212745,0.33700805){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{forearm}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{KAS5_Seitenansicht_beschriftet.pdf}}%
-    \put(0.62972987,0.02417649){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{tool holding}}}%
+    \put(0.62972993,0.01025403){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{tool holding}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{KAS5_Seitenansicht_beschriftet.pdf}}%
-    \put(0.02972988,0.02417649){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{spring-damper-system}}}%
+    \put(0.44025592,0.01405512){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{spring-damper-system}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{KAS5_Seitenansicht_beschriftet.pdf}}%
-    \put(0.0036143,0.23144101){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{coupling}}}%
+    \put(0.0036143,0.20436727){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{coupling}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{KAS5_Seitenansicht_beschriftet.pdf}}%
-    \put(0.38567218,0.71964366){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{shoulder}}}%
+    \put(0.47309905,0.66010728){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{shoulder}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{KAS5_Seitenansicht_beschriftet.pdf}}%
-    \put(0.66520413,0.42149912){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{elbow}}}%
+    \put(0.6652042,0.40757671){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{elbow}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{KAS5_Seitenansicht_beschriftet.pdf}}%
-    \put(0.00551489,0.15617555){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{mechanism}}}%
+    \put(0.00551489,0.14977904){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{mechanism}}}%
   \end{picture}%
 \endgroup%
