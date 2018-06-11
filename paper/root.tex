@@ -46,6 +46,15 @@
 \renewcommand{\vec}[1]{\mbox{\boldmath{$#1$}}}
 \newcommand{\tmat}[2]{{^{\mathrm{#1}}\vec{T}_{\mathrm{#2}}}}
 
+% Markup package
+\usepackage[deletedmarkup=xout,authormarkup=none]{changes}
+\setremarkmarkup{\emph{(#1: #2)}}
+\colorlet{lg}{red!80!black}
+\colorlet{sp}{blue!80!black}
+%\setremarkmarkup{\emph{\color{lg!70!white}\small(#1: #2)}}
+\definechangesauthor[color=lg]{Lg}
+\definechangesauthor[color=sp]{Sp}
+
 % Geometrische Bezeichnungen des Mechanismus. Sind in schriftlichen Aufzeichnungen nicht konsistent. Daher wird die Benennung in diesem Paper geändert. Zur Übersichtlichkeit werden die alten Bezeichnungen als Makro verwendet.
 % https://tex.stackexchange.com/a/9728
 \makeatletter
