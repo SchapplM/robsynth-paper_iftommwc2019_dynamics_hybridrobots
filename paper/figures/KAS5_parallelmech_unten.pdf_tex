@@ -85,7 +85,7 @@
     \put(0.13564844,0.63793869){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gdelta3$}}}%
     \put(0.14204582,0.6926622){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gdelta16$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=13]{KAS5_parallelmech_unten.pdf}}%
-    \put(0.55456448,0.92733868){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{z}_{i}, i \in \{4,5,6,10,11,12,13,14 \}$}}}%
+    \put(0.52446078,0.91228683){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{z}_{i}$, }}}%
     \put(0,0){\includegraphics[width=\unitlength,page=14]{KAS5_parallelmech_unten.pdf}}%
     \put(0.4297298,0.65942644){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$C^\prime$}}}%
     \put(0.45675465,0.59834925){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\cc{1}(B,\gl13)$}}}%
@@ -103,9 +103,10 @@
     \put(0,0){\includegraphics[width=\unitlength,page=19]{KAS5_parallelmech_unten.pdf}}%
     \put(0.40987118,0.18734312){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\body{13}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=20]{KAS5_parallelmech_unten.pdf}}%
-    \put(0.70005191,0.84439846){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl14=|O_5B|$}}}%
-    \put(0.70005191,0.79269469){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl13=|BC|$}}}%
-    \put(0.70005191,0.68928738){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl16=|AB|$}}}%
-    \put(0.70005191,0.74099115){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl22=|DC|$}}}%
+    \put(0.70005191,0.78419104){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl14=|O_5B|$}}}%
+    \put(0.70005191,0.73248728){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl13=|CB|$}}}%
+    \put(0.70005191,0.62907997){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl16=|AB|$}}}%
+    \put(0.70005191,0.68078374){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl22=|DC|$}}}%
+    \put(0.52519183,0.87547437){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$i \in \{4,5,6,10,11,12,13,14 \}$}}}%
   \end{picture}%
 \endgroup%
