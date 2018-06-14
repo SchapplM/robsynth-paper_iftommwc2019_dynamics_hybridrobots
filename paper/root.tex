@@ -541,16 +541,16 @@ The kinematic constraints of the system originate from the rolling condition of 
 
 \subsubsection{Elbow Joint}
 
-The gear constraints in the elbow joint are produced by two gear mechanisms on both sides of the central gear.
+The gear constraints in the elbow joint are \replaced[id=Lg]{the result of}{produced by} two gear mechanisms on both sides of the central gear.
 The CAD view of the elbow in Fig.\,\ref{fig:EllenbogenSimMech} is detailed as a kinematic sketch in Fig.\,\ref{fig:KAS5_elbow}.
 %
 \begin{figure}[tb]
-    \small
-    \begin{minipage}[t]{7.5cm}
-        \vspace{0.2cm} % wird für bounding box des Bilds benötigt
-        \input{./figures/KAS5_kinematik_ellenbogen.pdf_tex}
-    \end{minipage}
-    
+    \begin{center}
+    \fontsize{8}{8}\selectfont
+    \scalebox{1.1}{\input{./figures/KAS5_kinematik_ellenbogen.pdf_tex}}
+    \end{center}
+
+		\vspace{-4ex}
     \caption{Kinematic sketch of the Elbow Joint. Numbers in circles denote the rigid bodies, $W_1$ to $W_4$ denote the momentary pitch points of the gears.}
     \label{fig:KAS5_elbow}
 \end{figure}
@@ -590,7 +590,7 @@ which results in the relation
 \label{equ:rho6_explicit}
 \end{align}
 %
-where the integration constant $\gdelta18$ corresponds to a gear offset, which allows taking into account a shifted assembly of the central gear $\body{12}$ and the forearm $\body{6}$.
+where \deleted[id=Lg]{the integration constant} $\gdelta18$ \added[id=Lg]{is an integration constant and} corresponds to a gear offset, which allows taking into account a shifted assembly of the central gear $\body{12}$ and the forearm $\body{6}$.
 This offset was assumed to zero in (\ref{equ:delta19_explicit}) forcing an assembly according to the kinematic sketch for the central gear relative to the upper arm $\body{3}$.
 
 \subsubsection{Forearm coupling}
@@ -607,12 +607,10 @@ and
 \ggamma5 = \angle(O_5B, O_5O_6) = -\gdelta7+\pi+\rho_5
 \end{align}
 %
-have to be defined which are annotated in Fig.\,\ref{fig:KAS5_lower_coupling}, where the lower part of the mechanism is depicted.
-
-Using these intermediate angles, the distance $|AB|$ can be regarded as the coordinate of the prismatic joint from Tab.\,\ref{tab:mdh_parameter} with
+have to be defined which are annotated in Fig.\,\ref{fig:KAS5_lower_coupling}, where the lower part of the mechanism is depicted. Using these intermediate angles, the distance $|AB|$ can be regarded as the coordinate of the prismatic joint from Tab.\,\ref{tab:mdh_parameter} with
 %
 \begin{align}
-\gl16 = \|\ortvek{5}{}{A,B}\| = \|-(\ortvek{5}{}{5,6}+\ortvek{5}{}{6,A}) + \ortvek{5}{}{5,B}\|.
+\gl16 = \|\ortvek{5}{}{A,B}\| = \| \ortvek{5}{}{5,B}-(\ortvek{5}{}{5,6}+\ortvek{5}{}{6,A})\|.
 \label{equ:l16_explicit}
 \end{align}
 %
@@ -649,7 +647,7 @@ The lower part of the mechanism is depicted in Fig.\,\ref{fig:KAS5_lower_couplin
 from which the desired configuration $C$ of the mechanism is chosen as depicted.
 The coordinates of point $C$ can be calculated efficiently as $\ortvek{4}{}{5,C}$ expressed in frame $\ks{4}$ and using reference $O_5$.
 %
-With these coordinates the rotation angle $\gdelta16$ of body $\body{10}$ is calculated with trigonometric functions of $\ortvek{3}{}{D,C}$ as
+With these coordinates the rotation angle $\gdelta16$ of body $\body{10}$ is calculated \replaced[id=Lg]{from $\ortvek{3}{}{D,C}$ by}{with trigonometric functions of $\ortvek{3}{}{D,C}$ as}
 %
 \begin{align}
 \ortvek{3}{}{D,C} &= \ortvek{3}{}{D,4} + \ortvek{3}{}{4,5} +  \ortvek{3}{}{5,C} \\
@@ -705,17 +703,18 @@ from which the designated one ($F$) is chosen.
 
 \begin{figure}[htb]
     \begin{center}
-        \vspace{0.2cm} % wird für bounding box des Bilds benötigt
         \fontsize{8}{8}\selectfont
         \scalebox{1.1}{\input{./figures/KAS5_parallelmech_oben.pdf_tex}}
     \end{center}
+
+		\vspace{-3ex}
     \caption{Kinematic sketch of the upper part of the coupling mechanism}
     \label{fig:KAS5_upper_coupling}
 \end{figure}
 
 The intersection can be calculated efficiently as $\ortvek{3}{}{D,F}$ in frame $\ks{3}$ with reference $O_D$ and $\ortvek{3}{}{D,E}$ and $\ortvek{3}{}{D,3}$ known from the minimal coordinates and the previous results.
 
-This result is first used to get the intermediate angle $\ggamma3$ between $\body{8}$ and $\body{3}$ with
+\replaced[id=Lg]{At first, this result is}{This result is first} used to get the intermediate angle $\ggamma3$ between $\body{8}$ and $\body{3}$ with
 %
 \begin{align}
 \mathrm{sin}(\ggamma3) &= \ortvek{3}{y}{F,3} / \gl4 \\
@@ -734,7 +733,6 @@ The angle between $\body{2}$ and $\body{3}$ gives
 By calculating $\mathrm{sin}(\rho_3)$ and $\mathrm{cos}(\rho_3)$ with the angle sum identities as done for $\gdelta3$, it is again possible to obtain expressions not containing nested terms of the $\mathrm{arctan}$-function.
 
 The analysis of the mechanism is completed with the calculation of $\gdelta6$, which describes the orientation of $\body{9}$ in Tab.\,\ref{tab:mdh_parameter}.
-
 Since $\gdelta6$ is the inner angle of the intersection point $F$, the approach is the same as for the inner angle angle $\gdelta3$ of intersection point $C$ in (\ref{equ:delta3_xi_def1})-(\ref{equ:delta3_xi_def2}), (\ref{equ:delta3_xi2_addtheorem1})-(\ref{equ:delta3_xi2_addtheorem2}). With the vector
 %
 \begin{align}
@@ -764,7 +762,7 @@ which describes the last unknown coordinate of the kinematic transformations of 
 
 \subsubsection{Complete Kinematics Model}
 
-The expressions for the different coordinates $\gl16$ (\ref{equ:l16_explicit}), $\gbeta1$, $\gdelta19$ (\ref{equ:delta19_explicit}), $\rho_6$ (\ref{equ:rho6_explicit}),  $\gdelta16$ (\ref{equ:delta16_explicit}), $\gdelta3$ (\ref{equ:delta3_explicit}), $\rho_3$ (\ref{equ:rho3_explicit}) and $\gdelta6$ (\ref{equ:delta6_explicit}) of the parallel mechanism provide the explicit definitions of the kinematic constraints defined in (\ref{equ:kinconstr_explicit}), which are needed for the complete kinematic description of the frames and rigid bodies defined in Tab.\,\ref{tab:mdh_parameter}.
+The expressions for the different coordinates $\gl16$ \added[id=Lg,remark={Warum ist der Index 8 hier kleiner als woanders?}]{}(\ref{equ:l16_explicit}), $\gbeta1$, $\gdelta19$ (\ref{equ:delta19_explicit}), $\rho_6$ (\ref{equ:rho6_explicit}),  $\gdelta16$ (\ref{equ:delta16_explicit}), $\gdelta3$ (\ref{equ:delta3_explicit}), $\rho_3$ (\ref{equ:rho3_explicit}) and $\gdelta6$ (\ref{equ:delta6_explicit}) of the parallel mechanism provide the explicit definitions of the kinematic constraints defined in (\ref{equ:kinconstr_explicit}), which are needed for the complete kinematic description of the frames and rigid bodies defined in Tab.\,\ref{tab:mdh_parameter}.
 
 It is emphasized, that the explicit form of the rotatory coordinates $\bm{q}_{2\mathrm{R}}$ can be calculated using (\ref{equ:kinconstr_explicit}), but also a specific implicit form can be defined with the angles as an argument of the sine and cosine functions with
 %
@@ -785,7 +783,7 @@ This is facilitated by the demonstrated use of the angle sum identities in the p
 The form  (\ref{equ:kinconstr_semiexplicit_sin})-(\ref{equ:kinconstr_semiexplicit_cos}) is called \emph{trigonometric explicit form} in this paper since trigonometric functions are used as substitution variables and the form is explicit in these variables.
 The expressions of this form have a tendency to additions and products of sine and cosine terms.
 The explicit form (\ref{equ:kinconstr_explicit}) in contrary contains nested expressions with arctangent functions, since every successive substitution of the angles in (\ref{equ:delta16_explicit}), (\ref{equ:delta3_explicit}), (\ref{equ:gamma3_explicit}) and (\ref{equ:delta6_explicit}) brings a new nested term of the arctangent function into the expression.
-The latter has shown to be very inefficient for further processing with the computer algebra system Maple, that was used to create the symbolic expressions and to generate code for dynamics functions.
+The latter has shown to be very inefficient for further processing with \replaced[id=Lg]{Maple, a}{the} computer algebra system \deleted[id=Lg]{Maple,} that was used to create the symbolic expressions and to generate code for dynamics functions.
 
 \subsubsection{Variations of the Model}
 
@@ -794,7 +792,7 @@ To enable switching between manipulation in front of or above the user, a coupli
 Similarly, the fixed angle between the shoulder $\body{2}$ and the crank $\body{8}$ can be connected with a rotatory joint or a motor which moves the shoulder F/E angle $\rho_3$ to the independent coordinates $\bm{q}_1$ and the crank angle $\gdelta8$ to the dependant coordinates $\bm{q}_2$.
 
 With these modifications, the calculations for the kinematic constraints as presented above stay the same in principle.
-However, their order needs to be changed, e.\,g. for $\rho_3$ as independent coordinate first the circle intersections ${\cc{4}\cap\cc{3}}$ and ${\cc{2}\cap\cc{1}}$ have to be calculated before assessing the elbow gear mechanism.
+However, their order needs to be changed, e.\,g. for $\rho_3$ as independent coordinate first the circle intersections ${\cc{4}\cap\cc{3}}$ and ${\cc{2}\cap\cc{1}}$ have to be calculated before assessing the elbow gear mechanism. \added[id=Lg,remark={Wenn diese Modifikationen keine große Relevanz haben, würde ich diesen Abschnitt 5 weglassen, da er schwer zu verstehen ist}]{}
 
 %\subsection{Kinematic Constraints in Implicit Form}
 %
