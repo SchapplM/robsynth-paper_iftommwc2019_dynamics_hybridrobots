@@ -808,15 +808,15 @@ L(\bm{q},\dot{\bm{q}}) = T(\bm{q},\dot{\bm{q}})-(U_\mathrm{g}(\bm{q})+U_\mathrm{
 \label{equ:Lagrange_energy}
 \end{align}
 %
-expressed in the minimal coordinates $\bm{q}_1$. Since rotational matrices from the frame transformations from Tab.\,\ref{tab:mdh_parameter} are used to calculate the kinetic energy $T$ and the potential energies from gravity $U_\mathrm{g}$ and from the spring $U_\mathrm{s}$, the Lagrangian has the structure
+expressed in the minimal coordinates $\bm{q}_1$. Since rotational matrices from the frame transformations from Tab.\,\ref{tab:mdh_parameter} are used to calculate the kinetic energy $T$ \replaced[id=Lg]{as well as}{and} the potential energies from gravity $U_\mathrm{g}$ and from the spring $U_\mathrm{s}$, the Lagrangian has the structure
 %
 \begin{align}
-L(\bm{q},\dot{\bm{q}}) =L( & \mathrm{sin}  (\bm{q}_{\mathrm{R}}),\mathrm{cos}(\bm{q}_{\mathrm{R}}), \bm{q}_{\mathrm{T}},\dot{\bm{q}}) \\
+L(\bm{q},\dot{\bm{q}}) =L( & \mathrm{sin}  (\bm{q}_{\mathrm{R}}),\mathrm{cos}(\bm{q}_{\mathrm{R}}), \bm{q}_{\mathrm{T}},\dot{\bm{q}}) \\\label{eq:lagrange_nonmin}
 =L( & \mathrm{sin}  (\bm{q}_{1\mathrm{R}}),\mathrm{cos}(\bm{q}_{1\mathrm{R}}), \bm{q}_{1\mathrm{T}},\dot{\bm{q}}_{1}, \nonumber \\
 & \mathrm{sin}  (\bm{q}_{2\mathrm{R}}),\mathrm{cos}(\bm{q}_{2\mathrm{R}}), \bm{q}_{2\mathrm{T}},\dot{\bm{q}}_{2}).
 \end{align}
 %
-After substitution with (\ref{equ:kinconstr_semiexplicit_sin}) to (\ref{equ:kinconstr_semiexplicit_diff}), the Lagrangian 
+After substitution \replaced[id=Lg]{of}{with} (\ref{equ:kinconstr_semiexplicit_sin}) to (\ref{equ:kinconstr_semiexplicit_diff}) \added[id=Lg]{into (\ref{eq:lagrange_nonmin})}, the Lagrangian 
 %
 \begin{align}
 L(\bm{q}_1,\dot{\bm{q}}_1)=L( & \mathrm{sin} (\bm{q}_{1\mathrm{R}}),\mathrm{cos}(\bm{q}_{1\mathrm{R}}), \bm{q}_{1\mathrm{T}},\dot{\bm{q}}_{1}, \\
@@ -833,7 +833,7 @@ This allows using the Lagrange equations
 \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L(\bm{q}_1,\dot{\bm{q}}_1)}{\partial \dot{\bm{q}}_1} - \frac{\partial L(\bm{q}_1,\dot{\bm{q}}_1)}{\partial \bm{q}_1}= \bm{\tau}^c_1,
 \end{equation}
 %
-to get the inverse dynamics joint forces $\bm{\tau}^c_1$ of the constrained system in $\bm{q}_1$-coordinates, which allows to get the dynamics equations in explicit form
+to get the inverse dynamics joint \replaced[id=Lg,remark={überall einheitlich!}]{torques}{forces} $\bm{\tau}^c_1$ \added[id=Lg,remark={Das fette $\bm{\tau}$ funktioniert irgendwie nicht richtig}]{} of the constrained system in $\bm{q}_1$-coordinates, which allows to get the dynamics equations in explicit form
 %
 \begin{equation}
 \bm{M}_1\ddot{\bm{q}}_1+\bm{c}_1(\bm{q}_1,\dot{\bm{q}}_1)+\bm{g}_1(\bm{q}_1) + \bm{\tau}_{1\mathrm{s}}(\bm{q}_1) = \bm{\tau}^c_1,
@@ -856,9 +856,9 @@ For comparison of the computational efficiency of the approach proposed in the p
 %The idea is to calculate the dynamics of the unconstrained system in an open loop structure and project the torques on the closed loop coordinates \cite{NakamuraGho1989}.
 %The necessary projection matrix is generated from the constraint equations in implicit form \cite{ParkChoPlo1999,KhalilBen1995,SaminFis2013}.
 
-The presented exoskeleton contains three kinematic loops which are cut in the joints corresponding to the rows 16, 17 and 18 of Tab.\,\ref{tab:mdh_parameter} in the points $E$, $B$ and $A$.
-These joints do not articulate any bodies and are associated with a second virtual frame in the entries 19, 20 and 21 of the table that are fixed to the other link of the respective cut joint \cite{KhalilBen1995,SaminFis2013}.
-For the given mechanism, three vector loops can be defined with the homogenous transformation matrices
+The presented exoskeleton contains three kinematic loops which are cut in the joints corresponding to the rows 16, 17 and 18 of Tab.\,\ref{tab:mdh_parameter} \replaced[id=Lg,remark={Sind das die richtigen Punkte?}]{(points $E$, $B$ and $A$)}{in the points $E$, $B$ and $A$}.
+These joints do not articulate any bodies and are associated with a second virtual frame in the entries 19, 20 and 21 of \replaced[id=Lg]{Tab.\,\ref{tab:mdh_parameter}}{the table} that are fixed to the other link of the respective cut joint \cite{KhalilBen1995,SaminFis2013}.
+For the given mechanism, three vector loops can be defined with the homogeneous transformation matrices
 %
 \begin{align}
 \tmat{3}{4} \tmat{4}{12} \tmat{12}{13} \tmat{13}{17} &= \tmat{3}{10} \tmat{10}{11} \tmat{11}{20} \label{equ:implconstr_chain1} \\
@@ -905,7 +905,7 @@ Further, for most systems the passive joint constraint Jacobian $\bm{J}_2$ is si
 \section{Actuation and Control Concept}
 \label{sec:actuation_control}
 
-To enable force assistance for the exoskeleton, a basic gravity compensation is defined similar to the partial linearization in robotics with the motor forces
+To enable force assistance for the exoskeleton, a basic gravity compensation is defined similar to the partial linearization in robotics with the motor \replaced[id=Lg]{torques}{forces}
 %
 \begin{equation}
 \bm{\tau}_{1\mathrm{m}} = \hat{\bm{g}}_1(\bm{q}_1) + \hat{\bm{\tau}}_{1\mathrm{s}}(\bm{q}_1)
@@ -919,7 +919,7 @@ in $\bm{q}_1$-coordinates and the motor affecting the joint torque
 \label{equ:JointTorque}
 \end{equation}
 %
-together with external forces $\bm{\tau}_{1\mathrm{ext}}$ resulting from user interaction or process forces, which are not regarded further in this paper.
+together with external \replaced[id=Lg]{torques}{forces} $\bm{\tau}_{1\mathrm{ext}}$ resulting from user interaction or process forces, which are not regarded further in this paper.
 If all joints in $\bm{q}_1$ are actuated and the model estimation is accurate with $\hat{\bm{\tau}}_{1\mathrm{s}} \approx \bm{\tau}_{1\mathrm{s}}$ and $\hat{\bm{g}}_{1} \approx \bm{g}_{1}$, the closed loop behaviour with this gravity compensation is
 %
 \begin{equation}
@@ -935,15 +935,15 @@ The assumption of complete actuation contradicts the exoskeleton design, is howe
 
 \subsection{Simulation}
 
-The forward dynamics
+The \added[id=Lg]{final} forward dynamics
 \begin{align}
 \ddot{\bm{q}}_1 = \bm{M}_1^{-1}( &-\bm{c}_1(\bm{q}_1,\dot{\bm{q}}_1)-\bm{g}_1(\bm{q}_1) -\bm{\tau}_{1\mathrm{s}}(\bm{q}_1) \nonumber \\
 & - \bm{\tau}_{1\mathrm{lim}}(\bm{q}_1,\dot{\bm{q}}_1)  + \bm{\tau}_{1\mathrm{m}} + \bm{\tau}_{1\mathrm{ext}})
 \label{equ:ForwDyn}
 \end{align}
-derived from (\ref{equ:Dyn_MinKoord}) and (\ref{equ:JointTorque}) with an additional joint limit model $\bm{\tau}_{1\mathrm{lim}}$ using a Hunt-Crossley stiffness and damping model.
+\added[id=Lg]{is} derived from (\ref{equ:Dyn_MinKoord}) and (\ref{equ:JointTorque}) \added[id=Lg]{and is completed} with an additional joint limit model $\bm{\tau}_{1\mathrm{lim}}$ using a Hunt-Crossley stiffness and damping model.
 The simulation is implemented in Matlab/Simulink using the constant step Runge-Kutta solver.
-The terms of the dynamics equations are derived using generated optimized code from Maple as described in Sec.\,\ref{sec:model}.
+The terms of the dynamics equations are derived using \deleted[id=Lg]{generated} optimized code \replaced[id=Lg]{directly generated by}{from} Maple as described in Sec.\,\ref{sec:model}.
 
 With ${\bm{\tau}_{1\mathrm{m}} = \bm{\tau}_{1\mathrm{ext}} = \bm{0}}$, the mechanism is modelled in free movement and the single energy terms of (\ref{equ:Lagrange_energy}) are in sum constant when incorporating the damping, as shown in a simulation of the forward dynamics (\ref{equ:ForwDyn}) in Fig.\,\ref{fig:SimulationEnergiekonsistenz}.
 %
@@ -973,6 +973,8 @@ The methods are
 The expressions are generated with Maple using the procedure \texttt{optimize(tryhard)} and the number of operations is counted with the procedure \texttt{cost}.
 %
 \begin{table}
+    \caption{Comparison of the computational effort for different implementations of the inverse dynamics.}\par\vspace{-3ex}
+    \label{tab:computation}
     \centering
     \setlength\tabcolsep{3pt}
     \begin{tabular}[t]{|c|c|c|c|c|c|c|}
@@ -989,13 +991,13 @@ The expressions are generated with Maple using the procedure \texttt{optimize(tr
         3: Implicit constr. & 514 & 681 & 50 & 271 & \textbf{1516} & 2 \\
         \hline
     \end{tabular}
-    \caption{Comparison of the computational effort for different implementations of the inverse dynamics.}
-    \label{tab:computation}
 \end{table}
 %
 
 Since the results are qualitatively similar for different categories, additions (``Add.''), multiplications and divisions (``Mult.''), function calls to trigonometric and square root functions (``Fcn.'') and assignments of temporary variables (``Ass.'') are summed up.
-The time for computation depends on the concrete hard- and software.
+The time for computation depends on the concrete hard- and software.\added[id=Lg,remark={Methode 2 hat die wenigstens Funktionsaufrufe, die sehr viel teurer als Add oder Ass sind. Die Zeit wäre hier schon interessant. Vllt. gibt es Literatur, in der Faktoren für verschiedenen Operatoren zu finden sind.
+Beispiel: {http://www.latkin.org/blog/2014/11/09/a-simple-benchmark-of-various-math-operations/}
+}]{}
 
 Since the inverse dynamics of the open loop tree structure can be calculated very efficiently and the sparsity of the projection matrix $\bm{W}$ is high, benefiting the symbolic inversion, the standard method 3 has an about 25\,\% lower computational effort compared to the methods 1 and 2.
 These methods based on elimination perform similar regarding the operation count.
