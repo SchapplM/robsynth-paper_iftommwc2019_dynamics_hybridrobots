@@ -791,18 +791,15 @@ The expressions of this form have a tendency to additions and products of sine a
 The explicit form (\ref{equ:kinconstr_explicit}) in contrary contains nested expressions with arctangent functions, since every successive substitution of the angles in (\ref{equ:delta16_explicit}), (\ref{equ:delta3_explicit}), (\ref{equ:gamma3_explicit}) and (\ref{equ:delta6_explicit}) brings a new nested term of the arctangent function into the expression.
 The latter has shown to be very inefficient for further processing with Maple, a computer algebra system that was used to create the symbolic expressions and to generate code for dynamics functions.
 
-\subsubsection{Variations of the Model}
-
-Adaptations on the mechanism can be incorporated in the definition of the variable coordinates $\bm{q}_1$~(\ref{equ:mincoord}), $\bm{q}_2$~(\ref{equ:depcoord}) and the constant parameters $\bm{p}_\mathrm{kin}$~(\ref{equ:kinparam}).
-To enable switching between manipulation in front of or above the user, a coupling can be added between the central elbow gear $\body{12}$ and the lever $\body{13}$ to elongate the compensation spring and reduce its force. This moves the angle $\gdelta6$ to the vector of independent joint coordinates $\bm{q}_1$.
-Similarly, the fixed angle between the shoulder $\body{2}$ and the crank $\body{8}$ can be connected with a rotatory joint or a motor which moves the shoulder F/E angle $\rho_3$ to the independent coordinates $\bm{q}_1$ and the crank angle $\gdelta8$ to the dependant coordinates $\bm{q}_2$.
-
-With these modifications, the calculations for the kinematic constraints as presented above stay the same in principle.
-However, their order needs to be changed, e.\,g. for $\rho_3$ as independent coordinate first the circle intersections ${\cc{4}\cap\cc{3}}$ and ${\cc{2}\cap\cc{1}}$ have to be calculated before assessing the elbow gear mechanism. \added[id=Lg,remark={Wenn diese Modifikationen keine große Relevanz haben, würde ich diesen Abschnitt 5 weglassen, da er schwer zu verstehen ist}]{}
-
-%\subsection{Kinematic Constraints in Implicit Form}
+%\subsubsection{Variations of the Model}
 %
+%Adaptations on the mechanism can be incorporated in the definition of the variable coordinates $\bm{q}_1$~(\ref{equ:mincoord}), $\bm{q}_2$~(\ref{equ:depcoord}) and the constant parameters $\bm{p}_\mathrm{kin}$~(\ref{equ:kinparam}).
+%To enable switching between manipulation in front of or above the user, a coupling can be added between the central elbow gear $\body{12}$ and the lever $\body{13}$ to elongate the compensation spring and reduce its force. This moves the angle $\gdelta6$ to the vector of independent joint coordinates $\bm{q}_1$.
+%Similarly, the fixed angle between the shoulder $\body{2}$ and the crank $\body{8}$ can be connected with a rotatory joint or a motor which moves the shoulder F/E angle $\rho_3$ to the independent coordinates $\bm{q}_1$ and the crank angle $\gdelta8$ to the dependant coordinates $\bm{q}_2$.
 %
+%With these modifications, the calculations for the kinematic constraints as presented above stay the same in principle.
+%However, their order needs to be changed, e.\,g. for $\rho_3$ as independent coordinate first the circle intersections ${\cc{4}\cap\cc{3}}$ and ${\cc{2}\cap\cc{1}}$ have to be calculated before assessing the elbow gear mechanism. \added[id=Lg,remark={Wenn diese Modifikationen keine große Relevanz haben, würde ich diesen Abschnitt 5 weglassen, da er schwer zu verstehen ist}]{}
+
 
 \subsection{Dynamics Model using Explicit Constraints}
 \label{sec:Lagrange2Elim}
@@ -906,7 +903,7 @@ from \cite{NakamuraGho1989,ParkChoPlo1999} is used in the latter formulation of 
 %
 The matrix from (\ref{equ:kinconstr_impl_projmatrix}) still contains the dependent joint coordinates $\bm{q}_2$ which have to be calculated numerically with iterative methods using the Jacobians from (\ref{equ:kinconstr_impl_grad}) or with the explicit form (\ref{equ:kinconstr_explicit}).
 The advantage of this method is the availability of efficient tools to symbolically compute the inverse dynamics $\bm{\tau}$ of the unconstrained system.
-Further, for most systems the passive joint constraint Jacobian $\bm{J}_2$ is simple and can be efficiently inverted symbolically \cite{ParkChoPlo1999}.
+Further, for most systems the passive joint constraint Jacobian $\bm{J}_2$ is sparse and can be efficiently inverted symbolically \cite{ParkChoPlo1999}.
 
 \section{Actuation and Control Concept}
 \label{sec:actuation_control}
@@ -954,10 +951,13 @@ The terms of the dynamics equations are derived using optimized code directly ge
 With ${\bm{\tau}_{1\mathrm{m}} = \bm{\tau}_{1\mathrm{ext}} = \bm{0}}$, the mechanism is modelled in free movement and the single energy terms of (\ref{equ:Lagrange_energy}) are in sum constant when incorporating the damping, as shown in a simulation of the forward dynamics (\ref{equ:ForwDyn}) in Fig.\,\ref{fig:SimulationEnergiekonsistenz}.
 %
 \begin{figure*}[htb!]
+    % Aus KAS5m5_Gelenkgrenzmodell_q_E.m
     \includegraphics{figures/KAS5m5_Gelenkgrenzmodell_q_E.pdf} 
-    \caption{variations in time of a simulation to check energy consistency. Left: Minimal coordinates from (\ref{equ:mincoord}). Right: Energies (kinetic $T$, gravity $U_\mathrm{g}$, elasticity of modeled joint limits $U_\mathrm{limit}$, linear spring $U_\mathrm{s}$, total energy $E_\mathrm{total}$, Dissipated energy $E_\mathrm{Diss}$). TODO: Regenerate figure with new colours and legends.}
+    \vspace{-0.4cm}
+    \caption{Variations in time of a simulation to check energy consistency. Left: Minimal coordinates from (\ref{equ:mincoord}). Right: Energies (kinetic $T$, gravity $U_\mathrm{g}$, elasticity of modeled joint limits $U_\mathrm{limit}$, linear spring $U_\mathrm{s}$, total energy $E_\mathrm{total}$, Dissipated energy $E_\mathrm{diss}$).}
     \label{fig:SimulationEnergiekonsistenz}
-\end{figure*} 
+    \vspace{-0.2cm}
+\end{figure*}
 %
 Further, the results were compared and validated against a SimMechanics model of the mechanism.
 
@@ -1049,7 +1049,7 @@ The results will be compared to the classical approach using the projection of c
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+\renewcommand{\baselinestretch}{0.94}
 % BIBLIOGRAPHY
 \bibliographystyle{ieeetr}
 \bibliography{ref}
