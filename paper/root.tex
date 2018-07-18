@@ -472,7 +472,7 @@ The parameters describing the transformations between these frames are given in 
     \label{tab:mdh_parameter}
 \end{table}
 %
-\deleted[id=Lg]{A kinematic sketch of the whole mechanism from Fig.\,\ref{fig:KAS5_CAD} is given in Fig.\,\ref{fig:KAS5_kinematik} with annotations for frames, bodies and coordinates according to Tab.\,\ref{tab:mdh_parameter}.}
+A kinematic sketch of the whole mechanism from Fig.\,\ref{fig:KAS5_CAD} is given in Fig.\,\ref{fig:KAS5_kinematik} with annotations for frames, bodies and coordinates to improve the confirmability of Tab.\,\ref{tab:mdh_parameter}. Details are given in Figures \ref{fig:KAS5_elbow}, \ref{fig:KAS5_lower_coupling} and \ref{fig:KAS5_upper_coupling}.
 %
 \begin{figure}[tb]
     \begin{center}
@@ -488,11 +488,9 @@ Due to the structure of the mechanism, the extended notation with anteceding lin
 The marker $\mu_i$ is set to 1 for the joints representing the generalized coordinates from (\ref{equ:mincoord}), regardless whether they are actuated or not.
 The order of rotations $\bm{R}$ and translations $\bm{T}$ is given in the head row for $\gamma_i$ to $r_i$.
 Only the rows 1 to 15 of the table mark frames associated with rigid bodies.
-The rows 16-18 denote the first frame and the rows 19-21 the second frame of the cut joints belonging to the three closed kinematic loops.
-\added[id=Lg]{A kinematic sketch of the whole mechanism from Fig.\,\ref{fig:KAS5_CAD} is given in Fig.\,\ref{fig:KAS5_kinematik} with annotations for frames, bodies and coordinates according to Tab.\,\ref{tab:mdh_parameter}.}
+The rows 16-18 denote the first frame and the rows 19-21 the second frame of the cut joints belonging to the three closed kinematic loops. The coordinate of the cut joint frames 16-18 are marked with a ``$*$'' and are not regarded further, since they are not needed for the dynamics.
 
 The mechanism is regarded without the kinematic constraints by virtually cutting the loop-closing joints resulting in a tree structure \cite{KhalilBen1995} and removing the other constraints that are referred to as ``user constraints'' in \cite{SaminFis2013}.
-\added[id=Lg]{The joint coordinates of the main structure are denoted with $\rho$ and the coordinates of the parallel coupling and support mechanism with $\eta$.}
 According to \cite{NakamuraGho1989}, the coordinates 
 %
 \begin{equation}
@@ -519,9 +517,10 @@ The constant kinematics parameters can be grouped in a separate vector
 \bm{p}_\mathrm{kin}=\begin{pmatrix}\gdelta8 & \gdelta17 & \gl1 & \gl2 & ... & \gl13 \end{pmatrix}^\mathrm{T}.
 \label{equ:kinparam}
 \end{equation}
-\added[id=Lg,remark={Is it intended that some $\eta_i$ are parameters and some $L_i$ are dependant coordinates? This might be confusing. Can this be avoided by other namings?}]{}
 
-\replaced[id=Lg]{Without loss of generality, the coordinates $\rho$ and $\eta$ can}{The joint coordinates of the main structure are denoted with $\rho$ and the coordinates of the parallel coupling and support mechanism with $\eta$. These can without loss of generality} be grouped according to the joint type into rotational coordinates $\bm{q}_{\mathrm{R}}$ corresponding to $\sigma_i=0$ and translational coordinates $\bm{q}_{\mathrm{T}}$ corresponding to $\sigma_i=1$ with
+Hereby the joint coordinates of the main structure are denoted with $\rho$, the coordinates and constant angles of the parallel coupling and support mechanism with $\eta$ and the variable elongation of the spring with $\gl16$.
+
+Without loss of generality, the coordinates $\rho$ and $\eta$ can be grouped according to the joint type into rotational coordinates $\bm{q}_{\mathrm{R}}$ corresponding to $\sigma_i=0$ and translational coordinates $\bm{q}_{\mathrm{T}}$ corresponding to $\sigma_i=1$ with
 %
 \begin{equation}
 \bm{q}_1=\begin{pmatrix}\bm{q}_{1\mathrm{R}}^\mathrm{T} & \bm{q}_{1\mathrm{T}}^\mathrm{T} \end{pmatrix}^\mathrm{T},
@@ -636,10 +635,9 @@ The orientation $\gbeta1$ of the spring-damper-system consisting of the bodies $
 
 \subsubsection{Elbow-shoulder-coupling}
 
-The crank-lever mechanism coupling the shoulder with the elbow joint can be described mathematically by intersecting circles.
+The crank-lever mechanism coupling the shoulder with the elbow joint can be described mathematically by intersecting circles which results in a quadratic equation for the intersection points.
 %This is among others practiced in the geometric method for deducing the inverse kinematics of parallel robots.
 %
-The coordinates of the intersection points can be calculated with a quadratic equation to solve the intersection of the line connecting these points with the circle.\added[id=Lg,remark={Last sentence ???}]{}
 
 The lower part of the mechanism is depicted in Fig.\,\ref{fig:KAS5_lower_coupling} with the circles $\cc{1}$ (center $B$, radius $\gl13=|BC|$) and $\cc{2}$ (center $D$, radius $\gl22=|DC|$) which have two possible intersections
 %
