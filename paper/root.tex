@@ -564,11 +564,11 @@ Of course, the choice of coordinates is arbitrary and also a different set of co
 
 Describing the velocity of the pitch points $W_1$ and $W_2$ of the gears of $\body{3}$ and $\body{12}$ in frame $\ks{4}$ with the assumption of no backlash leads to
 %
-\begin{align}
-\bm{v}_{W_1} &= \bm{v}_{W_2} \\
-\bm{v}_{3} +\bm{\omega}_{4,3} \times \bm{r}_{4,W_1} &= \bm{v}_{12} +\bm{\omega}_{4,12} \times \bm{r}_{12,W_2} \\
--\ghl11\dot{\rho}_4\bm{e}_y &= -\ghl11 \gdotdelta19 \bm{e}_y
-\end{align}
+\begin{alignat}{2}
+&\qquad& \bm{v}_{W_1} &= \bm{v}_{W_2} \\
+&\Rightarrow& \bm{v}_{3} +\bm{\omega}_{4,3} \times \bm{r}_{4,W_1} &= \bm{v}_{12} +\bm{\omega}_{4,12} \times \bm{r}_{12,W_2} \\
+&\Rightarrow& -\ghl11\dot{\rho}_4\bm{e}_y &= -\ghl11 \gdotdelta19 \bm{e}_y
+\end{alignat}
 %
 and results in the kinematic relation
 %
@@ -579,12 +579,12 @@ and results in the kinematic relation
 %
 Similarly, the rolling condition of the central gear ($\body{12}$, $W_3$) with the forearm ($\body{6}$, $W_4$), expressed in frame $\ks{5}$, can be written as the velocity of the pitch points
 %
-\begin{align}
-\bm{v}_{W_3} &= \bm{v}_{W_4} \\
-\bm{v}_{12} +\bm{\omega}_{5,12} \times \bm{r}_{5,W_3} &= \bm{v}_{6} +\bm{\omega}_{5,6} \times \bm{r}_{6,W_4} \\
-(-\dot{\rho}_5+\gdotdelta19) \bm{e}_z \times \ghl12 \bm{e}_x &= \dot{\rho}_6\bm{e}_z \times (-\ghl12)\bm{e}_x \\
-(-\dot{\rho}_5+\gdotdelta19) \ghl12 \bm{e}_y &= -\ghl12 \dot{\rho}_6\bm{e}_y
-\end{align}
+\begin{alignat}{2}
+&\qquad& \bm{v}_{W_3} &= \bm{v}_{W_4} \\
+&\Rightarrow& \bm{v}_{12} +\bm{\omega}_{5,12} \times \bm{r}_{5,W_3} &= \bm{v}_{6} +\bm{\omega}_{5,6} \times \bm{r}_{6,W_4} \\
+&\Rightarrow& (-\dot{\rho}_5+\gdotdelta19) \bm{e}_z \times \ghl12 \bm{e}_x &= \dot{\rho}_6\bm{e}_z \times (-\ghl12)\bm{e}_x \\
+&\Rightarrow& (-\dot{\rho}_5+\gdotdelta19) \ghl12 \bm{e}_y &= -\ghl12 \dot{\rho}_6\bm{e}_y
+\end{alignat}
 %
 which results in the relation
 %
