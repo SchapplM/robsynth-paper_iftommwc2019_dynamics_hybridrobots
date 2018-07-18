@@ -23,14 +23,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.7"
-     inkscape:cx="112.60201"
-     inkscape:cy="202.16788"
+     inkscape:cx="147.73715"
+     inkscape:cy="135.14085"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1280"
-     inkscape:window-height="776"
-     inkscape:window-x="0"
+     inkscape:window-width="1867"
+     inkscape:window-height="1056"
+     inkscape:window-x="1973"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
      units="mm"
@@ -1604,36 +1604,36 @@
     <text
        sodipodi:linespacing="125%"
        id="text4036-6-0-4-3-7-3-7-3"
-       y="857.70593"
+       y="855.9848"
        x="186.0374"
        style="font-style:normal;font-weight:normal;font-size:36.19889069px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
        xml:space="preserve"><tspan
          style="font-size:3.61988902px"
-         y="857.70593"
+         y="855.9848"
          x="186.0374"
          id="tspan4038-88-5-8-01-1-6-5-5"
          sodipodi:role="line">$\gl13=|CB|$</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4036-6-0-4-3-7-3-7-3-6"
-       y="885.18622"
-       x="186.0374"
+       y="880.02289"
+       x="192.0374"
        style="font-style:normal;font-weight:normal;font-size:36.19889069px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
        xml:space="preserve"><tspan
          style="font-size:3.61988902px"
-         y="885.18622"
-         x="186.0374"
+         y="880.02289"
+         x="192.0374"
          id="tspan4038-88-5-8-01-1-6-5-5-2"
          sodipodi:role="line">$\gl16=|AB|$</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4036-6-0-4-3-7-3-7-3-6-3"
-       y="871.44604"
+       y="868.00385"
        x="186.0374"
        style="font-style:normal;font-weight:normal;font-size:36.19889069px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
        xml:space="preserve"><tspan
          style="font-size:3.61988902px"
-         y="871.44604"
+         y="868.00385"
          x="186.0374"
          id="tspan4038-88-5-8-01-1-6-5-5-2-6"
          sodipodi:role="line">$\gl22=|DC|$</tspan></text>
@@ -1649,5 +1649,17 @@
          x="139.56868"
          y="819.7074"
          style="font-size:3.55896211px">$i \in \{4,5,6,10,11,12,13,14 \}$</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4036-6-0-4-3-7-3-7-36"
+       y="892.04193"
+       x="186.0374"
+       style="font-style:normal;font-weight:normal;font-size:36.19889069px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         style="font-size:3.61988902px"
+         y="892.04193"
+         x="186.0374"
+         id="tspan4038-88-5-8-01-1-6-5-7"
+         sodipodi:role="line">$\gl23=|O_6A|$</tspan></text>
   </g>
 </svg>

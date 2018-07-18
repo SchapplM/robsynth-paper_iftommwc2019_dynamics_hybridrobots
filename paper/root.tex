@@ -138,6 +138,8 @@
         L_{14}}
     \expandafter\newcommand\csname gl22\endcsname{%
         L_{10}}
+    \expandafter\newcommand\csname gl23\endcsname{%
+        L_{15}}
     \expandafter\newcommand\csname gl16\endcsname{%
         L_\mathrm{s}}
 \else
@@ -202,6 +204,8 @@
         l_{21}}
     \expandafter\newcommand\csname gl22\endcsname{%
         l_{22}}
+    \expandafter\newcommand\csname gl23\endcsname{%
+        l_{23}}
     \expandafter\newcommand\csname gl16\endcsname{%
         l_\mathrm{F}}
 \fi
@@ -434,39 +438,39 @@ The parameters describing the transformations between these frames are given in 
     \centering
     \setlength\tabcolsep{3pt}
     \caption{Kinematic parameters of the structure.}\par\vspace{-3.5ex}
-    \begin{tabular}[t]{|c||c|c||c|c||c|c|c|c|c|}
+    \begin{tabular}[t]{|c||c|c||c|c||c|c|c|c|c||c|}
         \hline
-        $i$ & $\mu_i$ & $\sigma_i$ & $\gamma_i$ & $\epsilon_i$ & $\alpha_i$ & $d_i$ & $\theta_i$ & $r_i$ & $a(i)$ \\
+        $i$ & $a(i)$ & $\mu_i$ & $\sigma_i$ & $\gamma_i$ & $\epsilon_i$ & $\alpha_i$ & $d_i$ & $\theta_i$ & $r_i$ & $O_i$\\
         \hline
-          &   &   & $\bm{R}_{\mathrm{}z}$ & $\bm{T}_{\mathrm{z}}$  & $\bm{R}_{\mathrm{}x}$  & $\bm{T}_{\mathrm{}x}$  &   $\bm{R}_{\mathrm{}z}$ & $ \bm{T}_{\mathrm{z}}$  &   \\
+          &  &   &   & $\bm{R}_{\mathrm{}z}$ & $\bm{T}_{\mathrm{z}}$  & $\bm{R}_{\mathrm{}x}$  & $\bm{T}_{\mathrm{}x}$  &   $\bm{R}_{\mathrm{}z}$ & $ \bm{T}_{\mathrm{z}}$ &  \\
         \hline
-        1 & $1$ & $0$ & $0$ & $0$ & $0$ & $0$ & $\rho_1-\pi/2$ & $\gl1$ & 0 \\
-        2 & $1$ & $0$ & $0$ & $0$ & $-\pi/2$ & $0$ & $\rho_2+\pi/2$ & $\gl2$ & 1 \\
-        3 & $0$ & $0$ & $0$ & $0$ & $\pi/2$ & $0$ & $\rho_3$ & $\gl3$ & 2 \\
-        4 & $1$ & $0$ & $0$ & $0$ & $0$ & $\gl5$ & $\rho_4$ & $0$ & 3 \\
-        5 & $1$ & $0$ & $0$ & $0$ & $0$ & $\gl11$ & $\rho_5$ & $0$ & 4 \\
-        6 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl12$ & $\rho_6 + \pi/2$ & $0$ & 5 \\
-        7 & $1$ & $0$ & $0$ & $0$ & $\pi/2$ & $0$ & $\rho_7$ & $\gl15$ & 6 \\
-        8 & $0$ & $2$ & $0$ & $0$ & $\pi/2$ & $0$ & $\gdelta8+\pi/2$ & $\gl3$ & 2 \\
-        9 & $0$ & $0$ & $0$ & $0$ & $0$ & $-\gl4$ & $-\gdelta6$ & $0$ & 8 \\
-        10 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl6$ & $-\gdelta16$ & $0$ & 3 \\
-        11 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl22$ & $\pi-\gdelta3$ & $0$ & 10 \\
-        12 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl11$ & $\gdelta19-\pi/2$ & $0$ & 4 \\
-        13 & $0$ & $2$ & $0$ & $0$ & $0$ & $0$ & $\gdelta17-\pi/2$ & $0$ & 12 \\
-        14 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl14$ & $3\pi/2-\gbeta1$ & $0$ & 13 \\
-        15 & $0$ & $1$ & $0$ & $0$ & $\pi/2$ & $0$ & $0$ & $\gl16$ & 14 \\
+        1 & 0 & $1$ & $0$ & $0$ & $0$ & $0$ & $0$ & $\rho_1-\pi/2$ & $\gl1$ & $O_1$ \\
+        2 & 1 & $1$ & $0$ & $0$ & $0$ & $-\pi/2$ & $0$ & $\rho_2+\pi/2$ & $\gl2$ & $O_2$ \\
+        3 & 2 & $0$ & $0$ & $0$ & $0$ & $\pi/2$ & $0$ & $\rho_3$ & $\gl3$ & $O_2$ \\
+        4 & 3 & $1$ & $0$ & $0$ & $0$ & $0$ & $\gl5$ & $\rho_4$ & $0$ & $O_4$ \\
+        5 & 4 & $1$ & $0$ & $0$ & $0$ & $0$ & $\gl11$ & $\rho_5$ & $0$ & $O_5$ \\
+        6 & 5 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl12$ & $\rho_6 + \pi/2$ & $0$ & $O_6$ \\
+        7 & 6 & $1$ & $0$ & $0$ & $0$ & $\pi/2$ & $0$ & $\rho_7$ & $\gl15$ & $O_7$ \\
+        8 & 2 & $0$ & $2$ & $0$ & $0$ & $\pi/2$ & $0$ & $\gdelta8+\pi/2$ & $\gl3$ & $O_2$ \\
+        9 & 8 & $0$ & $0$ & $0$ & $0$ & $0$ & $-\gl4$ & $-\gdelta6$ & $0$ & $F$ \\
+        10 & 3 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl6$ & $-\gdelta16$ & $0$ & $D$ \\
+        11 & 10 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl22$ & $\pi-\gdelta3$ & $0$ & $C$ \\
+        12 & 4 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl11$ & $\gdelta19-\pi/2$ & $0$ & $O_5$ \\
+        13 & 12 & $0$ & $2$ & $0$ & $0$ & $0$ & $0$ & $\gdelta17-\pi/2$ & $0$ & $O_5$ \\
+        14 & 13 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl14$ & $3\pi/2-\gbeta1$ & $0$ & $B$ \\
+        15 & 14 & $0$ & $1$ & $0$ & $0$ & $\pi/2$ & $0$ & $0$ & $\gl16$ & $A$ \\
         \rowcolor{LightCyan}
-        16 & $0$ & $0$ & $\gdelta9$ & $0$ & $0$ & $\gl21$ & $*$ & $0$ & 10 \\
+        16 & 10 & $0$ & $0$ & $\gdelta9$ & $0$ & $0$ & $\gl21$ & $*$ & $0$ & $E$ \\
         \rowcolor{LightCyan}
-        17 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl14$ & $*$ & $0$ & 13 \\
+        17 & 13 & $0$ & $0$ & $0$ & $0$ & $0$ & $\gl14$ & $*$ & $0$ & $B$ \\
         \rowcolor{LightCyan}
-        18 & $0$ & $0$ & $-\pi/2-\gdelta20$ & $0$ & $0$ & $\gl22$ & $*$ & $0$ & 6 \\
+        18 & 6 & $0$ & $0$ & $-\gdelta20'$ & $0$ & $0$ & $\gl23$ & $*$ & $0$ & $A$ \\
         \rowcolor{Gray}
-        19 & $2$ & $0$ & $0$ & $\gl20$ & $0$ & $0$ & $0$ & $0$ & 9 \\
+        19 & 9 & $2$ & $0$ & $0$ & $\gl20$ & $0$ & $0$ & $0$ & $0$ & $E$ \\
         \rowcolor{Gray}
-        20 & $2$ & $0$ & $0$ & $\gl13$ & $0$ & $0$ & $0$ & $0$ & 11 \\
+        20 & 11 & $2$ & $0$ & $0$ & $\gl13$ & $0$ & $0$ & $0$ & $0$ & $B$ \\
         \rowcolor{Gray}
-        21 & $2$ & $0$ & $-\pi/2$ & $0$ & $0$ & $0$ & $0$ & $0$ & 15 \\
+        21 & 15 & $2$ & $0$ & $-\pi/2$ & $0$ & $0$ & $0$ & $0$ & $0$ & $A$ \\
         \hline
     \end{tabular}
     \label{tab:mdh_parameter}
@@ -489,6 +493,7 @@ The marker $\mu_i$ is set to 1 for the joints representing the generalized coord
 The order of rotations $\bm{R}$ and translations $\bm{T}$ is given in the head row for $\gamma_i$ to $r_i$.
 Only the rows 1 to 15 of the table mark frames associated with rigid bodies.
 The rows 16-18 denote the first frame and the rows 19-21 the second frame of the cut joints belonging to the three closed kinematic loops. The coordinate of the cut joint frames 16-18 are marked with a ``$*$'' and are not regarded further, since they are not needed for the dynamics.
+Additionally, the origins $O_i$ of the frames are given in Tab.\,\ref{tab:mdh_parameter} for a better overview.
 
 The mechanism is regarded without the kinematic constraints by virtually cutting the loop-closing joints resulting in a tree structure \cite{KhalilBen1995} and removing the other constraints that are referred to as ``user constraints'' in \cite{SaminFis2013}.
 According to \cite{NakamuraGho1989}, the coordinates 
@@ -857,7 +862,7 @@ For comparison of the computational efficiency of the approach proposed in the p
 %The idea is to calculate the dynamics of the unconstrained system in an open loop structure and project the torques on the closed loop coordinates \cite{NakamuraGho1989}.
 %The necessary projection matrix is generated from the constraint equations in implicit form \cite{ParkChoPlo1999,KhalilBen1995,SaminFis2013}.
 
-The presented exoskeleton contains three kinematic loops which are cut in the joints corresponding to the rows 16, 17 and 18 of Tab.\,\ref{tab:mdh_parameter} \replaced[id=Lg,remark={Sind das die richtigen Punkte?}]{(points $E$, $B$ and $A$)}{in the points $E$, $B$ and $A$}.
+The presented exoskeleton contains three kinematic loops which are cut in the joints corresponding to the rows 16, 17 and 18 of Tab.\,\ref{tab:mdh_parameter} (points $E$, $B$ and $A$).
 These joints do not articulate any bodies and are associated with a second virtual frame in the entries 19, 20 and 21 of Tab.\,\ref{tab:mdh_parameter} that are fixed to the other link of the respective cut joint \cite{KhalilBen1995,SaminFis2013}.
 For the given mechanism, three vector loops can be defined with the homogeneous transformation matrices
 %
@@ -869,7 +874,7 @@ For the given mechanism, three vector loops can be defined with the homogeneous 
 \end{align}
 %
 Each of these equations provides two linearly independent entries in the translational part of the transformation matrix.
-Therefore the angle of the cut joint does not have to be regarded (and is marked with ``$*$'' in the table).
+Therefore the angle of the cut joint does not have to be regarded.
 Together with the gear constraints (\ref{equ:delta19_explicit}) and (\ref{equ:rho6_explicit}) the eight implicit constraints can be written as
 %
 \begin{align}

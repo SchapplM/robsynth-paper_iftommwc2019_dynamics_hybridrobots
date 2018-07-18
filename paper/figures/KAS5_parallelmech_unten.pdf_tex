@@ -104,9 +104,10 @@
     \put(0.40987118,0.18734312){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\body{13}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=20]{KAS5_parallelmech_unten.pdf}}%
     \put(0.70005191,0.78419104){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl14=|O_5B|$}}}%
-    \put(0.70005191,0.73248728){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl13=|CB|$}}}%
-    \put(0.70005191,0.62907997){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl16=|AB|$}}}%
-    \put(0.70005191,0.68078374){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl22=|DC|$}}}%
+    \put(0.70005191,0.73896383){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl13=|CB|$}}}%
+    \put(0.72262969,0.64850939){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl16=|AB|$}}}%
+    \put(0.70005191,0.69373661){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl22=|DC|$}}}%
     \put(0.52519183,0.87547437){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$i \in \{4,5,6,10,11,12,13,14 \}$}}}%
+    \put(0.70005191,0.60328217){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl23=|O_6A|$}}}%
   \end{picture}%
 \endgroup%

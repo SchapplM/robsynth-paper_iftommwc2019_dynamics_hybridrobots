@@ -106,8 +106,9 @@
     \put(0,0){\includegraphics[width=\unitlength,page=24]{KAS5_parallelmech_oben.pdf}}%
     \put(0.35049256,0.0762769){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\body{10}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=25]{KAS5_parallelmech_oben.pdf}}%
-    \put(0.04218507,0.23171226){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl4=|O_2F|$}}}%
-    \put(0.0452274,0.18503076){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl6=|O_4D|$}}}%
-    \put(0.03006973,0.13834925){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl20=|EF|$}}}%
+    \put(0.04218507,0.23923818){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl4=|O_2F|$}}}%
+    \put(0.0452274,0.18803809){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl6=|O_4D|$}}}%
+    \put(0.03006973,0.13683846){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl20=|EF|$}}}%
+    \put(0.02975227,0.08563883){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl21=|DE|$}}}%
   \end{picture}%
 \endgroup%
