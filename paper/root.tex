@@ -966,43 +966,42 @@ The computational effort to compute the terms of the dynamics is compared in Tab
 The methods are 
 %
 \begin{enumerate}
-    \item \emph{Trigonometric elimination} of the constraints by substituting with (\ref{equ:kinconstr_semiexplicit_sin})-(\ref{equ:kinconstr_semiexplicit_cos}) as described in Sec.\,\ref{sec:Lagrange2Elim}, 
-    \item \emph{Direct elimination} of the constraints by directly using (\ref{equ:kinconstr_explicit}) to substitute the dependent joint coordinates in (\ref{equ:Lagrange_energy}),
-    \item using \emph{implicit constraint equations} as described in Sec.\,\ref{sec:DynamicsImpl}.
+    \item \emph{Trigonometric elimination} (``TE'') of the constraints by substituting with (\ref{equ:kinconstr_semiexplicit_sin})-(\ref{equ:kinconstr_semiexplicit_cos}) as described in Sec.\,\ref{sec:Lagrange2Elim}, 
+    \item \emph{Direct elimination} (``DE'') of the constraints by directly using (\ref{equ:kinconstr_explicit}) to substitute the dependent joint coordinates in (\ref{equ:Lagrange_energy}),
+    \item using \emph{implicit constraint equations} (``IC'') as described in Sec.\,\ref{sec:DynamicsImpl}.
 \end{enumerate}
 %
 The expressions are generated with Maple using the procedure \texttt{optimize(tryhard)} and the number of operations is counted with the procedure \texttt{cost}.
 %
 \begin{table}
-    \caption{Comparison of the computational effort for different implementations of the inverse dynamics.}\par\vspace{-3ex}
+    \caption{Comparison of the computational effort for different implementations of the gravitational load.}\par\vspace{-3ex}
     \label{tab:computation}
     \centering
     \setlength\tabcolsep{3pt}
-    \begin{tabular}[t]{|c|c|c|c|c|c|c|}
+    \begin{tabular}[t]{|c|c|c|c|c|c|c|c|c|c|}
         \hline
-        Method & Add. & Mult. & Fcn. & Ass. & Sum & $t_\mathrm{Gen}$ [s] \\
+        Method & $\pm$ & $*$ & $/$ & $\sqrt{}$ & $\mathrm{sin}$ & $\mathrm{atan}$ & Ass. & Sum & $t_\mathrm{Gen}$ [s] \\
+        Factor & 1 & 1 & 4 & 5 & 10 & 15 & 1 & (weighted) & \\
         \hline
         \rowcolor{Gray}
-        1: Trig. elim.  & 710 & 997 & 28 & 365 & \textbf{2100} & 4934 \\
+        1: TE  & 710 & 985 & 12 & 3 & 23 & 0 & 365 & \textbf{2353} & 4934 \\
         \rowcolor{Gray}
-        2: Direct elim. & 674 & 937 & 43 & 358 & \textbf{2012} & 6510 \\
-        $\bm{W}$ & 40 & 72 & 22 & 36 & 170 & 1 \\
-        $\bm{g}$ & 474 & 609 & 28 & 235 & 1346 & 1 \\
+        2: DE & 674 & 913 & 24 & 3 & 33 & 5 & 358 & \textbf{2461} & 6510 \\
+        $\bm{W}$ & 40 & 66 & 6 & 0 & 22 & 0 & 36 & 386 & 1 \\
+        $\bm{g}$ & 474 & 609 & 0 & 0 & 29 & 0 & 235 & 1608 & 1 \\
         \rowcolor{Gray}
-        3: Implicit constr. & 514 & 681 & 50 & 271 & \textbf{1516} & 2 \\
+        3: IC & 514 & 675 & 6 & 0 & 51 & 0 & 271 & \textbf{1994} & 2 \\
         \hline
     \end{tabular}
 \end{table}
 %
 
-Since the results are qualitatively similar for different categories, additions (``Add.''), multiplications and divisions (``Mult.''), function calls to trigonometric and square root functions (``Fcn.'') and assignments of temporary variables (``Ass.'') are summed up.
-The time for computation depends on the concrete hard- and software.\added[id=Lg,remark={Methode 2 hat die wenigstens Funktionsaufrufe, die sehr viel teurer als Add oder Ass sind. Die Zeit wäre hier schon interessant. Vllt. gibt es Literatur, in der Faktoren für verschiedenen Operatoren zu finden sind.
-Beispiel: {http://www.latkin.org/blog/2014/11/09/a-simple-benchmark-of-various-math-operations/}
-}]{}
+To give an estimate of the computational cost, the different operations are counted in a weighted sum. An estimation of the lower bound for the cost factor of the operation types relative to simple additions is adapted from \cite{Atkinson2014, Hindriksen2012} and given in the second row in Tab.\, \ref{tab:computation}.
+The exact time for computation depends on the concrete hard- and software.
 
-Since the inverse dynamics of the open loop tree structure can be calculated very efficiently and the sparsity of the projection matrix $\bm{W}$ is high, benefiting the symbolic inversion, the standard method 3 has an about 25\,\% lower computational effort compared to the methods 1 and 2.
-These methods based on elimination perform similar regarding the operation count.
-The time needed to optimize and generate the code is about 25\,\% lower for the proposed method 3, indicating that the computer algebra system does not perform well for the kind of expressions produced in method 2.
+Since the inverse dynamics of the open loop tree structure can be calculated very efficiently and the sparsity of the projection matrix $\bm{W}$ is high, benefiting the symbolic inversion, the standard method 3 has an about 15\,\% lower computational effort compared to method 1.
+The methods 1 and 2 based on elimination perform similar regarding the operation count.
+The time $t_\mathrm{Gen}$ needed to optimize and generate the code is about 25\,\% lower for the proposed method 1, indicating that the computer algebra system does not perform well for the kind of expressions produced in method 2.
 
 %Using method 1 needs more multiplications and additions probably due to the products in the angle sum identities.
 
