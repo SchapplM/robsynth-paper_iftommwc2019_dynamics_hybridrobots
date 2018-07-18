@@ -305,7 +305,7 @@ With this assumption mechanical constraints may only occur in the mechanism itse
 %Die Jacobi-Matrix der Zwangsbedingungen kann entweder aus der expliziten Form der ZB [Quelle] oder der impliziten Form [Quelle] erfolgen.
 
 The equations of motion of mechanic systems with kinematic constraints can in general be found with the implicit formulation of these constraints.
-The dynamics equations can be derived via the inverse of the constraints Jacobian with Lagrange multipliers \cite{NakamuraGho1989} or the Udwadia-Kalaba-equation \cite{UdwadiaKal1992}.
+The dynamics equations can be derived via the inverse of the constraints Jacobian in combination with the unconstrained dynamics \cite{NakamuraGho1989}, with Lagrange multipliers \cite{LuhZhe1985} or the Udwadia-Kalaba-equation \cite{UdwadiaKal1992}.
 The former is implemented in symbolic multi body algorithms such as Robotran \cite{SaminFis2013} or openSymoro \cite{KhalilVijKhoMuk2014}.
 The constraints Jacobian can be either derived from the explicit form of the constraints \cite{NakamuraGho1989} or from the time derivative of the implicit form \cite{ParkChoPlo1999}.
 
@@ -418,7 +418,7 @@ The last axis of the shoulder joint corresponding to the shoulder flexion/extens
 The shoulder F/E joint and the elbow joint are coupled via a mechanism consisting of two crank-lever mechanisms.
 This removes one degree of freedom of the system and forces the shoulder and first elbow rotation to move on a common trajectory.
 With this coupling it is possible to transfer forces from the shoulder to the elbow and therefore move a motor actuating the elbow to the shoulder.
-This concept is known from industrial robots with parallelogram structure connecting the second and third link where moving the motor near the second joint reduces the inertia and gravitational load of the system.\added[id=Lg,remark={Is there a reference for this?}]{}
+This concept is known from industrial robots with a parallelogram structure connecting the second and third joint where moving the motor near the second joint reduces the inertia and gravitational load of the system \cite{LuhZhe1985}.
 
 \subsubsection{Spring-Damper System}
 
