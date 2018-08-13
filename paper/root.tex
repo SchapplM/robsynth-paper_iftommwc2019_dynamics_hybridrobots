@@ -3,14 +3,7 @@
 %2345678901234567890123456789012345678901234567890123456789012345678901234567890
 %        1         2         3         4         5         6         7         8
 
-\documentclass[letterpaper, 10 pt, conference]{ieeeconf}  % Comment this line out if you need a4paper
-
-%\documentclass[a4paper, 10pt, conference]{ieeeconf}      % Use this line for a4 paper
-
-\IEEEoverridecommandlockouts                              % This command is only needed if 
-                                                          % you want to use the \thanks command
-
-\overrideIEEEmargins                                      % Needed to meet printer requirements.
+\documentclass[twocolumn,10pt]{IFTOMM}
 
 % See the \addtolength command later in the file to balance the column lengths
 % on the last page of the document
@@ -40,12 +33,13 @@
 
 \usepackage{calrsfs}
 \DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
-\newcommand{\body}[1]{\mathcal{B}_{#1}}
-\newcommand{\ks}[1]{\mathcal{F}_{#1}}
-\newcommand{\cc}[1]{\mathcal{C}_{#1}}
+\newcommand{\body}[1]{{\mathcal{B}}_{#1}}
+\newcommand{\ks}[1]{{\mathcal{F}}_{#1}}
+\newcommand{\cc}[1]{{\mathcal{C}}_{#1}}
 \newcommand{\ortvek}[3]{{ }_{(#1)}{\boldsymbol{r}}^{#2}_{#3}}
 \renewcommand{\vec}[1]{\mbox{\boldmath{$#1$}}}
 \newcommand{\tmat}[2]{{^{\mathrm{#1}}\vec{T}_{\mathrm{#2}}}}
+\newcommand{\transp}[0]{{\mathrm{T}}}
 
 % Markup package
 \usepackage[deletedmarkup=xout,authormarkup=none]{changes}
@@ -79,25 +73,25 @@
 % Neue Bezeichnungen:
 \ifneuenomenklatur
     \expandafter\newcommand\csname gdelta8\endcsname{%
-        \eta_1}
+        \eta_{1}}
     \expandafter\newcommand\csname gdelta6\endcsname{%
-        \eta_2}
+        \eta_{2}}
     \expandafter\newcommand\csname gdelta16\endcsname{%
-        \eta_3}
+        \eta_{3}}
     \expandafter\newcommand\csname gdelta3\endcsname{%
-        \eta_4}
+        \eta_{4}}
     \expandafter\newcommand\csname gdelta19\endcsname{%
-        \eta_5}
+        \eta_{5}}
     \expandafter\newcommand\csname gdotdelta19\endcsname{%
-        \dot{\eta}_5}
+        \dot{\eta}_{5}}
     \expandafter\newcommand\csname gdelta17\endcsname{%
-        \eta_6}
+        \eta_{6}}
     \expandafter\newcommand\csname gbeta1\endcsname{%
-        \eta_7}
+        \eta_{7}}
     \expandafter\newcommand\csname gdelta18\endcsname{%
-        \eta_8}
+        \eta_{8}}
     \expandafter\newcommand\csname ggamma5\endcsname{%
-        \eta_9}
+        \eta_{9}}
     \expandafter\newcommand\csname ggamma3\endcsname{%
         \eta_{10}}
     \expandafter\newcommand\csname gdelta7\endcsname{%
@@ -107,31 +101,31 @@
     \expandafter\newcommand\csname gdelta20\endcsname{%
         \eta_{13}}
     \expandafter\newcommand\csname gl1\endcsname{%
-        L_1}
+        L_{1}}
     \expandafter\newcommand\csname gl2\endcsname{%
-        L_2}
+        L_{2}}
     \expandafter\newcommand\csname gl3\endcsname{%
-        L_3}
+        L_{3}}
     \expandafter\newcommand\csname gl4\endcsname{%
-        L_8}
+        L_{8}}
     \expandafter\newcommand\csname gl5\endcsname{%
-        L_4}
+        L_{4}}
     \expandafter\newcommand\csname gl6\endcsname{%
-        L_9}
+        L_{9}}
     \expandafter\newcommand\csname gl11\endcsname{%
-        2L_5}
+        2L_{5}}
     \expandafter\newcommand\csname ghl11\endcsname{%
-        L_5}
+        L_{5}}
     \expandafter\newcommand\csname gl12\endcsname{%
-        2L_6}
+        2L_{6}}
     \expandafter\newcommand\csname ghl12\endcsname{%
-        L_6}
+        L_{6}}
     \expandafter\newcommand\csname gl13\endcsname{%
         L_{15}}
     \expandafter\newcommand\csname gl14\endcsname{%
         L_{11}}
     \expandafter\newcommand\csname gl15\endcsname{%
-        L_7}
+        L_{7}}
     \expandafter\newcommand\csname gl20\endcsname{%
         L_{14}}
     \expandafter\newcommand\csname gl21\endcsname{%
@@ -141,17 +135,17 @@
     \expandafter\newcommand\csname gl23\endcsname{%
         L_{13}}
     \expandafter\newcommand\csname gl16\endcsname{%
-        L_\mathrm{s}}
+        L_{\mathrm{s}}}
 \else
     % Original-Bezeichnungen:
     \expandafter\newcommand\csname gdelta8\endcsname{%
-        \delta_8}
+        \delta_{8}}
     \expandafter\newcommand\csname gdelta6\endcsname{%
-        \delta_6}
+        \delta_{6}}
     \expandafter\newcommand\csname gdelta16\endcsname{%
         \delta_{16}}
     \expandafter\newcommand\csname gdelta3\endcsname{%
-        \delta_3}
+        \delta_{3}}
     \expandafter\newcommand\csname gdelta19\endcsname{%
         \delta_{19}}
     \expandafter\newcommand\csname gdotdelta19\endcsname{%
@@ -159,31 +153,31 @@
     \expandafter\newcommand\csname gdelta17\endcsname{%
         \delta_{17}}
     \expandafter\newcommand\csname gbeta1\endcsname{%
-        \beta_1}
+        \beta_{1}}
     \expandafter\newcommand\csname gdelta18\endcsname{%
         \delta_{18}}
     \expandafter\newcommand\csname ggamma5\endcsname{%
-        \gamma_5}
+        \gamma_{5}}
     \expandafter\newcommand\csname ggamma3\endcsname{%
-        \gamma_3}
+        \gamma_{3}}
     \expandafter\newcommand\csname gdelta7\endcsname{%
-        \delta_7}
+        \delta_{7}}
     \expandafter\newcommand\csname gdelta9\endcsname{%
-        \delta_9}
+        \delta_{9}}
     \expandafter\newcommand\csname gdelta20\endcsname{%
         \delta_{20}}
     \expandafter\newcommand\csname gl1\endcsname{%
-        l_1}
+        l_{1}}
     \expandafter\newcommand\csname gl2\endcsname{%
-        l_2}
+        l_{2}}
     \expandafter\newcommand\csname gl3\endcsname{%
-        l_3}
+        l_{3}}
     \expandafter\newcommand\csname gl4\endcsname{%
-        l_4}
+        l_{4}}
     \expandafter\newcommand\csname gl5\endcsname{%
-        l_5}
+        l_{5}}
     \expandafter\newcommand\csname gl6\endcsname{%
-        l_6}
+        l_{6}}
     \expandafter\newcommand\csname gl11\endcsname{%
         l_{11}}
     \expandafter\newcommand\csname ghl11\endcsname{%
@@ -210,30 +204,27 @@
         l_\mathrm{F}}
 \fi
 
-\title{\LARGE \bf
-Kinematics and Dynamics Model via Explicit Trigonometric Elimination of Kinematic Constraints for a Force Assistance Exoskeleton
-}
 
-
-\author{Moritz Schappler$^{1}$, Torsten Lilge$^{2}$ and Sami Haddadin$^{3}$% <-this % stops a space
-\thanks{*This work was supported by the German Federal Ministry of Education and Research (BMBF) under grant no. 16SV6175.}% <-this % stops a space
-\thanks{$^{1}$Moritz Schappler
-        {\tt\small schappler@imes.uni-hannover.de}}%
-\thanks{$^{2}$Torsten Lilge
-    {\tt\small lilge@irt.uni-hannover.de}}%
-\thanks{$^{3}$Sami Haddadin
-        {\tt\small sami.haddadin@tum.de}}%
-}
 
 
 \begin{document}
+\def\papernumber{IK xxx}
+\def\conference_name{15th IFToMM World Congress, Krakow, Poland, 30 June--4 July, 2019}
+%PAPER TITLE
+\title{Kinematics and Dynamics Model via Explicit Trigonometric Elimination \\
+       of Kinematic Constraints for a Force Assistance Exoskeleton}
 
-
+\author{
+\begin{tabular}{cccc}
+M.\ Schappler\thanks{moritz.schappler@imes.uni-hannover.de}
+& T.\ Lilge\thanks{lilge@irt.uni-hannover.de}
+& S.\ Haddadin\thanks{sami.haddadin@tum.de} \\
+Leibniz Universität & Leibniz Universität & TU München \\
+Hannover, Germany & Hannover, Germany & München, Germany
+\end{tabular}
+}
 
 \maketitle
-\thispagestyle{empty}
-\pagestyle{empty}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
@@ -243,8 +234,13 @@ This paper presents an approach for the derivation of these models in symbolic f
 This represents an alternative solution to using the implicit form of the constraints or using the explicit elimination with comparable computational effort.
 %
 The method is applied on an exoskeleton designed for craftsmen force assistance, which consists of multiple planar closed kinematic loops and gear mechanisms.
-
 \end{abstract}
+
+
+%KEYWORDS
+\begin{keywords}
+dynamics, closed-loop, Lagrangian equations, substitution variables, explicit form
+\end{keywords}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction and State of the Art}
@@ -437,10 +433,11 @@ The parameters describing the transformations between these frames are given in 
 \begin{table}
     \centering
     \setlength\tabcolsep{3pt}
-    \caption{Kinematic parameters of the structure.}\par\vspace{-3.5ex}
-    \begin{tabular}[t]{|c||c|c||c|c||c|c|c|c|c||c|}
+    \caption{Kinematic parameters of the structure.}%\par\vspace{-3.5ex}
+    \small
+    \begin{tabular}[t]{|c|c|c|c|c|c|c|c|c|c|c|}
         \hline
-        $i$ & $a(i)$ & $\mu_i$ & $\sigma_i$ & $\gamma_i$ & $\epsilon_i$ & $\alpha_i$ & $d_i$ & $\theta_i$ & $r_i$ & $O_i$\\
+        $i$ & $a$ & $\mu_i$ & $\sigma_i$ & $\gamma_i$ & $\epsilon_i$ & $\alpha_i$ & $d_i$ & $\theta_i$ & $r_i$ & $O_i$\\
         \hline
           &  &   &   & $\bm{R}_{\mathrm{}z}$ & $\bm{T}_{\mathrm{z}}$  & $\bm{R}_{\mathrm{}x}$  & $\bm{T}_{\mathrm{}x}$  &   $\bm{R}_{\mathrm{}z}$ & $ \bm{T}_{\mathrm{z}}$ &  \\
         \hline
@@ -499,27 +496,27 @@ The mechanism is regarded without the kinematic constraints by virtually cutting
 According to \cite{NakamuraGho1989}, the coordinates 
 %
 \begin{equation}
-\bm{q}=\begin{pmatrix}\bm{q}_1^\mathrm{T} & \bm{q}_2^\mathrm{T} \end{pmatrix}^\mathrm{T}
+\bm{q}=\begin{pmatrix}\bm{q}_{1}^\transp & \bm{q}_{2}^\transp \end{pmatrix}^\transp
 \end{equation}
 %
 of the single-DoF joints of this unconstrained system can  be separated into the generalized coordinates
 %
 \begin{equation}
-\bm{q}_1=\begin{pmatrix}\rho_1 & \rho_2 & \rho_4 & \rho_5 &\rho_7 \end{pmatrix}^\mathrm{T}
+\bm{q}_1=\begin{pmatrix}\rho_{1} & \rho_{2} & \rho_{4} & \rho_5 &\rho_{7} \end{pmatrix}^\transp
 \label{equ:mincoord}
 \end{equation}
 %
 and the dependent coordinates
 %
 \begin{equation}
-\bm{q}_2=\begin{pmatrix}\rho_3 & \rho_6 & \gdelta6 & \gdelta16 & \gdelta3 & \gdelta19 & \gbeta1 & \gl16 \end{pmatrix}^\mathrm{T}.
+\bm{q}_{2}=\begin{pmatrix}\rho_{3} & \rho_{6} & \gdelta6 & \gdelta16 & \gdelta3 & \gdelta19 & \gbeta1 & \gl16 \end{pmatrix}^\transp.
 \label{equ:depcoord}
 \end{equation}
 %
 The constant kinematics parameters can be grouped in a separate vector
 %
 \begin{equation}
-\bm{p}_\mathrm{kin}=\begin{pmatrix}\gdelta8 & \gdelta17 & \gl1 & \gl2 & ... & \gl13 \end{pmatrix}^\mathrm{T}.
+\bm{p}_{\mathrm{kin}}=\begin{pmatrix}\gdelta8 & \gdelta17 & \gl1 & \gl2 & ... & \gl13 \end{pmatrix}^\transp.
 \label{equ:kinparam}
 \end{equation}
 
@@ -528,8 +525,8 @@ Hereby the joint coordinates of the main structure are denoted with $\rho$, the 
 Without loss of generality, the coordinates $\rho$ and $\eta$ can be grouped according to the joint type into rotational coordinates $\bm{q}_{\mathrm{R}}$ corresponding to $\sigma_i=0$ and translational coordinates $\bm{q}_{\mathrm{T}}$ corresponding to $\sigma_i=1$ with
 %
 \begin{equation}
-\bm{q}_1=\begin{pmatrix}\bm{q}_{1\mathrm{R}}^\mathrm{T} & \bm{q}_{1\mathrm{T}}^\mathrm{T} \end{pmatrix}^\mathrm{T},
-\bm{q}_2=\begin{pmatrix}\bm{q}_{2\mathrm{R}}^\mathrm{T} & \bm{q}_{2\mathrm{T}}^\mathrm{T} \end{pmatrix}^\mathrm{T}.
+\bm{q}_1=\begin{pmatrix}\bm{q}_{1\mathrm{R}}^\transp & \bm{q}_{1\mathrm{T}}^\transp \end{pmatrix}^\transp,
+\bm{q}_2=\begin{pmatrix}\bm{q}_{2\mathrm{R}}^\transp & \bm{q}_{2\mathrm{T}}^\transp \end{pmatrix}^\transp.
 \end{equation}
 %
 In the following, the dependent coordinates are expressed in the explicit form
@@ -780,8 +777,8 @@ It is emphasized, that the explicit form of the rotatory coordinates $\bm{q}_{2\
 The translatory coordinates $\bm{q}_{2\mathrm{T}}$ and the velocities can still be used in the explicit form
 %
 \begin{align}
-\bm{q}_{2\mathrm{T}} &= \bm{f}_{\mathrm{T}}(\bm{q}_1)  \label{equ:kinconstr_semiexplicit_transl} \\
-\dot{\bm{q}}_2 &= \bm{f}_\mathrm{diff}(\bm{q}_1,\dot{\bm{q}}_1). \label{equ:kinconstr_semiexplicit_diff}
+\bm{q}_{2\mathrm{T}} &= \bm{f}_{\mathrm{T}}(\bm{q}_{1})  \label{equ:kinconstr_semiexplicit_transl} \\
+\dot{\bm{q}}_{2} &= \bm{f}_{\mathrm{diff}}(\bm{q}_{1},\dot{\bm{q}}_{1}). \label{equ:kinconstr_semiexplicit_diff}
 \end{align}
 %
 The specific implicit form of (\ref{equ:kinconstr_semiexplicit_sin})-(\ref{equ:kinconstr_semiexplicit_cos}) allows to produce simpler symbolic expressions when solving the set of equations for the unknown joint variables. 
@@ -807,11 +804,11 @@ The latter has shown to be very inefficient for further processing with Maple, a
 The dynamics equations are derived using Lagrange equations of the second kind. This method needs the Lagrangian 
 %
 \begin{align}
-L(\bm{q},\dot{\bm{q}}) = T(\bm{q},\dot{\bm{q}})-(U_\mathrm{g}(\bm{q})+U_\mathrm{s}(\bm{q}))
+L(\bm{q},\dot{\bm{q}}) = T(\bm{q},\dot{\bm{q}})-(U_{\mathrm{g}}(\bm{q})+U_{\mathrm{s}}(\bm{q}))
 \label{equ:Lagrange_energy}
 \end{align}
 %
-expressed in the minimal coordinates $\bm{q}_1$. Since rotational matrices from the frame transformations from Tab.\,\ref{tab:mdh_parameter} are used to calculate the kinetic energy $T$ as well as the potential energies from gravity $U_\mathrm{g}$ and from the spring $U_\mathrm{s}$, the Lagrangian has the structure
+expressed in the minimal coordinates $\bm{q}_{1}$. Since rotational matrices from the frame transformations from Tab.\,\ref{tab:mdh_parameter} are used to calculate the kinetic energy $T$ as well as the potential energies from gravity $U_{\mathrm{g}}$ and from the spring $U_{\mathrm{s}}$, the Lagrangian has the structure
 %
 \begin{align}
 L(\bm{q},\dot{\bm{q}}) =L( & \mathrm{sin}  (\bm{q}_{\mathrm{R}}),\mathrm{cos}(\bm{q}_{\mathrm{R}}), \bm{q}_{\mathrm{T}},\dot{\bm{q}}) \\\label{eq:lagrange_nonmin}
@@ -826,7 +823,7 @@ L(\bm{q}_1,\dot{\bm{q}}_1)=L( & \mathrm{sin} (\bm{q}_{1\mathrm{R}}),\mathrm{cos}
  & \bm{f}_{\mathrm{R}\mathrm{sin}}(\bm{q}_1),
 \bm{f}_{\mathrm{R}\mathrm{cos}}(\bm{q}_1),
 \bm{f}_{\mathrm{T}}(\bm{q}_1),
-\bm{f}_\mathrm{diff}(\bm{q}_1,\dot{\bm{q}}_1))) \nonumber
+\bm{f}_{\mathrm{diff}}(\bm{q}_1,\dot{\bm{q}}_1))) \nonumber
 \end{align}
 %
 is represented in the minimal coordinates $\bm{q}_1$.
@@ -897,7 +894,7 @@ The projection matrix
 from \cite{NakamuraGho1989,ParkChoPlo1999} is used in the latter formulation of (\ref{equ:kinconstr_impl_projmatrix}) to get the joint torques $\bm{\tau}^c_1$ of the constrained system in minimal coordinates $\bm{q}_1$ as
 %
 \begin{equation}
-\bm{\tau}^c_1 = \bm{W}^\mathrm{T} \bm{\tau}.
+\bm{\tau}^{c}_{1} = \bm{W}^\transp \bm{\tau}.
 \label{equ:tau_projection}
 \end{equation}
 %
@@ -954,7 +951,7 @@ With ${\bm{\tau}_{1\mathrm{m}} = \bm{\tau}_{1\mathrm{ext}} = \bm{0}}$, the mecha
     % Aus KAS5m5_Gelenkgrenzmodell_q_E.m
     \includegraphics{figures/KAS5m5_Gelenkgrenzmodell_q_E.pdf} 
     \vspace{-0.4cm}
-    \caption{Variations in time of a simulation to check energy consistency. Left: Minimal coordinates from (\ref{equ:mincoord}). Right: Energies (kinetic $T$, gravity $U_\mathrm{g}$, elasticity of modeled joint limits $U_\mathrm{limit}$, linear spring $U_\mathrm{s}$, total energy $E_\mathrm{total}$, Dissipated energy $E_\mathrm{diss}$).}
+    \caption{Variations in time of a simulation to check energy consistency. Left: Minimal coordinates from (\ref{equ:mincoord}). Right: Energies (kinetic $T$, gravity $U_{\mathrm{g}}$, elasticity of modeled joint limits $U_{\mathrm{limit}}$, linear spring $U_{\mathrm{s}}$, total energy $E_{\mathrm{total}}$, Dissipated energy $E_{\mathrm{diss}}$).}
     \label{fig:SimulationEnergiekonsistenz}
     \vspace{-0.2cm}
 \end{figure*}
@@ -985,7 +982,7 @@ The expressions are generated with Maple using the procedure \texttt{optimize(tr
     \setlength\tabcolsep{3pt}
     \begin{tabular}[t]{|c|c|c|c|c|c|c|c|c|c|}
         \hline
-        Method & $\pm$ & $*$ & $/$ & $\sqrt{}$ & $\mathrm{sin}$ & $\mathrm{atan}$ & $:=$ & Sum & $t_\mathrm{Gen}$ [s] \\
+        Method & $\pm$ & $*$ & $/$ & $\sqrt{}$ & $\mathrm{sin}$ & $\mathrm{atan}$ & $:=$ & Sum & $t_{\mathrm{Gen}}$ [s] \\
         Factor & 1 & 1 & 4 & 5 & 10 & 15 & 1 & (weighted) & \\
         \hline
         \rowcolor{Gray}
@@ -1006,7 +1003,7 @@ The exact time for computation depends on the concrete hard- and software.
 
 Since the inverse dynamics of the open loop tree structure can be calculated very efficiently and the sparsity of the projection matrix $\bm{W}$ is high, benefiting the symbolic inversion, the standard method 3 has an about 15\,\% lower computational effort compared to method 1.
 The methods 1 and 2 based on elimination perform similar regarding the operation count.
-The time $t_\mathrm{Gen}$ needed to optimize and generate the code is about 25\,\% lower for the proposed method 1, indicating that the computer algebra system does not perform well for the kind of expressions produced in method 2.
+The time $t_{\mathrm{Gen}}$ needed to optimize and generate the code is about 25\,\% lower for the proposed method 1, indicating that the computer algebra system does not perform well for the kind of expressions produced in method 2.
 
 %Using method 1 needs more multiplications and additions probably due to the products in the angle sum identities.
 
