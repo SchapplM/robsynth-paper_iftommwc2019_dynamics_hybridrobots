@@ -431,7 +431,20 @@ The spring is transferring the moment created by the weight of the powertool tow
 \section{Kinematics and Dynamics Modelling}
 \label{sec:model}
 
+In the following, the single steps to gain dynamics equations required for control and simulation purposes are laid out at the example of the exoskeleton system introduced in the previous Sec.\,\ref{sec:exo_scenario}.
+The steps are summarized in Fig.\,\ref{fig:flowchart_overview} and include the creation of the general kinematic model and coordinate definitions in Sec.\,\ref{sec:model_fullcoord} and the elimination of supernumerous coordinates in Sec.\,\ref{sec:model_elim}.
+This makes it possible to derive the dynamics equations as shown in Sec.\,\ref{sec:Lagrange2Elim}.
+The standard method is presented in Sec.\,\ref{sec:DynamicsImpl} for comparison.
+
+\begin{figure}[tb!]
+    \input{./figures/flowchart_overview.pdf_tex}
+    \caption{Overview of the kinematics and dynamics modelling process.}
+    \label{fig:flowchart_overview}
+\end{figure} 
+
+
 \subsection{Kinematic Model and Coordinate Definition}
+\label{sec:model_fullcoord}
 
 All rotational axes of the mechanism are described as single-DoF joints using the modified Denavit-Hartenberg notation \cite{KhalilBen1995} to describe the position and orientation of the frames $\ks{i}$ attached to all rigid bodies $\body{i}$ of the mechanism.
 The parameters describing the transformations between these frames are given in Tab.\,\ref{tab:mdh_parameter}.
@@ -535,6 +548,7 @@ Without loss of generality, the coordinates $\rho$ and $\eta$ can be grouped acc
 \begin{equation}
 \bm{q}_1=\begin{pmatrix}\bm{q}_{1\mathrm{R}}^\transp & \bm{q}_{1\mathrm{T}}^\transp \end{pmatrix}^\transp,
 \bm{q}_2=\begin{pmatrix}\bm{q}_{2\mathrm{R}}^\transp & \bm{q}_{2\mathrm{T}}^\transp \end{pmatrix}^\transp.
+\label{equ:q12_sep_transl_rot}
 \end{equation}
 %
 In the following, the dependent coordinates are expressed in the explicit form
@@ -548,6 +562,7 @@ as a function of the generalized coordinates $\bm{q}_1$.
 This will be used to determine the configuration $\bm{q}$ of the complete system depending on the pose of the main structure and to generate dynamics equations for simulation and model based controllers.
 
 \subsection{Elimination of Kinematic Constraints}
+\label{sec:model_elim}
 
 The kinematic constraints of the system originate from the rolling condition of the elbow gears and the closed loop constraints in the coupling mechanism.
 
@@ -640,7 +655,7 @@ The orientation $\gbeta1$ of the spring-damper-system consisting of the bodies $
         \scalebox{1.1}{\input{./figures/KAS5_parallelmech_unten.pdf_tex}}
     \end{center}
     
-    \caption{Kinematic sketch of the lower part of the coupling mechanism}
+    \caption{Kinematic sketch of the lower part of the coupling mechanism. Missing $z$-axes point out of the paper.}
     \label{fig:KAS5_lower_coupling}
 \end{figure}
 
@@ -813,14 +828,16 @@ The latter has shown to be very inefficient for further processing with Maple, a
 \subsection{Dynamics Model using Explicit Constraints}
 \label{sec:Lagrange2Elim}
 
-The dynamics equations are derived using Lagrange equations of the second kind. This method needs the Lagrangian 
+The dynamics equations are derived in this work using Lagrange equations of the second kind. This method needs the Lagrangian 
 %
 \begin{align}
 L(\bm{q},\dot{\bm{q}}) = T(\bm{q},\dot{\bm{q}})-(U_{\mathrm{g}}(\bm{q})+U_{\mathrm{s}}(\bm{q}))
 \label{equ:Lagrange_energy}
 \end{align}
 %
-expressed in minimal coordinates $\bm{q}_{1}$. Since rotation matrices from the frame transformations from Tab.\,\ref{tab:mdh_parameter} are used to calculate the kinetic energy $T$ as well as the potential energies from gravity $U_{\mathrm{g}}$ and from the spring $U_{\mathrm{s}}$, the Lagrangian has the structure
+expressed in minimal coordinates $\bm{q}_{1}$.
+Rotation matrices from all the frame transformations from Tab.\,\ref{tab:mdh_parameter} are used to calculate the kinetic energy $T$ as well as the potential energies $U_{\mathrm{g}}$ from gravity and $U_{\mathrm{s}}$ from the spring.
+Separating the rotational and translational coordinates as introduced in (\ref{equ:q12_sep_transl_rot}) yields the Lagrangian from (\ref{equ:Lagrange_energy}) in the structure
 %
 \begin{align}
 L(\bm{q},\dot{\bm{q}}) =L( & \mathrm{sin}  (\bm{q}_{\mathrm{R}}),\mathrm{cos}(\bm{q}_{\mathrm{R}}), \bm{q}_{\mathrm{T}},\dot{\bm{q}}) \\\label{eq:lagrange_nonmin}
@@ -970,7 +987,8 @@ With ${\bm{\tau}_{1\mathrm{m}} = \bm{\tau}_{1\mathrm{ext}} = \bm{0}}$, the mecha
 %
 Furthermore, the results were compared and validated against a SimMechanics model of the mechanism.
 
-This simulation is extended by the use of a human upper body musculoskeletal model, coupled with an elasticity to the tool handle of the exoskeleton via the term $\bm{\tau}_{1\mathrm{ext}}$ in (\ref{equ:ForwDyn}), which is elaborated in \cite{KuehnHuSchHad2018}.
+% TODO: Soll das wirklich auskommentiert werden
+%This simulation is extended by the use of a human upper body musculoskeletal model, coupled with an elasticity to the tool handle of the exoskeleton via the term $\bm{\tau}_{1\mathrm{ext}}$ in (\ref{equ:ForwDyn}), which is elaborated in \cite{KuehnHuSchHad2018}.
 %This allows to ...
 
 \subsection{Computational Considerations}
@@ -1011,7 +1029,7 @@ The expressions are generated with Maple using the procedure \texttt{optimize(tr
 \end{table}
 %
 
-To give an estimate of the computational cost, the different operations are counted in a weighted sum. An estimation of the lower bound for the cost factor of the operation types relative to simple additions is adapted from \cite{Atkinson2014, Hindriksen2012} and given in the second row in Tab.\, \ref{tab:computation}.
+To give an estimate of the computational cost, the different operations are counted in a weighted sum. An estimation of the lower bound for the cost factor of the operation types relative to simple additions is adapted from \cite{Atkinson2014}, \cite{Hindriksen2012} and given in the second row in Tab.\, \ref{tab:computation}.
 The exact time for computation depends on the concrete hard- and software.
 
 Since the inverse dynamics of the open loop tree structure can be calculated very efficiently and the sparsity of the projection matrix $\bm{W}$ is high, benefiting the symbolic inversion, the standard method 3 has an $\approx$ 15\,\% lower computational effort compared to method 1.
@@ -1028,6 +1046,8 @@ We presented a novel concept for a force assistance exoskeleton to support worke
 The details of the solution of the kinematic constraints of the multi-loop mechanism focus on the elimination of trigonometric expressions of dependent variables.
 This reduces the computational load when creating symbolic code for the terms of the dynamics equation with a similar efficiency of the output.
 However, the presented approach does not reach the performance of standard solutions.
+On the upside it can be used to test the correctness of dynamics models with the standard solution by offering a different way of approaching the problem.
+This may also give new ideas to researchers working in the area of kinematics and dynamics modelling.
 
 %Future work:
 The featured approach of implementing kinematic constraints will be applied to different serial-chain industrial robots with parallel mechanisms invoking kinematic constraints, i.\,e. hybrid robots. 
