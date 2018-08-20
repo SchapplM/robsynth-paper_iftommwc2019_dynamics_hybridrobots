@@ -231,9 +231,9 @@ Hannover, Germany & Hannover, Germany & München, Germany
 
 The efficient implementation of kinematics and dynamics models is a key to model based control of mechatronic systems such as robots and wearable assistive devices.
 This paper presents an approach for the derivation of these models in symbolic form based on the explicit elimination of the kinematic constraints using substitution variables with trigonometric expressions and the Lagrange equations of the second kind.
-This represents an alternative solution to using the implicit form of the constraints or using the explicit elimination with comparable computational effort.
+This represents an alternative solution to using the implicit form of the constraints or using the explicit elimination at comparable computational effort.
 %
-The method is applied on an exoskeleton designed for craftsmen force assistance, which consists of multiple planar closed kinematic loops and gear mechanisms.
+The method is applied to an exoskeleton designed for craftsmen force assistance, which consists of multiple planar closed kinematic loops and gear mechanisms.
 \end{abstract}
 
 
@@ -248,7 +248,7 @@ dynamics, closed-loop, Lagrangian equations, substitution variables, explicit fo
 %Die Einsatzgebiete körpergetragene Systeme teilen sich u.a. auf in Exoskelette zur Rehabilitation und Kraftunterstützung, haptische Eingabegeräte und Prothesen.
 %Exoskelette werden körpernah getragen und verlaufen in ihrer Gelenkstruktur parallel zu den menschlichen Gliedmaßen.
 %Daher müssen die Gelenke des Mechanismus die Freiheitsgrade der Gelenke des Menschen nicht beschränken, um Zwangskräfte zu vermeiden, die dauerhaft zu Diskomfort und gesundheitlicher Schädigung führen.
-Body mounted robotic systems are an increasing field of research to encounter the challenges of augmenting the humans capabilities, especially when facing the demographic change.
+Body mounted robotic systems are an increasing field of research to encounter the challenges of augmenting human capabilities, especially when facing the demographic change.
 The domain can be clustered in exoskeletons for rehabilitation and force assistance, devices for human-machine-interaction and telepresence and prostheses.
 Exoskeletons are aligned close to the human body along the structure of the human limbs and joints.
 Constraining the human joint movements results in constraint forces leading to discomfort and long-term wear \cite{Pons2008}.
@@ -285,12 +285,12 @@ The mechanics modelling of the systems can be performed with the assumption of r
 
 %Die Modellierung kann durch die gleichen Methoden wie für Roboter erfolgen, jedoch sind hier passive Freiheitsgrade des Endeffektors vorhanden, die durch den Benutzer ausgeglichen werden.
 If this assumption holds, the modelling can be done with the same multi body dynamics methods as for industrial robots.
-However unlike in classical robotics, the exoskeleton systems can contain passive end-effector DoF that are levelled out by the user.
+However unlike in classical robotics, the exoskeleton systems can contain passive DoF that are equalised by the user at the end-effector.
 
 %Die Kopplung der Systeme mit dem Nutzer kann zum Einen kinematisch durch Zwangsbedingungen beschrieben werden, dazu ist jedoch eine Schätzung des Nutzerverhaltens wie in ... notwendig.
 %Hier wird eine einfachere isolierte Betrachtung des Nutzers durch extern angreifende Kräfte angenommen.
-If the coupling of the systems with the user is described kinematically with constraint equations, an estimation of the users pose is necessary.
-In this work, an isolated view of the system is taken with the user considered via external forces and moments.
+If the coupling of the system with the user is described kinematically with constraint equations, an estimation of the user pose is necessary.
+In this work, an isolated view of the system is taken with the user considered as external forces and moments.
 %
 %Mechanische Zwangsbedingungen treten dann nur noch im Mechanismus selbst auf, z.B. durch parallele mechanische Strukturen.
 With this assumption mechanical constraints may only occur in the mechanism itself, e.\,g. due to closed kinematic loops.
@@ -300,10 +300,10 @@ With this assumption mechanical constraints may only occur in the mechanism itse
 %Ersteres ist in den symbolischen Rechenprogrammen Robotran [Quelle] und openSYMORO [Quelle] implementiert.
 %Die Jacobi-Matrix der Zwangsbedingungen kann entweder aus der expliziten Form der ZB [Quelle] oder der impliziten Form [Quelle] erfolgen.
 
-The equations of motion of mechanic systems with kinematic constraints can in general be found with the implicit formulation of these constraints.
+The equations of motion of mechanical systems with kinematic constraints can in general be found with the implicit formulation of these constraints.
 The dynamics equations can be derived via the inverse of the constraints Jacobian in combination with the unconstrained dynamics \cite{NakamuraGho1989}, with Lagrange multipliers \cite{LuhZhe1985} or the Udwadia-Kalaba-equation \cite{UdwadiaKal1992}.
 The former is implemented in symbolic multi body algorithms such as Robotran \cite{SaminFis2013} or openSymoro \cite{KhalilVijKhoMuk2014}.
-The constraints Jacobian can be either derived from the explicit form of the constraints \cite{NakamuraGho1989} or from the time derivative of the implicit form \cite{ParkChoPlo1999}.
+The constraints Jacobian can be either derived from the explicit form of the constraints \cite{NakamuraGho1989}, or from the time derivative of the implicit form \cite{ParkChoPlo1999}.
 
 %Für die rechentechnisch effiziente Beschreibung sind symbolisch generierte Modellgleichungen vorteilhaft [Quelle]. Damit sind auch weitere Untersuchungen möglich wie die Gruppierung der Dynamikparameter in der parameterlinearer Form \cite{KhalilBen1995} oder weitere Untersuchungen [Quelle Park?].
 For the computationally efficient analysis of mechanisms it is advantageous to derive the equations of motion in symbolic form \cite{SaminFis2013}.
@@ -345,11 +345,11 @@ The contributions of the paper are
 The exoskeleton mechanism can be regarded as an example to emphasize the advantage of the proposed approach of explicit trigonometric elimination of kinematic constraints.
 
 Therefore, the paper is structured as follows:
-In Sec.\,\ref{sec:exo_scenario} the components of the exoskeleton are briefly presented together with the envisioned scenario of its field of application. In Sec.\,\ref{sec:model} the kinematics and dynamics modelling is presented in detail focussing on the formulation of the explicit constraint equations with substitution variables based on trigonometric expressions.
-The Sections \ref{sec:actuation_control} and
-\ref{sec:simulation} provide an exemplary concept for the actuation and the control of the system and simulation results to validate the model. Sec.\,\ref{sec:conclusion} concludes the paper.
+In Sec.\,\ref{sec:exo_scenario} the components of the considered exoskeleton are briefly presented together with the envisioned scenario of its field of application. In Sec.\,\ref{sec:model} the kinematics and dynamics modelling is shown in detail, focussing on the formulation of the explicit constraint equations with substitution variables based on trigonometric expressions.
+Sections \ref{sec:actuation_control} and
+\ref{sec:simulation} provide an exemplary concept for the actuation and the control of the system and discuss simulation results to validate the model. Sec.\,\ref{sec:conclusion} concludes the paper.
 
-\section{Exoskeleton and Scenario}
+\section{Exoskeleton Case Study}
 \label{sec:exo_scenario}
 \subsection{Scenario}
 
@@ -357,7 +357,7 @@ The exoskeleton presented in this paper is targeted as an assistive device for c
 The system is supposed to provide the basic functions
 %
 \begin{itemize}
-    \item \emph{force assistance} with a body mounted robotic structure compensating the weight of the power tool to reduce fatigue and work-related health problems,
+    \item \emph{force assistance} with a body mounted robotic structure compensating the weight of the power tool in order to reduce fatigue and work-related health problems,
     \item \emph{augmented reality} by projection of relevant data and instructions in the user's working space \cite{NuelleBriTapDem2018},
     \item \emph{guiding} by fusion of measurement data, a haptic interface, adaptive control, and interaction functions.
 \end{itemize}
@@ -372,55 +372,61 @@ The system is supposed to provide the basic functions
 %* increase work quality by projection of additional information (augmented reality, )
 %* guiding the user
 The system was developed within the project ``Third Arm'' \cite{NuelleSchTapLil2017} which continued the work presented in \cite{PetereitAlbJerSch2012}. 
-The waist-carried demonstrator from \cite{PetereitAlbJerSch2012} was tested under aspects of ergonomics and workspace and was not able to meet the requirements for the flexible use in a  craftsmen-scenario on construction sites. Thus the following design concept of an upper limb exoskeleton proximal to the users body was developed by the project consortium.
+The waist-carried demonstrator from \cite{PetereitAlbJerSch2012} was tested under aspects of ergonomics and workspace and was not able to meet the requirements for the flexible use in a  craftsmen-scenario on construction sites. Thus the following design concept of an upper limb exoskeleton proximal to the users body was developed.
 
-\subsection{Exoskeleton}
+\subsection{Exoskeleton Design}
+\label{sec:exo_des}
+The exoskeleton consists of the following parts.
 
-The exoskeleton consists of several parts which will be introduced in short before being studied closer regarding kinematics and dynamics models.
+\subsubsection{Main Structure}
+\label{sec:exo_des_main}
 
-\subsubsection{Main structure following the Human Arm}
+With the required attachment at the user's upper body and at the hand, together with the requirement of neither blocking the users workspace nor sight, the main structure of the exoskeleton shows similar DoF to the human arm.
 
-With the required attachment at the users upper body and at the hand together with the demand of neither blocking the users workspace nor sight, the main structure of the exoskeleton follows the arm of the user closely with similar DoF as the human arm.
-
-Fig.\,\ref{fig:KAS5_CAD} shows a CAD model of the complete exoskeleton to be carried in a right-hand configuration.
+Fig.\,\ref{fig:KAS5_CAD} depicts a CAD model of the complete exoskeleton to be carried in a right-hand configuration.
 
 
 \begin{figure}[tb!]
     \input{./figures/KAS5_Seitenansicht_beschriftet.pdf_tex}
-    \caption{CAD model of the exoskeleton mechanism. This CAD model is copyrighted by Michael Winkler and the BMBF project consortium ``Third Arm''.}
+    \caption{CAD model of the exoskeleton mechanism. \copyright \, by Michael Winkler and BMBF project consortium ``Third Arm''.}
     \label{fig:KAS5_CAD}
 \end{figure} 
 
 \subsubsection{Three-Axis Elbow Joint}
+\label{sec:exo_des_elbow}
 
-The elbow joint of the mechanism is aligned to the axis of rotation of the users elbow.
-To reduce constraint forces on the users elbow, the joint consists of three parallel axes\footnote{As e.\,g. also shown in \cite{Pons2008} without the gearing mechanism.} which couple the upper arm and the forearm via a central gear wheel. The mechanism is shown in detail in Fig.\,\ref{fig:EllenbogenSimMech} in different poses.
+The elbow joint of the mechanism is aligned to the axis of rotation of the user's elbow.
+To reduce according constraint forces, the joint consists of three parallel axes\footnote{As e.\,g. shown in \cite{Pons2008} without the gearing mechanism.}, which couple the upper arm and the forearm via a central gear wheel.
+The mechanism is shown in detail in Fig.\,\ref{fig:EllenbogenSimMech} in different poses.
 The lever mechanism connecting the linear spring-damper-system with the elbow is fixed to the central elbow gear.
 
 \begin{figure}[tb!]
     \small
     \input{./figures/KAS6m3_Ellenbogen_beschriftet.pdf_tex}
-    \caption{Different poses for the three-axes elbow joint. The rigid bodies are emphasized with different colours and the numbers in circles. The coupling mechanism connecting to the shoulder is left out for clarity. This CAD model is copyrighted by Michael Winkler and the BMBF project consortium ``Third Arm''.}
+    \caption{Different poses for the three-axes elbow joint. The rigid bodies are emphasized with different colours and the numbers in circles. The coupling mechanism connecting to the shoulder is left out for clarity. \copyright \, by Michael Winkler and BMBF project consortium ``Third Arm''.}
     \label{fig:EllenbogenSimMech}
 \end{figure} 
 
 \subsubsection{Three-Axes Shoulder Joint}
+\label{sec:exo_des_shoulder}
 
 The shoulder joint imitates the degrees of freedom of a simplified model of the human shoulder with three consecutive rotations with perpendicular axes.
 The last axis of the shoulder joint corresponding to the shoulder flexion/extension (F/E) is parallel to the axes of the elbow and the coupling mechanism, leaving the greatest part of the joints in one plane to simplify manufacturing and kinematics modeling.
 
-\subsubsection{Coupling Mechanism between Shoulder and Elbow}
+\subsubsection{Coupling Mechanism Shoulder-Elbow}
+\label{sec:exo_des_secoupl}
 
 The shoulder F/E joint and the elbow joint are coupled via a mechanism consisting of two crank-lever mechanisms.
 This removes one degree of freedom of the system and forces the shoulder and first elbow rotation to move on a common trajectory.
-With this coupling it is possible to transfer forces from the shoulder to the elbow and therefore move a motor actuating the elbow to the shoulder.
-This concept is known from industrial robots with a parallelogram structure connecting the second and third joint where moving the motor near the second joint reduces the inertia and gravitational load of the system \cite{LuhZhe1985}.
+With this mechanical coupling it is possible to transfer forces from the shoulder to the elbow and therefore relocate a motor actuating the elbow to the shoulder.
+This concept is known from industrial robots with a parallelogram structure connecting the second and third joint relocating the motor close to the second joint, reducing the inertia and gravitational load of the system \cite{LuhZhe1985}.
 
 \subsubsection{Spring-Damper System}
+\label{sec:exo_des_sprdamp}
 
 The elbow joint is connected via the central gear and a linear spring damper system with the forearm.
 These spring systems are known e.\,g. for their use in mountain bike suspension forks.
-The spring is transferring the moment created by the weight of the powertool towards the central gear and reduces oscillations originating from processes like drilling.
+The spring is transferring the moment created by the weight of the powertool towards the central gear and reduces oscillations originating from largely disturbing processes like drilling.
 
 \section{Kinematics and Dynamics Modelling}
 \label{sec:model}
@@ -433,7 +439,7 @@ The parameters describing the transformations between these frames are given in 
 \begin{table}
     \centering
     \setlength\tabcolsep{3pt}
-    \caption{Kinematic parameters of the structure.}%\par\vspace{-3.5ex}
+    \caption{Kinematic parameters of the considered structure.}%\par\vspace{-3.5ex}
     \small
     \begin{tabular}[t]{|c|c|c|c|c|c|c|c|c|c|c|}
         \hline
@@ -473,7 +479,8 @@ The parameters describing the transformations between these frames are given in 
     \label{tab:mdh_parameter}
 \end{table}
 %
-A kinematic sketch of the whole mechanism from Fig.\,\ref{fig:KAS5_CAD} is given in Fig.\,\ref{fig:KAS5_kinematik} with annotations for frames, bodies and coordinates to improve the confirmability of Tab.\,\ref{tab:mdh_parameter}. Details are given in Figures \ref{fig:KAS5_elbow}, \ref{fig:KAS5_lower_coupling} and \ref{fig:KAS5_upper_coupling}.
+A kinematic sketch of the mechanism is given in Fig.\,\ref{fig:KAS5_kinematik} with annotations for frames, bodies and coordinates to improve the confirmability of Tab.\,\ref{tab:mdh_parameter}.
+Details are given in Figures \ref{fig:KAS5_elbow}, \ref{fig:KAS5_lower_coupling} and \ref{fig:KAS5_upper_coupling}.
 %
 \begin{figure}[tb]
     \begin{center}
@@ -488,9 +495,10 @@ A kinematic sketch of the whole mechanism from Fig.\,\ref{fig:KAS5_CAD} is given
 Due to the structure of the mechanism, the extended notation with anteceding link index $a(i)$, joint type marker $\sigma_i$ (0 for rotational joint, 1 for prismatic joint, 2 for fixed connection) and actuation marker $\mu_i$ (0 for passive, 1 for active joint) is used.
 The marker $\mu_i$ is set to 1 for the joints representing the generalized coordinates from (\ref{equ:mincoord}), regardless whether they are actuated or not.
 The order of rotations $\bm{R}$ and translations $\bm{T}$ is given in the head row for $\gamma_i$ to $r_i$.
-Only the rows 1 to 15 of the table mark frames associated with rigid bodies.
-The rows 16-18 denote the first frame and the rows 19-21 the second frame of the cut joints belonging to the three closed kinematic loops. The coordinate of the cut joint frames 16-18 are marked with a ``$*$'' and are not regarded further, since they are not needed for the dynamics.
-Additionally, the origins $O_i$ of the frames are given in Tab.\,\ref{tab:mdh_parameter} for a better overview.
+Only rows 1 to 15 of the table mark frames associated with rigid bodies.
+Rows 16-18 denote the first frame and rows 19-21 the second frame of the cut joints belonging to the three closed kinematic loops.
+The coordinate of the cut joint frames 16-18 are marked with a ``$*$'' and are not regarded further, since they are not needed for the dynamics.
+Additionally, the origins $O_i$ of the coordinate systems are given in Tab.\,\ref{tab:mdh_parameter} for a better overview.
 
 The mechanism is regarded without the kinematic constraints by virtually cutting the loop-closing joints resulting in a tree structure \cite{KhalilBen1995} and removing the other constraints that are referred to as ``user constraints'' in \cite{SaminFis2013}.
 According to \cite{NakamuraGho1989}, the coordinates 
@@ -513,7 +521,7 @@ and the dependent coordinates
 \label{equ:depcoord}
 \end{equation}
 %
-The constant kinematics parameters can be grouped in a separate vector
+The constant kinematics parameters can be grouped into a separate vector
 %
 \begin{equation}
 \bm{p}_{\mathrm{kin}}=\begin{pmatrix}\gdelta8 & \gdelta17 & \gl1 & \gl2 & ... & \gl13 \end{pmatrix}^\transp.
@@ -546,7 +554,7 @@ The kinematic constraints of the system originate from the rolling condition of 
 \subsubsection{Elbow Joint}
 
 The gear constraints in the elbow joint are the result of two gear mechanisms on both sides of the central gear.
-The CAD view of the elbow in Fig.\,\ref{fig:EllenbogenSimMech} is detailed as a kinematic sketch in Fig.\,\ref{fig:KAS5_elbow}.
+The elbow CAD view from Fig.\,\ref{fig:EllenbogenSimMech} is shown in more detail as a kinematic sketch in Fig.\,\ref{fig:KAS5_elbow}.
 %
 \begin{figure}[tb]
     \begin{center}
@@ -560,10 +568,11 @@ The CAD view of the elbow in Fig.\,\ref{fig:EllenbogenSimMech} is detailed as a 
 \end{figure}
 %
 The constraints remove two DoF from the rigid bodies involved:
-The last elbow axis corresponding to coordinate $\rho_6$ and the coordinate $\gdelta19$ of the central gear are coupled to the remainder of the elbow mechanism which makes them dependent of the configuration of the main structure.
-Of course, the choice of coordinates is arbitrary and also a different set of coordinates can be chosen as independent.
+The last elbow axis corresponding to coordinate $\rho_6$ and the coordinate $\gdelta19$ of the central gear are coupled to the remainder of the elbow mechanism.
+This makes them dependent of the configuration of the main structure.
+Of course, the choice of coordinates is in general arbitrary and also a different set of coordinates may be chosen as independent.
 
-Describing the velocity of the pitch points $W_1$ and $W_2$ of the gears of $\body{3}$ and $\body{12}$ in frame $\ks{4}$ with the assumption of no backlash leads to
+Describing the velocity of the pitch points $W_1$ and $W_2$ of the gears of $\body{3}$ and $\body{12}$ in frame $\ks{4}$, assuming no backlash, leads to
 %
 \begin{alignat}{2}
 &\qquad& \bm{v}_{W_1} &= \bm{v}_{W_2} \\
@@ -585,6 +594,7 @@ Similarly, the rolling condition of the central gear ($\body{12}$, $W_3$) with t
 &\Rightarrow& \bm{v}_{12} +\bm{\omega}_{5,12} \times \bm{r}_{5,W_3} &= \bm{v}_{6} +\bm{\omega}_{5,6} \times \bm{r}_{6,W_4} \\
 &\Rightarrow& (-\dot{\rho}_5+\gdotdelta19) \bm{e}_z \times \ghl12 \bm{e}_x &= \dot{\rho}_6\bm{e}_z \times (-\ghl12)\bm{e}_x \\
 &\Rightarrow& (-\dot{\rho}_5+\gdotdelta19) \ghl12 \bm{e}_y &= -\ghl12 \dot{\rho}_6\bm{e}_y
+\label{equ:rho6_dt_derivation}
 \end{alignat}
 %
 which results in the relation
@@ -594,8 +604,8 @@ which results in the relation
 \label{equ:rho6_explicit}
 \end{align}
 %
-where  $\gdelta18$ is an integration constant and corresponds to a gear offset, which allows taking into account a shifted assembly of the central gear $\body{12}$ and the forearm $\body{6}$.
-This offset was assumed to zero in (\ref{equ:delta19_explicit}) forcing an assembly according to the kinematic sketch for the central gear relative to the upper arm $\body{3}$.
+where  $\gdelta18$ is a constant resulting from the integration w.r.t. time of (\ref{equ:rho6_dt_derivation}) and corresponds to a rotary gear offset, which allows taking into account a shifted assembly of the central gear $\body{12}$ and the forearm $\body{6}$.
+This offset was assumed to zero in (\ref{equ:delta19_explicit}), forcing an assembly according to the kinematic sketch for the central gear relative to the upper arm $\body{3}$.
 
 \subsubsection{Forearm coupling}
 
@@ -765,27 +775,29 @@ which describes the last unknown coordinate of the kinematic transformations of 
 
 \subsubsection{Complete Kinematics Model}
 
-The expressions for the different coordinates $\gl16$ (\ref{equ:l16_explicit}), $\gbeta1$, $\gdelta19$ (\ref{equ:delta19_explicit}), $\rho_6$ (\ref{equ:rho6_explicit}),  $\gdelta16$ (\ref{equ:delta16_explicit}), $\gdelta3$ (\ref{equ:delta3_explicit}), $\rho_3$ (\ref{equ:rho3_explicit}) and $\gdelta6$ (\ref{equ:delta6_explicit}) of the parallel mechanism provide the explicit definitions of the kinematic constraints defined in (\ref{equ:kinconstr_explicit}), which are needed for the complete kinematic description of the frames and rigid bodies defined in Tab.\,\ref{tab:mdh_parameter}.
+The expressions for the different coordinates 
+$\rho_3$ (\ref{equ:rho3_explicit}), $\rho_6$ (\ref{equ:rho6_explicit}), $\gdelta6$ (\ref{equ:delta6_explicit}), $\gdelta16$ (\ref{equ:delta16_explicit}), $\gdelta3$ (\ref{equ:delta3_explicit}), $\gdelta19$ (\ref{equ:delta19_explicit}), $\gbeta1$ and $\gl16$ (\ref{equ:l16_explicit}) of the parallel mechanism provide the explicit definitions of the kinematic constraints defined in (\ref{equ:kinconstr_explicit}), which are needed for the complete kinematic description of the frames and rigid bodies defined in Tab.\,\ref{tab:mdh_parameter}.
 
-It is emphasized, that the explicit form of the rotatory coordinates $\bm{q}_{2\mathrm{R}}$ can be calculated using (\ref{equ:kinconstr_explicit}), but also a specific implicit form can be defined with the angles as an argument of the sine and cosine functions with
+It shall be emphasized that the explicit form of the rotatory coordinates $\bm{q}_{2\mathrm{R}}$ can be calculated using (\ref{equ:kinconstr_explicit}).
+However also a specific implicit form can be defined with the angles as an argument of the sine and cosine functions with
 %
 \begin{align}
 \mathrm{sin}(\bm{q}_{2\mathrm{R}}) &= \bm{f}_{\mathrm{R}\mathrm{sin}}(\bm{q}_1) \label{equ:kinconstr_semiexplicit_sin} \\
 \mathrm{cos}(\bm{q}_{2\mathrm{R}}) &= \bm{f}_{\mathrm{R}\mathrm{cos}}(\bm{q}_1). \label{equ:kinconstr_semiexplicit_cos}
 \end{align}
 %
-The translatory coordinates $\bm{q}_{2\mathrm{T}}$ and the velocities can still be used in the explicit form
+The translatory coordinates $\bm{q}_{2\mathrm{T}}$ and velocities can still be used in the explicit form
 %
 \begin{align}
 \bm{q}_{2\mathrm{T}} &= \bm{f}_{\mathrm{T}}(\bm{q}_{1})  \label{equ:kinconstr_semiexplicit_transl} \\
 \dot{\bm{q}}_{2} &= \bm{f}_{\mathrm{diff}}(\bm{q}_{1},\dot{\bm{q}}_{1}). \label{equ:kinconstr_semiexplicit_diff}
 \end{align}
 %
-The specific implicit form of (\ref{equ:kinconstr_semiexplicit_sin})-(\ref{equ:kinconstr_semiexplicit_cos}) allows to produce simpler symbolic expressions when solving the set of equations for the unknown joint variables. 
+The specific implicit form of (\ref{equ:kinconstr_semiexplicit_sin}) and (\ref{equ:kinconstr_semiexplicit_cos}) allows to produce simpler symbolic expressions when solving the set of equations for the unknown joint variables $\bm{q}_{2}$. 
 This is facilitated by the demonstrated use of the angle sum identities in the previous subsection, e.\,g. in (\ref{equ:delta16_sin})-(\ref{equ:delta16_cos}), (\ref{equ:delta3_sin})-(\ref{equ:delta3_cos}) or (\ref{equ:delta6_sin})-(\ref{equ:delta6_cos}).
 The form  (\ref{equ:kinconstr_semiexplicit_sin})-(\ref{equ:kinconstr_semiexplicit_cos}) is called \emph{trigonometric explicit form} in this paper since trigonometric functions are used as substitution variables and the form is explicit in these variables.
 The expressions of this form have a tendency to additions and products of sine and cosine terms.
-The explicit form (\ref{equ:kinconstr_explicit}) in contrary contains nested expressions with arctangent functions, since every successive substitution of the angles in (\ref{equ:delta16_explicit}), (\ref{equ:delta3_explicit}), (\ref{equ:gamma3_explicit}) and (\ref{equ:delta6_explicit}) brings a new nested term of the arctangent function into the expression.
+The explicit form (\ref{equ:kinconstr_explicit}) on the contrary contains nested expressions with arctangent functions, since every successive substitution of the angles in (\ref{equ:delta16_explicit}), (\ref{equ:delta3_explicit}), (\ref{equ:gamma3_explicit}) and (\ref{equ:delta6_explicit}) brings a new nested term of the arctangent function into the expression.
 The latter has shown to be very inefficient for further processing with Maple, a computer algebra system that was used to create the symbolic expressions and to generate code for dynamics functions.
 
 %\subsubsection{Variations of the Model}
@@ -808,7 +820,7 @@ L(\bm{q},\dot{\bm{q}}) = T(\bm{q},\dot{\bm{q}})-(U_{\mathrm{g}}(\bm{q})+U_{\math
 \label{equ:Lagrange_energy}
 \end{align}
 %
-expressed in the minimal coordinates $\bm{q}_{1}$. Since rotational matrices from the frame transformations from Tab.\,\ref{tab:mdh_parameter} are used to calculate the kinetic energy $T$ as well as the potential energies from gravity $U_{\mathrm{g}}$ and from the spring $U_{\mathrm{s}}$, the Lagrangian has the structure
+expressed in minimal coordinates $\bm{q}_{1}$. Since rotation matrices from the frame transformations from Tab.\,\ref{tab:mdh_parameter} are used to calculate the kinetic energy $T$ as well as the potential energies from gravity $U_{\mathrm{g}}$ and from the spring $U_{\mathrm{s}}$, the Lagrangian has the structure
 %
 \begin{align}
 L(\bm{q},\dot{\bm{q}}) =L( & \mathrm{sin}  (\bm{q}_{\mathrm{R}}),\mathrm{cos}(\bm{q}_{\mathrm{R}}), \bm{q}_{\mathrm{T}},\dot{\bm{q}}) \\\label{eq:lagrange_nonmin}
@@ -822,8 +834,8 @@ After substitution of (\ref{equ:kinconstr_semiexplicit_sin}) to (\ref{equ:kincon
 L(\bm{q}_1,\dot{\bm{q}}_1)=L( & \mathrm{sin} (\bm{q}_{1\mathrm{R}}),\mathrm{cos}(\bm{q}_{1\mathrm{R}}), \bm{q}_{1\mathrm{T}},\dot{\bm{q}}_{1}, \\
  & \bm{f}_{\mathrm{R}\mathrm{sin}}(\bm{q}_1),
 \bm{f}_{\mathrm{R}\mathrm{cos}}(\bm{q}_1),
-\bm{f}_{\mathrm{T}}(\bm{q}_1),
-\bm{f}_{\mathrm{diff}}(\bm{q}_1,\dot{\bm{q}}_1))) \nonumber
+\bm{f}_{\mathrm{T}}(\bm{q}_1),\\
+& \bm{f}_{\mathrm{diff}}(\bm{q}_1,\dot{\bm{q}}_1))) \nonumber
 \end{align}
 %
 is represented in the minimal coordinates $\bm{q}_1$.
@@ -833,14 +845,14 @@ This allows using the Lagrange equations
 \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L(\bm{q}_1,\dot{\bm{q}}_1)}{\partial \dot{\bm{q}}_1} - \frac{\partial L(\bm{q}_1,\dot{\bm{q}}_1)}{\partial \bm{q}_1}= \bm{\tau}^c_1,
 \end{equation}
 %
-to get the inverse dynamics joint torques\footnote{joint forces in the case of prismatic joints are also referred to as torques for the sake of readability} $\bm{\tau}^c_1$ of the constrained system in $\bm{q}_1$-coordinates, which allows to get the dynamics equations in explicit form
+to get the inverse dynamics joint torques\footnote{joint forces in the case of prismatic joints are also referred to as torques for the sake of readability} $\bm{\tau}^c_1$ of the constrained system in $\bm{q}_1$-coordinates, which allows to obtain the dynamics equations in explicit form
 %
 \begin{equation}
 \bm{M}_1\ddot{\bm{q}}_1+\bm{c}_1(\bm{q}_1,\dot{\bm{q}}_1)+\bm{g}_1(\bm{q}_1) + \bm{\tau}_{1\mathrm{s}}(\bm{q}_1) = \bm{\tau}^c_1,
 \label{equ:Dyn_MinKoord}
 \end{equation}
 %
-where $\bm{M}$, $\bm{c}$, $\bm{g}$, $\bm{\tau}_{\mathrm{s}}$ denote the effects of inertia, centrifugal/Coriolis, gravity and the spring, respectively.
+where $\bm{M}$, $\bm{c}$, $\bm{g}$, $\bm{\tau}_{\mathrm{s}}$ denote the inertia matrix, and the vectors of centrifugal/Coriolis torques, gravity torques and spring torques, respectively.
 %der auch in \cite{NakamuraGho1989} zur Herleitung von (\ref{equ:tau_Projektion}) benutzt wurde, folgt wieder die gesuchte Dynamik-Darstellung aus (\ref{equ:Dyn_MinKoord}).
 
 %
@@ -852,7 +864,7 @@ where $\bm{M}$, $\bm{c}$, $\bm{g}$, $\bm{\tau}_{\mathrm{s}}$ denote the effects 
 \subsection{Dynamics Model using Implicit Constraints}
 \label{sec:DynamicsImpl}
 
-For comparison of the computational efficiency of the approach proposed in the previous section, the standard method \cite{NakamuraGho1989,ParkChoPlo1999,KhalilBen1995,SaminFis2013} of using the kinematic constraints in implicit form is briefly summarized.
+For comparison of the computational efficiency of the approach proposed in the previous section, the standard method \cite{NakamuraGho1989,ParkChoPlo1999,KhalilBen1995,SaminFis2013} of using kinematic constraints in implicit form is briefly summarized.
 %The idea is to calculate the dynamics of the unconstrained system in an open loop structure and project the torques on the closed loop coordinates \cite{NakamuraGho1989}.
 %The necessary projection matrix is generated from the constraint equations in implicit form \cite{ParkChoPlo1999,KhalilBen1995,SaminFis2013}.
 
@@ -905,7 +917,7 @@ Further, for most systems the passive joint constraint Jacobian $\bm{J}_2$ is sp
 \section{Actuation and Control Concept}
 \label{sec:actuation_control}
 
-To enable force assistance for the exoskeleton, a basic gravity compensation is defined similar to the partial linearization in robotics with the motor torques
+To enable force assistance for the exoskeleton, a basic gravity compensation is defined similarly to the partial linearization in robotics with the motor torques
 %
 \begin{equation}
 \bm{\tau}_{1\mathrm{m}} = \hat{\bm{g}}_1(\bm{q}_1) + \hat{\bm{\tau}}_{1\mathrm{s}}(\bm{q}_1)
@@ -920,14 +932,14 @@ in $\bm{q}_1$-coordinates and the motor affecting the joint torque
 \end{equation}
 %
 together with external torques $\bm{\tau}_{1\mathrm{ext}}$ resulting from user interaction or process forces, which are not regarded further in this paper.
-If all joints in $\bm{q}_1$ are actuated and the model estimation is accurate with $\hat{\bm{\tau}}_{1\mathrm{s}} \approx \bm{\tau}_{1\mathrm{s}}$ and $\hat{\bm{g}}_{1} \approx \bm{g}_{1}$, the closed loop behaviour with this gravity compensation is
+If all joints in $\bm{q}_1$ are actuated and the model estimation is accurate with $\hat{\bm{\tau}}_{1\mathrm{s}} \approx \bm{\tau}_{1\mathrm{s}}$ and $\hat{\bm{g}}_{1} \approx \bm{g}_{1}$, the closed loop behaviour with this gravity compensation becomes
 %
 \begin{equation}
-\bm{M}_1\ddot{\bm{q}}_1+\bm{c}_1(\bm{q}_1,\dot{\bm{q}}_1) = \bm{\tau}_{1\mathrm{ext}},
+\bm{M}_1\ddot{\bm{q}}_1+\bm{c}_1(\bm{q}_1,\dot{\bm{q}}_1) = \bm{\tau}_{1\mathrm{ext}}.
 \label{equ:closedloop}
 \end{equation}
 %
-where the user can hold the exoskeleton and the attached powertool without static forces.
+This means that the user can hold the exoskeleton and the attached powertool without any need for static forces.
 The assumption of complete actuation contradicts the exoskeleton design, is however sufficient for the scope of this paper presenting the kinematics and dynamics model.
 
 \section{Simulation Environment and Results}
@@ -941,7 +953,7 @@ The final forward dynamics
 & - \bm{\tau}_{1\mathrm{lim}}(\bm{q}_1,\dot{\bm{q}}_1)  + \bm{\tau}_{1\mathrm{m}} + \bm{\tau}_{1\mathrm{ext}})
 \label{equ:ForwDyn}
 \end{align}
-is derived from (\ref{equ:Dyn_MinKoord}) and (\ref{equ:JointTorque}) and is completed with an additional joint limit model $\bm{\tau}_{1\mathrm{lim}}$ using a Hunt-Crossley stiffness and damping model.
+is derived from (\ref{equ:Dyn_MinKoord}) and (\ref{equ:JointTorque}) and is completed with an additional joint limit model $\bm{\tau}_{1\mathrm{lim}}$ using a Hunt-Crossley stiffness and damping model \cite{AzadFea2010}.
 The simulation is implemented in Matlab/Simulink using the constant step Runge-Kutta solver.
 The terms of the dynamics equations are derived using optimized code directly generated by Maple as described in Sec.\,\ref{sec:model}.
 
@@ -956,12 +968,12 @@ With ${\bm{\tau}_{1\mathrm{m}} = \bm{\tau}_{1\mathrm{ext}} = \bm{0}}$, the mecha
     \vspace{-0.2cm}
 \end{figure*}
 %
-Further, the results were compared and validated against a SimMechanics model of the mechanism.
+Furthermore, the results were compared and validated against a SimMechanics model of the mechanism.
 
 This simulation is extended by the use of a human upper body musculoskeletal model, coupled with an elasticity to the tool handle of the exoskeleton via the term $\bm{\tau}_{1\mathrm{ext}}$ in (\ref{equ:ForwDyn}), which is elaborated in \cite{KuehnHuSchHad2018}.
 %This allows to ...
 
-\subsection{Computation}
+\subsection{Computational Considerations}
 
 The inverse dynamics (\ref{equ:Dyn_MinKoord}) of the constrained system was derived using the different approaches presented in this paper.
 The computational effort to compute the terms of the dynamics is compared in Tab.\,\ref{tab:computation}.
@@ -976,11 +988,12 @@ The methods are
 The expressions are generated with Maple using the procedure \texttt{optimize(tryhard)} and the number of operations is counted with the procedure \texttt{cost}.
 %
 \begin{table}
-    \caption{Comparison of the computational effort for different implementations of the gravitational load.}\par\vspace{-3ex}
+    \caption{Comparison of the computational effort for different implementations of the gravitational load.}%\par\vspace{-3ex}
     \label{tab:computation}
     \centering
     \setlength\tabcolsep{3pt}
-    \begin{tabular}[t]{|c|c|c|c|c|c|c|c|c|c|}
+    \small
+    \begin{tabular}[t]{|c|c|c|c|c|c|c|c|c|c|} 
         \hline
         Method & $\pm$ & $*$ & $/$ & $\sqrt{}$ & $\mathrm{sin}$ & $\mathrm{atan}$ & $:=$ & Sum & $t_{\mathrm{Gen}}$ [s] \\
         Factor & 1 & 1 & 4 & 5 & 10 & 15 & 1 & (weighted) & \\
@@ -1001,8 +1014,8 @@ The expressions are generated with Maple using the procedure \texttt{optimize(tr
 To give an estimate of the computational cost, the different operations are counted in a weighted sum. An estimation of the lower bound for the cost factor of the operation types relative to simple additions is adapted from \cite{Atkinson2014, Hindriksen2012} and given in the second row in Tab.\, \ref{tab:computation}.
 The exact time for computation depends on the concrete hard- and software.
 
-Since the inverse dynamics of the open loop tree structure can be calculated very efficiently and the sparsity of the projection matrix $\bm{W}$ is high, benefiting the symbolic inversion, the standard method 3 has an about 15\,\% lower computational effort compared to method 1.
-The methods 1 and 2 based on elimination perform similar regarding the operation count.
+Since the inverse dynamics of the open loop tree structure can be calculated very efficiently and the sparsity of the projection matrix $\bm{W}$ is high, benefiting the symbolic inversion, the standard method 3 has an $\approx$ 15\,\% lower computational effort compared to method 1.
+The methods 1 and 2 based on elimination perform similar w.r.t. the operation count.
 The time $t_{\mathrm{Gen}}$ needed to optimize and generate the code is about 25\,\% lower for the proposed method 1, indicating that the computer algebra system does not perform well for the kind of expressions produced in method 2.
 
 %Using method 1 needs more multiplications and additions probably due to the products in the angle sum identities.
@@ -1014,7 +1027,7 @@ The time $t_{\mathrm{Gen}}$ needed to optimize and generate the code is about 25
 We presented a novel concept for a force assistance exoskeleton to support workers in carrying and using powertools.
 The details of the solution of the kinematic constraints of the multi-loop mechanism focus on the elimination of trigonometric expressions of dependent variables.
 This reduces the computational load when creating symbolic code for the terms of the dynamics equation with a similar efficiency of the output.
-However, the presented approach does not reach the performance of the standard solution.
+However, the presented approach does not reach the performance of standard solutions.
 
 %Future work:
 The featured approach of implementing kinematic constraints will be applied to different serial-chain industrial robots with parallel mechanisms invoking kinematic constraints, i.\,e. hybrid robots. 

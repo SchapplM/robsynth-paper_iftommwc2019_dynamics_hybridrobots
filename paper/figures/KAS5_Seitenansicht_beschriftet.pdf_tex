@@ -50,20 +50,21 @@
   \makeatother%
   \begin{picture}(1,0.70005571)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{KAS5_Seitenansicht_beschriftet.pdf}}%
-    \put(0.54356688,0.57525825){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{upper arm}}}%
+    \put(0.54356688,0.57525825){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{upper arm (Fig.\,\ref{fig:KAS5_upper_coupling})}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{KAS5_Seitenansicht_beschriftet.pdf}}%
-    \put(0.77212745,0.33700805){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{forearm}}}%
+    \put(0.59347259,0.34841132){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{forearm (Fig.\,\ref{fig:KAS5_lower_coupling})}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{KAS5_Seitenansicht_beschriftet.pdf}}%
-    \put(0.62972993,0.01025403){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{tool holding}}}%
+    \put(0.64113343,0.07867501){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{tool holding}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{KAS5_Seitenansicht_beschriftet.pdf}}%
-    \put(0.44025592,0.01405512){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{spring-damper-system}}}%
+    \put(0.00673296,0.0159559){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{spring-damper-system (Sec.\,\ref{sec:exo_des_sprdamp})}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{KAS5_Seitenansicht_beschriftet.pdf}}%
     \put(0.0036143,0.20436727){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{coupling}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{KAS5_Seitenansicht_beschriftet.pdf}}%
-    \put(0.47309905,0.66010728){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{shoulder}}}%
+    \put(0.47309905,0.66010728){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{shoulder (Sec.\,\ref{sec:exo_des_shoulder})}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{KAS5_Seitenansicht_beschriftet.pdf}}%
-    \put(0.6652042,0.40757671){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{elbow}}}%
+    \put(0.4238301,0.42373168){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{elbow (Sec.\,\ref{sec:exo_des_elbow}, Fig.\,\ref{fig:KAS5_elbow})}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{KAS5_Seitenansicht_beschriftet.pdf}}%
-    \put(0.00551489,0.14977904){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{mechanism}}}%
+    \put(0.00551489,0.15678338){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{mechanism}}}%
+    \put(0.0032525,0.1039085){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(Sec.\,\ref{sec:exo_des_secoupl})}}}%
   \end{picture}%
 \endgroup%
