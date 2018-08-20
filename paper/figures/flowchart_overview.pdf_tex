@@ -1,0 +1,71 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'flowchart_overview.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{226.77165354bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.6)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{flowchart_overview.pdf}}%
+    \put(0.08981897,0.54260823){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{kinematics, coordinates $\bm{q}$ (Sec.\,\ref{sec:model_fullcoord})}}}%
+    \put(0.57917212,0.64970161){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{flowchart_overview.pdf}}%
+    \put(0.02354712,0.21502896){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{q}_1$-kinematics (Sec.\,\ref{sec:model_elim})}}}%
+    \put(0.12544658,0.09734773){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Sec.\,\ref{sec:Lagrange2Elim}}}}%
+    \put(0.63438537,0.09975671){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Sec.\,\ref{sec:DynamicsImpl}}}}%
+    \put(0.05680905,0.3878905){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{explicit constraints}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{flowchart_overview.pdf}}%
+    \put(0.57967613,0.39293025){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{implicit}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{flowchart_overview.pdf}}%
+    \put(0.69054915,0.23216357){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{q}$-dynamics}}}%
+    \put(0.58093606,0.33371401){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{constraints}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{flowchart_overview.pdf}}%
+    \put(0.37456106,0.04393109){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{q}_1$-dynamics}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{flowchart_overview.pdf}}%
+    \put(0.18411462,0.30231498){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{elimination of $\bm{q}_2$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{flowchart_overview.pdf}}%
+  \end{picture}%
+\endgroup%
