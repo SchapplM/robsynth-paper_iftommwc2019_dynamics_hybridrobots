@@ -994,7 +994,7 @@ Furthermore, the results were compared and validated against a SimMechanics mode
 \subsection{Computational Considerations}
 
 The inverse dynamics (\ref{equ:Dyn_MinKoord}) of the constrained system was derived using the different approaches presented in this paper.
-The computational effort to compute the terms of the dynamics is compared in Tab.\,\ref{tab:computation}.
+The computational effort to compute the terms $\bm{g}_1$ and $\bm{M}_1$ is compared in Tab.\,\ref{tab:computation_grav} and \ref{tab:computation_inertia}.
 The methods are 
 %
 \begin{enumerate}
@@ -1006,36 +1006,64 @@ The methods are
 The expressions are generated with Maple using the procedure \texttt{optimize(tryhard)} and the number of operations is counted with the procedure \texttt{cost}.
 %
 \begin{table}
-    \caption{Comparison of the computational effort for different implementations of the gravitational load.}%\par\vspace{-3ex}
-    \label{tab:computation}
+    \caption{Comparison of the computational effort for different implementations of the gravitational load $\bm{g}_1(\bm{q}_1)$.}%\par\vspace{-3ex}
+    \label{tab:computation_grav}
     \centering
     \setlength\tabcolsep{3pt}
     \small
     \begin{tabular}[t]{|c|c|c|c|c|c|c|c|c|c|} 
         \hline
-        Method & $\pm$ & $*$ & $/$ & $\sqrt{}$ & $\mathrm{sin}$ & $\mathrm{atan}$ & $:=$ & Sum & $t_{\mathrm{Gen}}$ [s] \\
+        Method & $\pm$ & $*$ & $/$ & $\sqrt{}$ & $\mathrm{sin}$ & $\mathrm{atan}$ & $:=$ & Sum & $t_{\mathrm{Gen}}$ \\
         Factor & 1 & 1 & 4 & 5 & 10 & 15 & 1 & (weighted) & \\
         \hline
         \rowcolor{Gray}
-        1: TE  & 710 & 985 & 12 & 3 & 23 & 0 & 365 & \textbf{2353} & 4934 \\
+        1: TE  & 710 & 985 & 12 & 3 & 23 & 0 & 365 & \textbf{2353} & 1.4\,h \\
         \rowcolor{Gray}
-        2: DE & 674 & 913 & 24 & 3 & 33 & 5 & 358 & \textbf{2461} & 6510 \\
-        $\bm{W}$ & 40 & 66 & 6 & 0 & 22 & 0 & 36 & 386 & 1 \\
-        $\bm{g}$ & 474 & 609 & 0 & 0 & 29 & 0 & 235 & 1608 & 1 \\
+        2: DE & 674 & 913 & 24 & 3 & 33 & 5 & 358 & \textbf{2461} & 1.8\,h \\
+        $\bm{W}$ & 40 & 66 & 6 & 0 & 22 & 0 & 36 & 386 & 1\,s \\
+        $\bm{g}$ & 474 & 609 & 0 & 0 & 29 & 0 & 235 & 1608 & 1\,s \\
         \rowcolor{Gray}
-        3: IC & 514 & 675 & 6 & 0 & 51 & 0 & 271 & \textbf{1994} & 2 \\
+        3: IC & 514 & 675 & 6 & 0 & 51 & 0 & 271 & \textbf{1994} & 2\,s \\
         \hline
     \end{tabular}
+    \vspace{-0.2cm}
+\end{table}
+%
+\begin{table}
+    \caption{Comparison of the computational effort for different implementations of the mass matrix $\bm{M}_1(\bm{q}_1)$.}%\par\vspace{-3ex}
+    \label{tab:computation_inertia}
+    \centering
+    \setlength\tabcolsep{3pt}
+    \small
+    \begin{tabular}[t]{|c|c|c|c|c|c|c|c|c|c|} 
+        \hline
+        Method & $\pm$ & $*$ & $/$ & $\sqrt{}$ & $\mathrm{sin}$ & $\mathrm{atan}$ & $:=$ & Sum & $t_{\mathrm{Gen}}$ \\
+        Factor & 1 & 1 & 4 & 5 & 10 & 15 & 1 & (weighted) & \\
+        \hline
+        \rowcolor{Gray}
+        1: TE  & 1138 & 1671 & 28 & 3 & 22 & 0 & 598 & \textbf{3754} & 2.0\,h \\
+        \rowcolor{Gray}
+        2: DE & 1142 & 1656 & 25 & 3 & 32 & 5 & 591 & \textbf{3899} & 2.0\,h \\
+        $\bm{W}$ & 40 & 66 & 6 & 0 & 22 & 0 & 36 & 386 & 1\,s \\
+        $\bm{M}$ & 1192 & 1667 & 0 & 0 & 28 & 0 & 503 & 3642 & 16\,s \\
+        \rowcolor{Gray}
+        3: IC & 1232 & 1733 & 6 & 0 & 50 & 0 & 539 & \textbf{4028} & 17\,s \\
+        \hline
+    \end{tabular}
+    \vspace{-0.2cm}
 \end{table}
 %
 
-To give an estimate of the computational cost, the different operations are counted in a weighted sum. An estimation of the lower bound for the cost factor of the operation types relative to simple additions is adapted from \cite{Atkinson2014}, \cite{Hindriksen2012} and given in the second row in Tab.\, \ref{tab:computation}.
-The exact time for computation depends on the concrete hard- and software.
+To give an estimate of the computational cost, the different operations are counted in a weighted sum. An estimation of the lower bound for the cost factor of the operation types relative to simple additions is adapted from \cite{Atkinson2014}, \cite{Hindriksen2012} and given in the second row in Tab.\, \ref{tab:computation_grav} and \ref{tab:computation_inertia}.
+The exact time for computation depends on the concrete hard- and software and further optimizations of the implementation.
 
-Since the inverse dynamics of the open loop tree structure can be calculated very efficiently and the sparsity of the projection matrix $\bm{W}$ is high, benefiting the symbolic inversion, the standard method 3 has an $\approx$ 15\,\% lower computational effort compared to method 1.
+Since the inverse dynamics of the open loop tree structure can be calculated very efficiently and the sparsity of the projection matrix $\bm{W}$ is high, benefiting the symbolic inversion, the standard method 3 has an $\approx$ 15\,\% lower computational effort compared to method 1 for the gravitational load from Tab.\,\ref{tab:computation_grav}.
 The methods 1 and 2 based on elimination perform similar w.r.t. the operation count.
 The time $t_{\mathrm{Gen}}$ needed to optimize and generate the code is about 25\,\% lower for the proposed method 1, indicating that the computer algebra system does not perform well for the kind of expressions produced in method 2.
+This is however several orders of magnitude slower than the time for method 1.
 
+As summarized in Tab.\,\ref{tab:computation_inertia}, the elimination methods 1 and 2 perform slightly better than the standard method 3 for the inertia matrix.
+This can be explained by the high number of DoF for the 15\,$\times$\,15 matrix $\bm{M}$ from method 3 compared to a smaller 5\,$\times$\,5 matrix $\bm{M}_1$ for methods 1 and 2.
 %Using method 1 needs more multiplications and additions probably due to the products in the angle sum identities.
 
 \section{Conclusions and future work}
@@ -1079,7 +1107,7 @@ The results will be compared to the classical approach using the projection of c
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\renewcommand{\baselinestretch}{0.94}
+\renewcommand{\baselinestretch}{0.92}
 % BIBLIOGRAPHY
 \bibliographystyle{ieeetr}
 \bibliography{ref}
