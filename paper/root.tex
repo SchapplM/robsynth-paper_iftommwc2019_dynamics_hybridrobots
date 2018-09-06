@@ -233,7 +233,7 @@ The efficient implementation of kinematics and dynamics models is a key to model
 This paper presents an approach for the derivation of these models in symbolic form based on the explicit elimination of the kinematic constraints using substitution variables with trigonometric expressions and the Lagrange equations of the second kind.
 This represents an alternative solution to using the implicit form of the constraints or using the explicit elimination at comparable computational effort.
 %
-The method is applied to \replaced[id=Lg]{a novel}{an} exoskeleton designed for craftsmen force assistance, which consists of multiple planar closed kinematic loops and gear mechanisms.
+The method is applied to a novel exoskeleton designed for craftsmen force assistance, which consists of multiple planar closed kinematic loops and gear mechanisms.
 \end{abstract}
 
 
@@ -301,7 +301,7 @@ With this assumption mechanical constraints may only occur in the mechanism itse
 %Die Jacobi-Matrix der Zwangsbedingungen kann entweder aus der expliziten Form der ZB [Quelle] oder der impliziten Form [Quelle] erfolgen.
 
 The equations of motion of mechanical systems with kinematic constraints can in general be found with the implicit formulation of these constraints.
-The dynamics equations can be derived via the inverse of the constraints Jacobian in combination with the unconstrained dynamics \cite{NakamuraGho1989}, with Lagrange multipliers \cite{LuhZhe1985} or the Udwadia-Kalaba-equation \cite{UdwadiaKal1992}.
+After a partition of the coordintes \cite{WehageHau1982}, the dynamics equations can be derived via the inverse of the constraints Jacobian in combination with the unconstrained dynamics \cite{NakamuraGho1989}, with Lagrange multipliers \cite{WehageHau1982,LuhZhe1985} or the Udwadia-Kalaba-equation \cite{UdwadiaKal1992}.
 The former is implemented in symbolic multi body algorithms such as Robotran \cite{SaminFis2013} or openSymoro \cite{KhalilVijKhoMuk2014}.
 The constraints Jacobian can be either derived from the explicit form of the constraints \cite{NakamuraGho1989}, or from the time derivative of the implicit form \cite{ParkChoPlo1999}.
 
@@ -321,7 +321,10 @@ If only the implicit form is available, dependant coordinates have to be determi
 
 %Die Herleitung symbolischer Gleichungen für Kinematik und Dynamik werden in diesem Paper anhand eines Beispielsystems aus der Klasse der Exoskelette untersucht. Dabei wird die explizite Darstellung der Zwangsbedingungen verwendet und die Struktur der Dynamikgleichungen für symbolische Vereinfachungen genutzt.
 In this paper, the derivation of symbolic equations for the kinematics and dynamics is demonstrated at the example of an upper limb exoskeleton.
-The explicit form of the kinematic constraints is given and the structure of the dynamics equations is used for symbolic simplifications leading to improved computational efficiency. \added[id=Lg]{The approach can be regarded as an alternative to existing methods with comparable performance. It allows to verify the correctness of dynamics models derived by standard solution by offering a different way of approaching the problem. This may also open up new paths for researchers working in the area of kinematics and dynamics modeling.}
+The explicit form of the kinematic constraints is given and the structure of the dynamics equations is used for symbolic simplifications leading to improved computational efficiency.
+The approach can be regarded as an alternative to existing methods with comparable performance.
+It allows to verify the correctness of dynamics models derived by standard solutions by offering a different way of approaching the problem.
+This may also open up new paths for researchers working in the area of kinematics and dynamics modeling.
 
 %
 %
@@ -337,13 +340,14 @@ The explicit form of the kinematic constraints is given and the structure of the
 The contributions of the paper are
 \begin{itemize}
     \item a formalism for the derivation of dynamic models in symbolic form based on the explicit elimination of the kinematic constraints using substitution variables with trigonometric expressions and the Lagrange equations of the second kind,
-    \item the presentation of a novel exoskeleton mechanism\added[id=Lg]{ especially for supporting craftsmen when working with power tools},
+    \item the presentation of a novel exoskeleton mechanism especially for supporting craftsmen when working with power tools,
     \item the detailed mathematical description of the kinematic modelling of the mechanisms constraints containing gears and multiple closed loops with
-    \item a focus on the implementation of these constraints in \emph{trigonometric explicit form} optimized \added[id=Lg,remark={optimized with respect to ... and by ...?}]{} for symbolic processing with computer algebra systems.
-    \item \added[id=Lg]{A comparison of the presented approach with other known approaches for modeling mechanical structures with constraints.}
+    \item a focus on the implementation of these constraints in \emph{trigonometric explicit form} optimized with respect to nesting depth of expressions improving symbolic processing with computer algebra systems.
+    \item A comparison of the presented approach with other known approaches for modeling mechanical structures with constraints.
 \end{itemize}
 
-The exoskeleton mechanism can be regarded as an example to emphasize the advantage of the proposed approach of explicit trigonometric elimination of kinematic constraints.\added[id=Lg,remark={Short sentence here, why this is an advantage?}]{}
+The exoskeleton mechanism can be regarded as an example to emphasize the advantage of the proposed approach of explicit trigonometric elimination of kinematic constraints.
+Unlike industrial robots with closed loops which contain only lower kinematic pairs (i.\,e. single-DoF joints), the exoskeleton also comes with higher kinematic pars (i.\,e. contacts along a curve generated by gears).
 
 Therefore, the paper is structured as follows:
 In Sec.\,\ref{sec:exo_scenario} the components of the considered exoskeleton are briefly presented together with the envisioned scenario of its field of application. In Sec.\,\ref{sec:model} the kinematics and dynamics modelling is shown in detail, focussing on the formulation of the explicit constraint equations with substitution variables based on trigonometric expressions.
@@ -433,13 +437,13 @@ The spring is transferring the moment created by the weight of the powertool tow
 \label{sec:model}
 
 In the following, the single steps to gain dynamics equations required for control and simulation purposes are laid out at the example of the exoskeleton system introduced in the previous Sec.\,\ref{sec:exo_scenario}.
-The \added[id=Lg]{required} steps are summarized in Fig.\,\ref{fig:flowchart_overview} and include the creation of the general kinematic model and coordinate definitions in Sec.\,\ref{sec:model_fullcoord} and the elimination of supernumerous coordinates in Sec.\,\ref{sec:model_elim}.
-\replaced[id=Lg]{These steps allow}{This makes it possible} to derive the dynamics equations as shown in Sec.\,\ref{sec:Lagrange2Elim}.
-The standard method\added[id=Lg,remark={name?}]{} is presented in Sec.\,\ref{sec:DynamicsImpl} for comparison.
+The required steps are summarized in Fig.\,\ref{fig:flowchart_overview} and include the creation of the general kinematic model and coordinate definitions in Sec.\,\ref{sec:model_fullcoord} and the elimination of supernumerous coordinates in Sec.\,\ref{sec:model_elim}.
+These steps allow to derive the dynamics equations as shown in Sec.\,\ref{sec:Lagrange2Elim}.
+The standard coordinate partitioning method is presented in Sec.\,\ref{sec:DynamicsImpl} for comparison.
 
 \begin{figure}[tb!]
     \input{./figures/flowchart_overview.pdf_tex}
-    \caption{Overview of the kinematics and dynamics modelling process.}
+    \caption{Overview of the kinematics and dynamics modelling process for the proposed method (left) and the standard method (right).}
     \label{fig:flowchart_overview}
 \end{figure} 
 
@@ -860,7 +864,7 @@ is represented in the minimal coordinates $\bm{q}_1$.
 This allows using the Lagrange equations
 %
 \begin{equation}
-\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L(\bm{q}_1,\dot{\bm{q}}_1)}{\partial \dot{\bm{q}}_1} - \frac{\partial L(\bm{q}_1,\dot{\bm{q}}_1)}{\partial \bm{q}_1}= \bm{\tau}^c_1,
+\frac{\mathrm{d}}{{\mathrm{d}}t}\frac{\partial L(\bm{q}_1,\dot{\bm{q}}_1)}{\partial \dot{\bm{q}}_1} - \frac{\partial L(\bm{q}_1,\dot{\bm{q}}_1)}{\partial \bm{q}_1}= \bm{\tau}^c_1,
 \end{equation}
 %
 to get the inverse dynamics joint torques\footnote{joint forces in the case of prismatic joints are also referred to as torques for the sake of readability} $\bm{\tau}^c_1$ of the constrained system in $\bm{q}_1$-coordinates, which allows to obtain the dynamics equations in explicit form
@@ -935,7 +939,8 @@ Further, for most systems the passive joint constraint Jacobian $\bm{J}_2$ is sp
 \section{Actuation and Control Concept}
 \label{sec:actuation_control}
 
-\added[id=Lg]{This section is dedicated to the actuation and control concept which is used for the exoskeleton and is based on the model derived by the presented approach.} To enable force assistance for the exoskeleton, a basic gravity compensation is defined similarly to the partial linearization in robotics with the motor torques
+This section is dedicated to the actuation and control concept which is used for the exoskeleton and is based on the model derived by the presented approach.
+To enable force assistance for the exoskeleton, a basic gravity compensation is defined similarly to the partial linearization in robotics with the motor torques
 %
 \begin{equation}
 \bm{\tau}_{1\mathrm{m}} = \hat{\bm{g}}_1(\bm{q}_1) + \hat{\bm{\tau}}_{1\mathrm{s}}(\bm{q}_1)
