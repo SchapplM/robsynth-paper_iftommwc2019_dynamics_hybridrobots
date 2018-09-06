@@ -149,5 +149,6 @@
     \put(0.6765706,0.52866553){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl22=|DC|$}}}%
     \put(0.6765706,0.43809235){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl14=|O_5B|$}}}%
     \put(0.6765706,0.39280565){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl16=|AB|$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=35]{KAS5_m3_skizze_kinematik_2_KS.pdf}}%
   \end{picture}%
 \endgroup%

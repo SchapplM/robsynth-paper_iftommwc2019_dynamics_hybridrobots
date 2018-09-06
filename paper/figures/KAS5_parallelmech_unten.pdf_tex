@@ -106,5 +106,6 @@
     \put(0.72262969,0.64850939){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl16=|AB|$}}}%
     \put(0.70005191,0.69373661){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl22=|DC|$}}}%
     \put(0.70005191,0.60328217){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl23=|O_6A|$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{KAS5_parallelmech_unten.pdf}}%
   \end{picture}%
 \endgroup%

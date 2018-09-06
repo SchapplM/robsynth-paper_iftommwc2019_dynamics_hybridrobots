@@ -22,9 +22,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="135.75694"
-     inkscape:cy="140.0105"
+     inkscape:zoom="11.2"
+     inkscape:cx="151.96707"
+     inkscape:cy="80.977925"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -1526,14 +1526,6 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <ellipse
-       transform="matrix(0.16913668,0,0,0.27061873,180.77805,953.01086)"
-       id="path3012-8-2-3-0-0-6-3"
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.50111532;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
-       cx="65"
-       cy="119.86218"
-       rx="20"
-       ry="12.5" />
-    <ellipse
        id="path3012-8-2-3-0-0-6"
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.10721005;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
        cx="63.155602"
@@ -2051,5 +2043,10 @@
          x="179.79729"
          id="tspan4038-88-5-8-01-1-6-5-5-6-5-5-1-7-9-6-9-0"
          sodipodi:role="line">$\gl16=|AB|$</tspan></text>
+    <path
+       style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+       d="m 191.78571,985.22011 -4.91071,1.07143 5.71428,2.67857 z"
+       id="path4669"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>
