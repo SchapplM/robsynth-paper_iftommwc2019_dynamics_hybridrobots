@@ -3,7 +3,7 @@
 %2345678901234567890123456789012345678901234567890123456789012345678901234567890
 %        1         2         3         4         5         6         7         8
 
-\documentclass[twocolumn,10pt]{IFTOMM}
+\documentclass{svproc}
 
 % See the \addtolength command later in the file to balance the column lengths
 % on the last page of the document
@@ -206,25 +206,32 @@
 
 
 
-
 \begin{document}
-\def\papernumber{IK xxx}
-\def\conference_name{15th IFToMM World Congress, Krakow, Poland, 30 June--4 July, 2019}
-%PAPER TITLE
-\title{Kinematics and Dynamics Model via Explicit Trigonometric Elimination \\
-       of Kinematic Constraints for a Force Assistance Exoskeleton}
+    
+\mainmatter              % start of a contribution
+%
+\title{Kinematics and Dynamics Model via Explicit Trigonometric Elimination of Kinematic Constraints for a Force Assistance Exoskeleton}
+%
+\titlerunning{Reciprocal Euler Angles}  % abbreviated title (for running head)
+%                                     also used for the TOC unless
+%                                     \toctitle is used
+%
+\author{Moritz Schappler\inst{1} \and Torsten Lilge\inst{2} \and Sami Haddadin\inst{3}}
+%
+\authorrunning{Moritz Schappler et al.} % abbreviated author list (for running head)
+%
+%%%% list of authors for the TOC (use if author list has to be modified)
+%\tocauthor{Moritz Schappler, Svenja Tappe, and Tobias Ortmaier}
+%
+\institute{Institute for Mechatronic Systems, Leibniz University Hannover, Germany\\
+\email{moritz.schappler@imes.uni-hannover.de}
+\and
+Institute for Automatic Control, Leibniz University Hannover, Germany \\
+\email{lilge@irt.uni-hannover.de}
+\and
+Chair of Robotics Science and Systems Intelligence, Technical University of Munich, Germany, \email{haddadin@tum.de}}
+\maketitle              % typeset the title of the contribution
 
-\author{
-\begin{tabular}{cccc}
-M.\ Schappler\thanks{moritz.schappler@imes.uni-hannover.de}
-& T.\ Lilge\thanks{lilge@irt.uni-hannover.de}
-& S.\ Haddadin\thanks{sami.haddadin@tum.de} \\
-Leibniz Universität & Leibniz Universität & TU München \\
-Hannover, Germany & Hannover, Germany & München, Germany
-\end{tabular}
-}
-
-\maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
