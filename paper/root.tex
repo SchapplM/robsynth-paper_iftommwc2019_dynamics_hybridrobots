@@ -226,7 +226,7 @@ Chair of Robotics Science and Systems Intelligence, Technical University of Muni
 \begin{abstract}
 
 The efficient implementation of kinematics and dynamics models is a key to model based control of mechatronic systems such as robots and wearable assistive devices.
-This paper presents an approach for the derivation of these models in symbolic form based on the explicit elimination of the kinematic constraints using substitution variables with trigonometric expressions and the Lagrange equations of the second kind.
+This paper presents an approach for the derivation of these models in symbolic form for constrained systems based on the explicit elimination of the kinematic constraints using substitution variables with trigonometric expressions and the Lagrange equations of the second kind.
 This represents an alternative solution to using the implicit form of the constraints or using the explicit elimination at comparable computational effort.
 %
 The method is applied to a novel exoskeleton designed for craftsmen force assistance, which consists of multiple planar closed kinematic loops and gear mechanisms.
@@ -235,15 +235,15 @@ The method is applied to a novel exoskeleton designed for craftsmen force assist
 
 %KEYWORDS
 \begin{keywords}
-dynamics, closed-loop, Lagrangian equations, \\ substitution variables, explicit form, trigonometric expressions
+dynamics, closed-loop, Lagrangian equations, substitution \\ variables, explicit form, trigonometric expressions
 \end{keywords}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction and State of the Art}
 
-Active mechatronic systems such as industrial robots, exoskeletons or prostheses can be used to full capacity with model-based control relying on a computationally efficient model of the system, which has to run in real-time.
+Active mechatronic systems such as industrial robots, exoskeletons or prostheses can only be used to full capacity with model-based control relying on a computationally efficient model of the system, which has to run in real-time.
 Systems with closed kinematic loops require a greater modeling effort due to an increased number of passive joints.
-Unlike in classical robots, exoskeleton systems can contain passive degrees of freedom (DoF) that are equalised by the user at the end-effector.
+Unlike in classical robotics, exoskeleton systems can contain passive degrees of freedom (DoF) that are equalised by the user at the end-effector.
 Therefore exoskeleton mechanisms usually have more DoF than classical robots with the same number of end-effector DoF.
 
 The equations of motion of mechanical systems with kinematic constraints can in general be found with the implicit formulation of these constraints.
@@ -261,7 +261,7 @@ The direct calculation of all active and passive joint coordinates of a mechanis
 If only the implicit form is available, dependant coordinates have to be determined with numeric iterative procedures \cite{ParkChoPlo1999}.
 
 In this paper, the derivation of symbolic equations for the kinematics and dynamics is demonstrated at the example of an upper limb exoskeleton.
-The explicit form of the kinematic constraints is given and the structure of the dynamics equations is used for symbolic simplifications leading to improved computational efficiency.
+The structure of the dynamics equations is used for symbolic simplifications leading to improved computational efficiency.
 The approach can be regarded as an alternative to existing methods with comparable performance.
 It allows to verify the correctness of dynamics models derived by standard solutions by offering a different way of approaching the problem.
 This may also open up new paths for researchers working in the area of kinematics and dynamics modeling.
@@ -271,14 +271,14 @@ The contributions of the paper are
 \vspace{-0.20cm}
 
 \begin{itemize}
-    \item a formalism for the derivation of dynamic models in symbolic form based on the explicit elimination of the kinematic constraints using substitution variables with trigonometric expressions and the Lagrange equations of the second kind,
+    \item a formalism for the derivation of dynamics models in symbolic form based on the explicit elimination of the kinematic constraints using substitution variables with trigonometric expressions and the Lagrange equations of the second kind,
     \item the presentation of a novel exoskeleton mechanism designed for supporting craftsmen when working with power tools,
 %    \item the detailed mathematical description of the kinematic modelling of the mechanisms constraints containing gears and multiple closed loops with
 %    \item a focus on the implementation of these constraints in \emph{trigonometric explicit form} optimized with respect to nesting depth of expressions improving symbolic processing with computer algebra systems.
     \item a comparison of the presented approach with other known approaches for modeling mechanical structures with constraints.
 \end{itemize}
 \vspace{-0.25cm}
-The exoskeleton mechanism can be regarded as an example to emphasize the advantage of the proposed approach of explicit trigonometric elimination of kinematic constraints.
+The exoskeleton mechanism can be regarded as an example to demonstrate the proposed approach of explicit trigonometric elimination of kinematic constraints.
 Unlike industrial robots with closed loops which contain only lower kinematic pairs (i.\,e. single-DoF joints), the exoskeleton also comes with higher kinematic pars (i.\,e. contacts along a curve generated by gears).
 
 Therefore, the paper is structured as follows:
@@ -289,9 +289,6 @@ Section \ref{sec:simulation} provides a comparison of the efficiency of the diff
 \label{sec:exo_scenario}
 
 The exoskeleton presented in this paper is targeted as an assistive device for craftsmen working with power tools like a hand-held power drill.
-
-The system was developed within the project ``Third Arm'' \cite{NuelleSchTapLil2017}.
-
 It consists of the following parts, which are depicted in Fig.\,\ref{fig:KAS5_CAD}.
 
 \begin{figure}[b!]
@@ -306,26 +303,24 @@ It consists of the following parts, which are depicted in Fig.\,\ref{fig:KAS5_CA
 \emph{Main Structure}:
 %
 With the required attachment at the user's upper body and at the hand, together with the requirement of neither blocking the users workspace nor sight, the main structure of the exoskeleton shows similar DoF to the human arm.
-%
+
 \emph{Three-Axis Elbow Joint}:
 The elbow joint of the mechanism is aligned to the axis of rotation of the user's elbow.
 To reduce according constraint forces, the joint consists of three parallel axes, which couple the upper arm and the forearm via a central gear wheel.
 The mechanism is shown in detail in the right part of Fig.\,\ref{fig:KAS5_CAD}.
 The lever mechanism connecting the linear spring-damper-system with the elbow is fixed to the central elbow gear.
-%
+
 \emph{Three-Axes Shoulder Joint:}
 The shoulder joint imitates the degrees of freedom of a simplified model of the human shoulder with three consecutive rotations with perpendicular axes.
 The last axis of the shoulder joint corresponding to the shoulder flexion/extension (F/E) is parallel to the axes of the elbow and the coupling mechanism, leaving the greatest part of the joints in one plane to simplify manufacturing and kinematics modeling.
-%
+
 \emph{Coupling Mechanism Shoulder-Elbow:}
-%
 The shoulder F/E joint and the elbow joint are coupled via a mechanism consisting of two crank-lever mechanisms.
 This removes one degree of freedom of the system and forces the shoulder and first elbow rotation to move on a common trajectory.
 With this mechanical coupling it is possible to transfer forces from the shoulder to the elbow and therefore relocate a motor actuating the elbow to the shoulder.
 This concept is known from industrial robots with a parallelogram structure connecting the second and third joint relocating the motor close to the second joint, reducing the inertia and gravitational load of the system \cite{LuhZhe1985}.
-%
+
 \emph{Spring-Damper System:}
-%
 The elbow joint is connected via the central gear and a linear spring damper system with the forearm.
 The spring is transferring the moment created by the weight of the powertool towards the central gear and reduces oscillations originating from largely disturbing processes like drilling.
 
@@ -342,7 +337,8 @@ The standard coordinate partitioning method is presented in Sec.\,\ref{sec:Dynam
 \label{sec:model_fullcoord}
 
 All rotational axes of the mechanism are described as single-DoF joints using the modified Denavit-Hartenberg notation \cite{KhalilBen1995} to describe the position and orientation of the frames $\ks{i}$ attached to all rigid bodies $\body{i}$ of the mechanism.
-The parameters describing the transformations between these frames are given in Fig.\,\ref{fig:KAS5_kinematik}.
+The parameters describing the transformations between these frames are given in the left part of Fig.\,\ref{fig:KAS5_kinematik} next to a kinematic sketch of the mechanism in the right part of Fig.\,\ref{fig:KAS5_kinematik} with annotations for frames, bodies and coordinates to improve the confirmability of the table.
+
 %
 \begin{figure}[htb]
 \begin{tabular}[t]{l r}
@@ -391,9 +387,6 @@ The parameters describing the transformations between these frames are given in 
     \label{fig:KAS5_kinematik}
 \end{figure}
 %
-
-A kinematic sketch of the mechanism is given in the right of Fig.\,\ref{fig:KAS5_kinematik} with annotations for frames, bodies and coordinates to improve the confirmability of the table.
-Details are given in Figure \ref{fig:KAS5_detail}.
 
 Due to the structure of the mechanism, the extended notation with anteceding link index $a(i)$, joint type marker $\sigma_i$ (0 for rotational joint, 1 for prismatic joint, 2 for fixed connection) and actuation marker $\mu_i$ (0 for passive, 1 for active joint) is used.
 The marker $\mu_i$ is set to 1 for the joints representing the generalized coordinates, regardless whether they are actuated or not.
@@ -489,7 +482,7 @@ This is facilitated by the use of the angle sum identities.
 The form  (\ref{equ:kinconstr_semiexplicit_sincos}) is called \emph{trigonometric explicit form} in this paper since trigonometric functions are used as substitution variables and the form is explicit in these variables.
 The expressions of this form have a tendency to additions and products of sine and cosine terms.
 The explicit form (\ref{equ:kinconstr_explicit}) on the contrary contains nested expressions with arctangent functions, since every successive substitution of the angles in the calculation of the closed loops brings a new nested term of the arctangent function into the expression.
-The latter has shown to be inefficient without further optimizations for further processing with Maple, a computer algebra system that was used to create the symbolic expressions and to generate code for dynamics functions.
+The latter has shown to be inefficient without further optimizations for processing with Maple, a computer algebra system that was used to create the symbolic expressions and to generate code for dynamics functions. % TODO: Noch näher auf die Art der Optimierung eingehen? (Reihenfolge der Substitution, Nutzung der Rotation um die gleiche Achse.)
 
 \subsection{Dynamics Model using Explicit Constraints}
 \label{sec:Lagrange2Elim}
@@ -513,10 +506,11 @@ L(\bm{q},\dot{\bm{q}}) =L( & \mathrm{sin}  (\bm{q}_{\mathrm{R}}),\mathrm{cos}(\b
 After substitution of (\ref{equ:kinconstr_semiexplicit_sincos}) and (\ref{equ:kinconstr_semiexplicit_diff_transl}) into (\ref{eq:lagrange_nonmin}), the Lagrangian 
 %
 \begin{align}
-L(\bm{q}_1,\dot{\bm{q}}_1)=L( & \mathrm{sin} (\bm{q}_{1\mathrm{R}}),\mathrm{cos}(\bm{q}_{1\mathrm{R}}), \bm{q}_{1\mathrm{T}},\dot{\bm{q}}_{1}, \bm{f}_{\mathrm{R}\mathrm{sin}}(\bm{q}_1),
+L(\bm{q}_1,\dot{\bm{q}}_1)=L( & \mathrm{sin} (\bm{q}_{1\mathrm{R}}),\mathrm{cos}(\bm{q}_{1\mathrm{R}}), \bm{q}_{1\mathrm{T}},\dot{\bm{q}}_{1}, \\ &
+\bm{f}_{\mathrm{R}\mathrm{sin}}(\bm{q}_1),
 \bm{f}_{\mathrm{R}\mathrm{cos}}(\bm{q}_1),
-\bm{f}_{\mathrm{T}}(\bm{q}_1),\\
-& \bm{f}_{\mathrm{diff}}(\bm{q}_1,\dot{\bm{q}}_1))) \nonumber
+\bm{f}_{\mathrm{T}}(\bm{q}_1),
+\bm{f}_{\mathrm{diff}}(\bm{q}_1,\dot{\bm{q}}_1))) \nonumber
 \end{align}
 %
 is represented in the minimal coordinates $\bm{q}_1$.
