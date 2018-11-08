@@ -1,0 +1,5 @@
+OptimizationMode: 2
+StartTime: 2018-03-05 11:10:00
+EndTime: 2018-03-05 11:10:01
+DurationCPUTime: 0.14s
+Computational Cost: add. (402->40), mult. (340->66), div. (28->6), fcn. (242->22), ass. (0->36)
