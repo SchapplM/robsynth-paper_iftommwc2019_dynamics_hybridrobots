@@ -150,7 +150,7 @@
     \put(0.69784599,0.48960604){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl14=|O_5B|$}}}%
     \put(0.69784599,0.37562241){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl16=|AB|$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=35]{KAS5_m3_skizze_kinematik_2_KS_mod.pdf}}%
-    \put(0.05159562,0.19237579){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{p}_{\mathrm{kin}}=\begin{pmatrix}\gdelta8 & \gdelta17 & \gl1 & \gl2 & ... & \gl13 \end{pmatrix}^\transp$}}}%
+    \put(0.05159562,0.19237579){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{p}_{\mathrm{kin}}=\begin{pmatrix}\gdelta8 & \gdelta17 & \gdelta9 & \gdelta20 & \gl1 & \gl2 & ... & \gl13 \end{pmatrix}^\transp$}}}%
     \put(0.05159562,0.13914741){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{q}_1=\begin{pmatrix}\rho_{1} & \rho_{2} & \rho_{4} & \rho_5 &\rho_{7} \end{pmatrix}^\transp$}}}%
     \put(0.05159562,0.08591936){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{q}_{2}=\begin{pmatrix}\rho_{3} & \rho_{6} & \gdelta6 & \gdelta16 & \gdelta3 & \gdelta19 & \gbeta1 & \gl16 \end{pmatrix}^\transp$}}}%
     \put(0.69311793,0.31864351){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gl20=|EF|$}}}%

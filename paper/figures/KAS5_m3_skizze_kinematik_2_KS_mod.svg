@@ -23,7 +23,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6"
-     inkscape:cx="92.826081"
+     inkscape:cx="77.390066"
      inkscape:cy="62.433051"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -2038,7 +2038,7 @@
          y="1016.9174"
          x="9.5065937"
          id="tspan4038-88-5-8-01-1-6-5-7"
-         sodipodi:role="line">$\bm{p}_{\mathrm{kin}}=\begin{pmatrix}\gdelta8 &amp; \gdelta17 &amp; \gl1 &amp; \gl2 &amp; ... &amp; \gl13 \end{pmatrix}^\transp$</tspan></text>
+         sodipodi:role="line">$\bm{p}_{\mathrm{kin}}=\begin{pmatrix}\gdelta8 &amp; \gdelta17 &amp; \gdelta9 &amp; \gdelta20 &amp; \gl1 &amp; \gl2 &amp; ... &amp; \gl13 \end{pmatrix}^\transp$</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4036-6-0-4-3-7-3-7-36-5"
