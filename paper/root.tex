@@ -36,8 +36,8 @@
 \colorlet{lg}{red!80!black}
 \colorlet{sp}{blue!80!black}
 %\setremarkmarkup{\emph{\color{lg!70!white}\small(#1: #2)}}
-\definechangesauthor[color=lg]{Lg}
-\definechangesauthor[color=sp]{Sp}
+\definechangesauthor[color=lg]{lg}
+\definechangesauthor[color=sp]{sp}
 
 % Geometrische Bezeichnungen des Mechanismus. Sind in schriftlichen Aufzeichnungen nicht konsistent. Daher wird die Benennung in diesem Paper geändert. Zur Übersichtlichkeit werden die alten Bezeichnungen als Makro verwendet.
 % https://tex.stackexchange.com/a/9728
@@ -243,11 +243,11 @@ dynamics, closed-loop, Lagrangian equations, substitution \\ variables, explicit
 
 Active mechatronic systems such as industrial robots, exoskeletons or prostheses can only be used to full capacity with model-based control relying on a computationally efficient model of the system, which has to run in real-time.
 Systems with closed kinematic loops require a greater modeling effort due to an increased number of passive joints.
-Unlike in classical robotics, exoskeleton systems can contain passive degrees of freedom (DoF) that are equalised by the user at the end-effector.
+Unlike in classical robotics, exoskeleton systems can contain passive degrees of freedom (DoF) that are \replaced[id=lg]{equalized}{equalised} by the user at the end-effector.
 Therefore exoskeleton mechanisms usually have more DoF than classical robots with the same number of end-effector DoF.
 
 The equations of motion of mechanical systems with kinematic constraints can in general be found with the implicit formulation of these constraints.
-After a partition of the coordintes \cite{WehageHau1982}, the dynamics equations can be derived via the inverse of the constraints Jacobian in combination with the unconstrained dynamics \cite{NakamuraGho1989}, with Lagrange multipliers \cite{WehageHau1982,LuhZhe1985} or the Udwadia-Kalaba-equation \cite{UdwadiaKal1992}.
+After a \replaced[id=lg]{separation}{partition} of the coordinates \cite{WehageHau1982}, the dynamics equations can be derived via the inverse of the constraints Jacobian in combination with the unconstrained dynamics \cite{NakamuraGho1989}, with Lagrange multipliers \cite{WehageHau1982,LuhZhe1985} or the Udwadia-Kalaba-equation \cite{UdwadiaKal1992}.
 The former is implemented in symbolic multi body algorithms such as Robotran \cite{SaminFis2013} or openSymoro \cite{KhalilVijKhoMuk2014}.
 The constraints Jacobian can be either derived from the explicit form of the constraints \cite{NakamuraGho1989}, or from the time derivative of the implicit form \cite{ParkChoPlo1999}.
 %
@@ -260,28 +260,27 @@ The implicit representation is available for all systems and is therefore used i
 The direct calculation of all active and passive joint coordinates of a mechanism is only possible with the explicit form of the kinematic constraints.
 If only the implicit form is available, dependant coordinates have to be determined with numeric iterative procedures \cite{ParkChoPlo1999}.
 
-In this paper, the derivation of symbolic equations for the kinematics and dynamics is demonstrated at the example of an upper limb exoskeleton.
+In this paper, the derivation of symbolic equations for the kinematics and dynamics is demonstrated \replaced[id=lg]{for}{at} the example of an upper limb exoskeleton.
 The structure of the dynamics equations is used for symbolic simplifications leading to improved computational efficiency.
 The approach can be regarded as an alternative to existing methods with comparable performance.
 It allows to verify the correctness of dynamics models derived by standard solutions by offering a different way of approaching the problem.
-This may also open up new paths for researchers working in the area of kinematics and dynamics modeling.
-
+This may also open up new paths for researchers working in the area of kinematics and dynamics modeling. 
 The contributions of the paper are
 
 \vspace{-0.20cm}
 
 \begin{itemize}
     \item a formalism for the derivation of dynamics models in symbolic form based on the explicit elimination of the kinematic constraints using substitution variables with trigonometric expressions and the Lagrange equations of the second kind,
-    \item the presentation of a novel exoskeleton mechanism designed for supporting craftsmen when working with power tools,
+    \item the presentation of a novel exoskeleton mechanism designed for supporting craftsmen when working with power tools, and
 %    \item the detailed mathematical description of the kinematic modelling of the mechanisms constraints containing gears and multiple closed loops with
 %    \item a focus on the implementation of these constraints in \emph{trigonometric explicit form} optimized with respect to nesting depth of expressions improving symbolic processing with computer algebra systems.
     \item a comparison of the presented approach with other known approaches for modeling mechanical structures with constraints.
 \end{itemize}
 \vspace{-0.25cm}
 The exoskeleton mechanism can be regarded as an example to demonstrate the proposed approach of explicit trigonometric elimination of kinematic constraints.
-Unlike industrial robots with closed loops which contain only lower kinematic pairs (i.\,e. single-DoF joints), the exoskeleton also comes with higher kinematic pars (i.\,e. contacts along a curve generated by gears).
+Unlike industrial robots with closed loops which contain only lower kinematic pairs (i.\,e., single-DoF joints), the exoskeleton also comes with higher kinematic pars (i.\,e., contacts along a curve generated by gears).
 
-Therefore, the paper is structured as follows:
+Therefore, the paper is \replaced[id=lg]{organized}{structured} as follows:
 In Sec.\,\ref{sec:exo_scenario} the components of the considered exoskeleton are briefly presented together with the envisioned scenario of its field of application. In Sec.\,\ref{sec:model} the kinematics and dynamics modelling is shown in detail, focussing on the formulation of the explicit constraint equations with substitution variables based on trigonometric expressions.
 Section \ref{sec:simulation} provides a comparison of the efficiency of the different methods to calculate the inverse dynamics. Sec.\,\ref{sec:conclusion} concludes the paper.
 
@@ -302,11 +301,11 @@ It consists of the following parts, which are depicted in Fig.\,\ref{fig:KAS5_CA
 
 \emph{Main Structure}:
 %
-With the required attachment at the user's upper body and at the hand, together with the requirement of neither blocking the users workspace nor sight, the main structure of the exoskeleton shows similar DoF to the human arm.
+With the required attachment at the user's upper body and at the hand together with the requirement of neither blocking the users workspace nor sight, the main structure of the exoskeleton shows similar DoF \replaced[id=lg]{as}{to} the human arm.
 
 \emph{Three-Axis Elbow Joint}:
 The elbow joint of the mechanism is aligned to the axis of rotation of the user's elbow.
-To reduce according constraint forces, the joint consists of three parallel axes, which couple the upper arm and the forearm via a central gear wheel.
+To reduce \replaced[id=lg]{associated}{according} constraint forces, the joint consists of three parallel axes, which couple the upper arm and the forearm via a central gear wheel.
 The mechanism is shown in detail in the right part of Fig.\,\ref{fig:KAS5_CAD}.
 The lever mechanism connecting the linear spring-damper-system with the elbow is fixed to the central elbow gear.
 
@@ -316,7 +315,7 @@ The last axis of the shoulder joint corresponding to the shoulder flexion/extens
 
 \emph{Coupling Mechanism Shoulder-Elbow:}
 The shoulder F/E joint and the elbow joint are coupled via a mechanism consisting of two crank-lever mechanisms.
-This removes one degree of freedom of the system and forces the shoulder and first elbow rotation to move on a common trajectory.
+This removes one DoF from the system and forces the shoulder and first elbow rotation to move on a common trajectory.
 With this mechanical coupling it is possible to transfer forces from the shoulder to the elbow and therefore relocate a motor actuating the elbow to the shoulder.
 This concept is known from industrial robots with a parallelogram structure connecting the second and third joint relocating the motor close to the second joint, reducing the inertia and gravitational load of the system \cite{LuhZhe1985}.
 
