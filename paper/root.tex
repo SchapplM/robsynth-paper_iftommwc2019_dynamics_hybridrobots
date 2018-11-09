@@ -452,10 +452,10 @@ This will be used to determine the configuration $\bm{q}$ of the complete system
 The kinematic constraints of the system originate from the rolling condition of the elbow gears and the closed loop constraints in the coupling mechanism.
 %
 The expressions for the different dependent coordinates in $\bm{q}_{2}$ can be calculated by intersecting circles resulting from the planar motion of the single parts of the four-bar-linkages.
-Calculating $\{C, C^\prime\} = \cc{1} \cap \cc{2}$ for the elbow-shoulder-coupling from Fig.\,\ref{fig:KAS5_detail}\,(a) gives equations for the dependant coordinates $\gdelta16$ and  $\gdelta3$.
-The intersection $\{F, F^\prime\} = \cc{3} \cap \cc{4}$ of the second set of circles in Fig.\,\ref{fig:KAS5_detail}\,(b) give $\rho_3$ and $\gdelta6$.
+Calculating $\{C, C^\prime\} = \cc{1} \cap \cc{2}$ for the elbow-shoulder-coupling from Fig.\,\ref{fig:KAS5_detail}\,(a) gives equations for the dependent coordinates $\gdelta16$ and $\gdelta3$, corresponding to the loop of transformation matrices in (\ref{equ:implconstr_chain1}).
+The intersection $\{F, F^\prime\} = \cc{3} \cap \cc{4}$ of the second set of circles in Fig.\,\ref{fig:KAS5_detail}\,(b) give $\rho_3$ and $\gdelta6$, which also shows in the loop equation (\ref{equ:implconstr_chain2}).
 The variables $\gdelta19$ and $\rho_6$ can be solved by equating the velocities of the pitch point of the two gear contacts from both sides.
-Solving the slider-crank mechanism of the forearm finally gives $\gbeta1$ and $\gl16$.
+Solving the slider-crank mechanism of the forearm finally gives $\gbeta1$ and $\gl16$, also occurring in (\ref{equ:implconstr_chain3}).
 %
 This provides the explicit definitions of the kinematic constraints defined in (\ref{equ:kinconstr_explicit}), which are needed for the complete kinematic description of the frames and rigid bodies defined in Fig.\,\ref{fig:KAS5_kinematik}.
 
@@ -500,7 +500,7 @@ Separating the rotational and translational coordinates as introduced in (\ref{e
 %
 \begin{align}
 L(\bm{q},\dot{\bm{q}}) =L( & \mathrm{sin}  (\bm{q}_{\mathrm{R}}),\mathrm{cos}(\bm{q}_{\mathrm{R}}), \bm{q}_{\mathrm{T}},\dot{\bm{q}}) \\\label{eq:lagrange_nonmin}
-=L( & \mathrm{sin}  (\bm{q}_{1\mathrm{R}}),\mathrm{cos}(\bm{q}_{1\mathrm{R}}), \bm{q}_{1\mathrm{T}},\dot{\bm{q}}_{1}, \mathrm{sin}  (\bm{q}_{2\mathrm{R}}),\mathrm{cos}(\bm{q}_{2\mathrm{R}}), \bm{q}_{2\mathrm{T}},\dot{\bm{q}}_{2}).
+=L( & \mathrm{sin}  (\bm{q}_{1\mathrm{R}}),\mathrm{cos}(\bm{q}_{1\mathrm{R}}), \bm{q}_{1\mathrm{T}},\dot{\bm{q}}_{1}, \mathrm{sin}  (\bm{q}_{2\mathrm{R}}),\mathrm{cos}(\bm{q}_{2\mathrm{R}}), \bm{q}_{2\mathrm{T}},\dot{\bm{q}}_{2}). \nonumber
 \end{align}
 %
 After substitution of (\ref{equ:kinconstr_semiexplicit_sincos}) and (\ref{equ:kinconstr_semiexplicit_diff_transl}) into (\ref{eq:lagrange_nonmin}), the Lagrangian 
