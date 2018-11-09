@@ -593,8 +593,8 @@ Further, for most systems the passive joint constraint Jacobian $\bm{J}_2$ is sp
 \label{sec:simulation}
 
 The inverse dynamics (\ref{equ:Dyn_MinKoord}) of the constrained system was derived using the different approaches presented in this paper.
-The computational effort to compute the terms $\bm{g}_1$ and $\bm{M}_1$ is compared in Tab.\,\ref{tab:computation}.
-The methods are 
+The computational efforts to compute the terms $\bm{g}_1$ and $\bm{M}_1$ are compared in Tab.\,\ref{tab:computation}.
+The used methods are 
 %
 \begin{enumerate}
     \item \emph{Trigonometric elimination} (``TE'') of the constraints by substituting with (\ref{equ:kinconstr_semiexplicit_sincos}) as described in Sec.\,\ref{sec:Lagrange2Elim}, 
@@ -621,10 +621,10 @@ The expressions are generated with Maple using the procedure \texttt{optimize} w
         1: TE  & 710 & 985 & 12 & 3 & 22 & 0 & 365 & \textbf{2343} & 1.4\,h \\
         \rowcolor{Gray}
         2: DE & 491 & 646 & 24 & 3 & 38 & 5 & 358 & \textbf{1975} & 0.4\,h \\
-        $\bm{W}$ & 40 & 66 & 6 & 0 & 22 & 0 & 36 & 386 & 1\,s \\
-        $\bm{g}$ & 422 & 488 & 0 & 0 & 28 & 0 & 228 & 1418 & 1\,s \\
         \rowcolor{Gray}
         3: IC & 462 & 554 & 6 & 0 & 50 & 0 & 264 & \textbf{1804} & 2\,s \\
+        $\bm{W}$ & 40 & 66 & 6 & 0 & 22 & 0 & 36 & 386 & 1\,s \\
+        $\bm{g}$ & 422 & 488 & 0 & 0 & 28 & 0 & 228 & 1418 & 1\,s \\
         \hline
         Method & \multicolumn{8}{c}{mass matrix $\bm{M}_1(\bm{q}_1)$} & \\
         \hline
@@ -632,10 +632,10 @@ The expressions are generated with Maple using the procedure \texttt{optimize} w
         1: TE  & 1138 & 1671 & 28 & 3 & 22 & 0 & 598 & \textbf{3754} & 2.0\,h \\
         \rowcolor{Gray}
         2: DE & 1142 & 1656 & 25 & 3 & 32 & 5 & 591 & \textbf{3899} & 2.0\,h \\
-        $\bm{W}$ & 40 & 66 & 6 & 0 & 22 & 0 & 36 & 386 & 1\,s \\
-        $\bm{M}$ & 1190 & 1664 & 0 & 0 & 26 & 0 & 501 & 3615 & 16\,s \\
         \rowcolor{Gray}
         3: IC & 1230 & 1730 & 6 & 0 & 48 & 0 & 537 & \textbf{4001} & 17\,s \\
+        $\bm{W}$ & 40 & 66 & 6 & 0 & 22 & 0 & 36 & 386 & 1\,s \\
+        $\bm{M}$ & 1190 & 1664 & 0 & 0 & 26 & 0 & 501 & 3615 & 16\,s \\
         \hline
     \end{tabular}
     \vspace{-0.5cm}
@@ -645,7 +645,7 @@ The expressions are generated with Maple using the procedure \texttt{optimize} w
 To give an estimate of the computational cost, the different operations are counted in a weighted sum. An estimation of the lower bound for the cost factor of the floating point  operation types relative to simple additions is adapted from \cite{Atkinson2014}, \cite{Hindriksen2012} and given in the second row in Tab.\,\ref{tab:computation}.
 The exact time for computation depends on the concrete hard- and software and further optimizations of the implementation.
 
-Since the inverse dynamics of the open loop tree structure can be calculated very efficiently and the sparsity of the projection matrix $\bm{W}$ is high, benefiting the symbolic inversion, the standard method 3 has an $\approx$ 10\,\% lower computational effort compared to method 2 for the gravitational load as shown in the upper part of Tab.\,\ref{tab:computation}.
+Since the inverse dynamics of the open loop tree structure can be calculated very efficiently and the sparsity of the projection matrix $\bm{W}$ is high, benefiting the symbolic inversion, the standard method 3 has an \replaced[id=Lg]{appr.}{$\approx$} 10\,\% lower computational effort compared to method 2 for the gravitational load as shown in the upper part of Tab.\,\ref{tab:computation}.
 Method 2 outperforms method 1 when using an optimized order of symbolic substitutions.
 %The methods 1 and 2 based on elimination perform similar w.r.t. the operation count.
 %The time $t_{\mathrm{Gen}}$ needed to optimize and generate the code is about 25\,\% lower for the proposed method 1, indicating that the computer algebra system does not perform well for the kind of expressions produced in method 2.
@@ -659,15 +659,15 @@ This can be explained by the high number of DoF for the 15\,$\times$\,15 matrix 
 \label{sec:conclusion}
 
 %conclusion:
-This paper presented a novel concept for a force assistance exoskeleton to support workers in carrying and using powertools.
+This paper presented a novel concept for a force assistance exoskeleton to support workers in carrying and using powertools\added[id=Lg]{ and its dynamics modeling}.
 The details of the solution of the kinematic constraints of the multi-loop mechanism focus on the elimination of trigonometric expressions of dependent variables.
 This reduces the computational load when creating symbolic code for the terms of the dynamics equation with a similar efficiency of the output.
-However, the presented approach does not reach the performance of standard solutions for the given mechanism.
+However, the presented approach does not \added[id=Lg]{completely} reach the \added[id=Lg]{computational} performance of standard solutions for the given mechanism.
 On the upside it can be used to test the correctness of dynamics models with the standard solution by offering a different way of approaching the problem.
 This may also give new ideas to researchers working in the area of kinematics and dynamics modeling.
 
 %Future work:
-The featured approach of implementing kinematic constraints will be applied to different serial-chain industrial robots with parallel mechanisms invoking kinematic constraints, i.\,e. hybrid robots. 
+\replaced[id=Lg]{In future works, the}{The} featured approach of implementing kinematic constraints will be applied to different serial-chain industrial robots with parallel mechanisms invoking kinematic constraints, i.\,e. hybrid robots. 
 The results will be compared to the classical approach using the projection of constraint forces and with non-trigonometric elimination of the constraints.
 
 
