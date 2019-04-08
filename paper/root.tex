@@ -5,6 +5,7 @@
 
 \documentclass{svproc}
 
+\usepackage{paralist}
 \usepackage{float}
 %\usepackage{ngerman} % TODO: Das beeinflusst die Sprache in der Vorlage. Argument für svproc finden.
 \usepackage[utf8]{inputenc}
@@ -586,6 +587,7 @@ The projection matrix $\bm{W}$ from \cite{NakamuraGho1989,ParkChoPlo1999} is use
 \end{equation}
 %
 in order to obtain the joint torques $\bm{\tau}^c_1$ of the constrained system in minimal coordinates $\bm{q}_1$ as
+\vspace{-0.15cm}
 %
 \begin{equation}
 \bm{\tau}^{c}_{1} = \bm{W}^\transp \bm{\tau}.
@@ -596,6 +598,7 @@ The matrix from eq.\,(\ref{equ:kinconstr_impl_projmatrix}) still contains the de
 The advantage of this method is the availability of efficient tools to symbolically compute the inverse dynamics $\bm{\tau}$ of the unconstrained system.
 Further, for most systems the passive joint constraint Jacobian $\bm{J}_2$ is sparse and can be efficiently inverted symbolically \cite{ParkChoPlo1999}.
 
+\vspace{-0.2cm}
 \section{Computational Costs of the proposed Methods}
 \label{sec:simulation}
 
@@ -603,14 +606,14 @@ The inverse dynamics  of the constrained system in eq.\,(\ref{equ:Dyn_MinKoord})
 The computational efforts to compute the terms $\bm{g}_1$ and $\bm{M}_1$ are compared in Tab.\,\ref{tab:computation}.
 The used methods are
 %
-\begin{enumerate}
+\begin{compactenum}
     \item \emph{Trigonometric elimination} (``TE'') of the constraints by substituting with eq.\,(\ref{equ:kinconstr_semiexplicit_sincos}) as described in Sec.\,\ref{sec:Lagrange2Elim},
     \item \emph{Direct elimination} (``DE'') of the constraints by directly using eq.\,(\ref{equ:kinconstr_explicit}) to substitute the dependent joint coordinates in eq.\,(\ref{equ:Lagrange_energy}),
     \item using \emph{implicit constraint equations} (``IC'') as described in Sec.\,\ref{sec:DynamicsImpl}.
-\end{enumerate}
+\end{compactenum}
 %
 The expressions are generated with Maple using the procedure \texttt{optimize} with \texttt{tryhard} and the number of operations is counted with the procedure \texttt{cost}.
-%
+
 \begin{table}[tb]
     \caption{Comparison of the computational effort for different implementations of the gravitational load $\bm{g}_1(\bm{q}_1)$ and the mass matrix $\bm{M}_1(\bm{q}_1)$ .}
     \label{tab:computation}
@@ -686,8 +689,10 @@ The results will be compared to the classical approach using the projection of c
 
 \section*{Acknowledgements}
 
-The financial support from the Federal Ministry of Education and Research
-of Germany (BMBF) under grant number 16SV6175 is gracefully acknowledged.
+The presented work was funded by the Federal Ministry of Education and
+Research of Germany (BMBF) under grant number 16SV6175 and has also
+received funding from European Union's Horizon 2020 research and
+innovation programme under grant agreement No. 688857 (``SoftPro'').
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
