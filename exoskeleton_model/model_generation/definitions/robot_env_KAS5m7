@@ -1,0 +1,47 @@
+# Beispiel für Codegenerierung:
+# KAS5m7
+# Zum Aufbau des Modells, siehe Dokumentations-Repo. Zur Bedeutung der Eingaben in dieser Datei, siehe Maple-Repo
+
+robot_name := "KAS5m7":
+
+# Anzahl der verallgemeinerten Gelenkkoordinaten
+NQJ := 5:
+# Anzahl der Gelenke (mit virtuellen Schnittgelenken, denen kein Körper zugeordnet ist).
+NJ := 21:
+# Anzahl der Körper (mit Basis)
+NL := 16:
+
+qoffset := Matrix(21, 1, [-Pi/2, Pi/2, 0, 0, 0, Pi/2, 0, Pi/2, 0, 0, Pi, -Pi/2, -Pi/2, 3*Pi/2, 0, 0, 0, Pi/2, 0, 0, 0]):
+theta := <qJ_t(1); qJ_t(2); rho3(t); qJ_t(3,1); qJ_t(4,1); rho6(t); qJ_t(5,1); delta8; -delta6(t); -delta16(t); -delta3(t); delta19(t); delta17; -beta1(t); 0; -delta14(t); beta2(t); delta21(t); 0; 0; 0>  + qoffset:
+alpha := Matrix(21, 1, [0, -Pi/2, Pi/2, 0, 0, 0, Pi/2, Pi/2, 0, 0, 0, 0, 0, 0, Pi/2, 0, 0, 0, 0, 0, -Pi/2]):
+d := Matrix(21, 1, [l1, l2, l3, 0, 0, 0, l15, l3, 0, 0, 0, 0, 0, 0, LF(t), 0, 0, 0, 0, 0, 0]):
+a := Matrix(21, 1, [0, 0, 0, l5, l11, l12, 0, 0, -l4, l6, l22, l11, 0, l14, 0, l21, l14, l23, l20, l13, 0]):
+v := Matrix(21,1, <0; 1; 2; 3; 4; 5; 6; 2; 8; 3; 10; 4; 12; 13; 14; 10; 13; 6; 9; 11; 15>):
+
+b := Matrix(21,1):
+beta := Matrix(21,1):
+beta(16,1) := delta9:
+beta(18,1) := -Pi/2-delta20:
+
+# Fast nur Drehgelenke
+sigma := Matrix(21,1):
+sigma(15,1):=1: # Schubgelenk
+sigma(8,1) := 2: # statische Transformation für delta8
+sigma(13,1) := 2: # statische Transformation für delta17
+sigma(19..21) := 2: # Virtuelle Transformationen für geschlossene kinematische Ketten
+
+# Nehme alle Gelenke als aktiv an, die Minimalkoordinaten sind. Egal ob später im Konzept aktuiert oder nicht.
+mu := Matrix(21,1):
+mu([1, 2, 4, 5, 7],1):=1:
+
+# Allgemeine Winkel und ihre Ersetzungsausdrücke.
+# Konstante Winkel haben den selben Ausdruck als Ersetzungsausdruck!
+kintmp_t := Matrix(29, 1, [alpha1(t),beta1(t),beta2(t),gamma3(t),gamma5(t),delta1(t),delta2(t),delta3(t),delta4(t),delta5(t),delta6(t),delta7(t),delta8,delta9,delta10,delta11(t),delta12,delta13(t),delta14(t),delta15(t),delta16(t),delta17, delta18, delta19(t),delta20, delta21(t), rho3(t), rho6(t), LF(t)]);
+kintmp_s := Matrix(29, 1, [alpha1s,beta1s, beta2s,gamma3s,gamma5s,delta1s,delta2s,delta3s,delta4s,delta5s, delta6s,delta7s,delta8,delta9, delta10,delta11s,delta12,delta13s,delta14s,delta15s,delta16s,delta17,delta18,delta19s, delta20,delta21s,rho3s,rho6s, LFs]);
+
+# Einfacherer Optimierung beim Matlab-Export
+codegen_opt := 1:
+# nur einfache Jacobi-Matrix berechnen
+codegen_jacobi := 1:
+# Keine Term-Vereinfachungen versuchen
+simplify_options := Vector(10,0):

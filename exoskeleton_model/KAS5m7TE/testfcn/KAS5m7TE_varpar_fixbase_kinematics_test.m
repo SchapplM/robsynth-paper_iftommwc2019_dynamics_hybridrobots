@@ -1,0 +1,383 @@
+% Test function for kinematics from symbolic calculations
+% with fixed base model
+% 
+% Sources
+% [1] Ortmaier, Robotik I Skript
+% [2] Do Thanh et al: On the Inverse Dynamics Problem of General Parallel
+%     Robots (2009)
+% [3] Schappler et al: Modeling Parallel Robot Kinematics for 3T2R and 3T3R  
+%     Tasks Using Reciprocal Sets of Euler Angles (MDPI Robotics, 2009)
+
+
+% Quelle: HybrDyn-Toolbox
+% Datum: 2020-05-12 08:05
+% Revision: 2d0abd6fcc3afe6f578a07ad3d897ec57baa6ba1 (2020-04-13)
+% Moritz Schappler, moritz.schappler@imes.uni-hannover.de
+% (C) Institut für Mechatronische Systeme, Universität Hannover
+
+clc
+clear
+
+NQJ = 5;
+NJ = 21;
+NL = 16;
+robot_name = 'KAS5m7TE';
+
+%% Parameter
+TSS = KAS5m7TE_varpar_testfunctions_parameter();
+for f = fields(TSS)'
+  eval(sprintf('%s=TSS.%s;',f{1},f{1}));
+end
+
+%% Init
+thrfac = 1; % Faktor zur Erhöhung der Schwellwerte für Fehlererkennung
+% Prüfe, ob kinematische Zwangsbedingungen vorliegen.
+% Dann entfallen die Tests der numerischen Funktionen
+if NJ ~= NQJ
+  KINCONSTR = true;
+  fprintf('Einige Tests entfallen aufgrund der Existenz kinematischer Zwangsbedingungen\n');
+  thrfac = 10; % bei ZB sind treten mehr Rechenfehler auf (da aufwändiger)
+else
+  KINCONSTR = false;  
+end
+
+if any(sigma)
+  fprintf('Einige Tests entfallen aufgrund der Existenz von Schubgelenken\n');
+end
+%% Kinematik gegen Jacobi-Matrix testen (fixed base)
+
+for i = 1:size(Q, 1)
+  for j  = 1:NQJ % incremental change of joint angle j
+    q = Q(i,:)';
+
+    % differential kinematics from forward dynamics
+    E = eye(NQJ);
+    qDelta = 1e-10*E(:,j);
+    Tc_1 = KAS5m7TE_fkine_fixb_rotmat_mdh_sym_varpar(q, pkin);
+    Tc_2 = KAS5m7TE_fkine_fixb_rotmat_mdh_sym_varpar(q+qDelta, pkin);
+    xDelta_fkine = Tc_2(1:3,4,end) - Tc_1(1:3,4,end);
+
+    % differential kinematics from Jacobian function
+    JG = KAS5m7TE_jacobig_sym_varpar(q, uint8(NJ), zeros(3,1), pkin);
+    xDelta_jacob = JG*qDelta;
+
+    x1_fkine = Tc_1(1:3,4,end);
+    x2_fkine = Tc_2(1:3,4,end);
+    x2_jacob = x1_fkine + xDelta_jacob(1:3);
+
+    % calculate error
+    Error_cart = x2_fkine(1:3) - x2_jacob(1:3);
+    if any(abs(Error_cart) > 1e-10)
+      error('Jacobian does not match with forward kinematics. Error = [%s]. Deltaq%d', ...
+        disp_array(Error_cart', '%.5e'), j);
+    end
+
+  end
+end
+fprintf('Tested Jacobian (fixed base) against forward kinematics for %d random joint angles.\n', ...
+	size(Q, 1));
+ 
+%% Teste Jacobi-Matrix für unterschiedliche Punkte mit der Adjungierten
+for i = 1:size(Q, 1)
+  for j  = 0:NQJ % Jacobi für jeden Körper
+    q = Q(i,:)';
+    Tc = KAS5m7TE_fkine_fixb_rotmat_mdh_sym_varpar(q, pkin);
+    
+    r_j_Oj_P = rand(3,1); % zufälliger Punkt auf dem Körper
+    
+    % Jacobi zum Punkt aus direkter Berechnung
+    JG_P = KAS5m7TE_jacobig_sym_varpar(q, uint8(j), r_j_Oj_P, pkin);
+    
+    % Jacobi zum Koordinatenursprung des Körpers
+    JG_Oj = KAS5m7TE_jacobig_sym_varpar(q, uint8(j), zeros(3,1), pkin);
+    
+    % Jacobi zum Punkt berechnet mit Adjunkt-Matrix
+    R_0_j = Tc(1:3,1:3,j+1);
+    r_0_Oj_P = R_0_j*r_j_Oj_P;
+    A_0_P_Oj = adjoint_jacobian(r_0_Oj_P);
+    JG_P_a = A_0_P_Oj * JG_Oj;
+    test_JG_P_abs = JG_P - JG_P_a;
+    test_JG_P_rel = test_JG_P_abs ./ JG_P;
+    if any(abs(test_JG_P_abs(:)) > thrfac*1e-9 & abs(test_JG_P_rel(:)) > thrfac^3*1e-5)
+      error('Berechnung der Jacobi-Matrix mit Adjungierten stimmt nicht mit Funktion überein');
+    end
+  end
+end
+fprintf('Tested Jacobian direct vs adjoint calculation for fixed base.\n');
+
+%% Prüfe, ob die Zeitableitung der Jacobi berechnet wurde.
+% Falls nicht, kann der nachfolgende Test nicht durchgeführt werden.
+% Das passiert mit der Option "codegen_jacobi:=1" in der Maple-Definition
+% Berechne dafür Jacobi-Matrix für das Basis-Segment. Muss immer Null sein.
+JD_test = KAS5m7TE_jacobigD_sym_varpar(Q(1,:)', QD(1,:)', uint8(0), zeros(3,1), pkin);
+if any(isnan(JD_test(:)))
+  warning('Jacobi-Zeitableitung wurde wahrscheinlich nicht generiert. Abbruch des Tests.');
+  return
+end
+
+%% Teste Jacobi-Matrix-Zeitableitung für unterschiedliche Punkte mit der Adjungierten
+for i = 1:size(Q, 1)
+  for j  = 0:NQJ % Jacobi für jeden Körper
+    q = Q(i,:)';
+    qD = QD(i,:)';
+    
+    Tc = KAS5m7TE_fkine_fixb_rotmat_mdh_sym_varpar(q, pkin);
+    
+    r_j_Oj_P = rand(3,1); % zufälliger Punkt auf dem Körper
+    
+    % Jacobi- und Zeitableitung zum Punkt aus direkter Berechnung
+    JG_P = KAS5m7TE_jacobig_sym_varpar(q, uint8(j), r_j_Oj_P, pkin);
+    JGD_P = KAS5m7TE_jacobigD_sym_varpar(q, qD, uint8(j), r_j_Oj_P, pkin);
+
+    % Jacobi und -Zeitableitung zum Koordinatenursprung des Körpers
+    JG_Oj = KAS5m7TE_jacobig_sym_varpar(q, uint8(j), zeros(3,1), pkin);
+    JGD_Oj = KAS5m7TE_jacobigD_sym_varpar(q, qD, uint8(j), zeros(3,1), pkin);
+
+    % Jacobi-Zeitableitung zum Punkt berechnet mit Adjunkt-Matrix
+    R_0_j = Tc(1:3,1:3,j+1);
+    r_0_Oj_P = R_0_j*r_j_Oj_P;
+    A_0_P_Oj = adjoint_jacobian(r_0_Oj_P);
+
+    V_0_i = JG_Oj*qD;
+    omega_0_i = V_0_i(4:6);
+
+    AD_0_P_Oj = adjointD_jacobian(r_j_Oj_P, R_0_j, omega_0_i);
+    % Jacobi-Zeitableitung aus Ableitung der Adjunktmatrix-Gleichung
+    JGD_P_a = AD_0_P_Oj * JG_Oj + A_0_P_Oj * JGD_Oj;
+    
+    test_JGD_abs = JGD_P - JGD_P_a;
+    test_JGD_rel = test_JGD_abs ./ JGD_P;
+    if any(abs(test_JGD_abs(:)) > thrfac*1e-10 & abs(test_JGD_rel(:)) > thrfac^4*1e-4) % TODO: Toleranz für fivebar1 noch sehr hoch eingestellt
+      error('Berechnung der Jacobi-Matrix-Zeitableitung mit Adjungierten stimmt nicht mit Funktion überein');
+    end
+  end
+end
+fprintf('Tested Jacobian time derivate from direct vs adjoint calculation for fixed base.\n');
+%% Test Time Derivate of Jacobian
+if ~KINCONSTR && ~any(sigma)
+matlabfcn2mex({'KAS5m7TE_jacobig_mdh_num', 'KAS5m7TE_jacobigD_mdh_num'});
+for kk = 1:NJ % Test for linear joint trajectory
+  n = 1e5; % little steps -> small error
+  Q_traj = zeros(n,NJ);
+  q_kk_start = -pi/2;
+  q_kk_end = pi/2;
+  Q_traj(:,kk) = linspace(q_kk_start, q_kk_end, n);
+  QD_traj = zeros(n,NJ);
+  T = 1;
+  QD_traj(:,kk) = (q_kk_end-q_kk_start)/T; % linear velocity profile
+  dT = T/n;
+  JG = zeros(6,NJ);
+
+  t1 = tic;
+  for i = 1:n % Test Difference for each trajectory point
+    JG_vorher = JG;
+    q = Q_traj(i,:)';
+    qD = QD_traj(i,:)';     
+    % calculate jacobian time derivate with two methods
+    JG = KAS5m7TE_jacobig_mdh_num_mex(q, uint8(NJ), zeros(3,1), pkin);
+    JGD_num1 = (JG - JG_vorher) / dT;
+    JGD_num2 =  KAS5m7TE_jacobigD_mdh_num_mex(q, qD, uint8(NJ), zeros(3,1), pkin);
+
+    % calculate error
+    if i > 2
+      JGD_Diff = JGD_num1 - JGD_num2;
+      I = abs(JGD_Diff) > 1e-3;
+      if any(I(:))
+        disp('from numeric differentiation:');
+        disp(JGD_num1);
+        disp('from direct formula:');
+        disp(JGD_num2);          
+        error('Zeitableitungen der Jacobi-Matrizen weichen voneinander ab!');
+      end
+    end
+
+  end
+  fprintf('Erfolgreiche Übereinstimmung von JGD für Trajektorie aus %d Gelenkwinkeln für Achse %d. Rechenzeit: %1.0fs\n', ...
+    n, kk, toc(t1));
+end
+fprintf('Tested Jacobian Time derivative for fixed base.\n');
+end
+
+%% Symbolische gegen numerische (geometrische) Jacobi-Matrix testen
+if ~KINCONSTR
+for iq = 1:size(Q, 1) % Über Zufallsposen
+  for jb  = 0:NL-1 % Über alle Körper
+    r_i_i_C = rand(3,1);
+    q = Q(iq,:)';
+    qD = QD(iq,:)';
+    Jg_num = KAS5m7TE_jacobig_mdh_num(q, uint8(jb), r_i_i_C, pkin);
+    Jg_sym = KAS5m7TE_jacobig_sym_varpar(q, uint8(jb), r_i_i_C, pkin);
+    
+    Jg_Delta = Jg_num - Jg_sym;
+    if any(abs (Jg_Delta(:)) > 1e-10) || any(isnan(Jg_Delta(:)))
+      error('iq=%d, jb=%d: Symbolische und numerische Jacobi-Matrizen stimmen nicht', iq, jb);
+    end
+    
+    if any(sigma)
+      continue % Funktioniert noch nicht für Schubgelenke
+    end
+    JgD_num = KAS5m7TE_jacobigD_mdh_num(q, qD, uint8(jb), r_i_i_C, pkin);
+    JgD_sym = KAS5m7TE_jacobigD_sym_varpar(q, qD, uint8(jb), r_i_i_C, pkin);
+    JgD_Delta = JgD_num - JgD_sym;
+    if any( abs (JgD_Delta(:)) > 1e9*eps(1+max(abs(JgD_sym(:)))) ) || any(isnan(JgD_Delta(:)))
+      error('Symbolische und numerische Jacobi-Matrix-Zeitableitungen stimmen nicht');
+    end
+  end
+end
+fprintf('Erfolgreich symbolische gegen numerische (geometrische) Jacobi-Matrix getestet (und Zeitableitung).\n');
+end
+
+%% Analytische gegen Geometrische Jacobi-Matrix testen
+for iq = 1:size(Q, 1) % Über Zufallsposen
+  for jb  = 0:NL-1 % Über alle Körper
+    q = Q(iq,:)';
+    qD = Q(iq,:)';    
+    Jg_rot = KAS5m7TE_jacobig_rot_sym_varpar(q, uint8(jb), pkin);
+    Ja_rot = KAS5m7TE_jacobia_rot_sym_varpar(q, uint8(jb), pkin);
+    
+    % direkte Kinematik (mit gleichem Modell berechnet. Gleichheit der
+    % Modelle wird in anderer Testfunktion  verifiziert)
+    Tc_mdh = KAS5m7TE_fkine_fixb_rotmat_mdh_sym_varpar(q, pkin);
+    T_jb = Tc_mdh(:,:,jb+1);
+
+    % Winkelkonvention und Umrechnungsfaktor
+    rpy = r2eulxyz(t2r(T_jb));
+    J_rpy = eulxyzjac(rpy);
+
+    % Umrechnung der analytischen in die geometrische Jacobi-Matrix
+    % [1], S. 52, Gl. (4.25)
+    Jg_rot_test = J_rpy * Ja_rot;
+
+    % Vergleiche die auf zwei Wegen berechnete geometrische Jacobi-Matrix
+    Diff = Jg_rot_test - Jg_rot;
+    Diff_rel = Jg_rot_test./ Jg_rot - 1; % prüfe auch relativen Fehler, da bei komplizierten Systemen höhere Toleranzen auftreten
+    if any(abs(Diff(:)) > 1e-10 & abs(Diff_rel(:)) > 5e-2)
+      error('Geometrische und analytische Jacobi-Matrizen stimmen nicht überein (Körper %d). Fehler: abs. %e, rel. %e', ...
+        jb, max(abs(Diff(:))), max(abs(Diff_rel(:))));
+    end
+    
+    % Berechne Zeitableitung der analytischen und geometrischen
+    % Jacobi-Matrix
+    JgD_rot = KAS5m7TE_jacobigD_rot_sym_varpar(q, qD, uint8(jb), pkin);
+    JaD_rot = KAS5m7TE_jacobiaD_rot_sym_varpar(q, qD, uint8(jb), pkin);
+    % Aus Produktregel der Zeitableitung von [1], S. 52, Gl. (4.25)
+    % (Berechnung der geometrischen Jacobi-Matrix aus der analytischen)
+    rpyD = Ja_rot*qD;
+    JD_rpy = eulxyzjacD(rpy, rpyD);
+    JgD_rot_euljac = JD_rpy * Ja_rot + J_rpy * JaD_rot;
+    % Vergleiche die auf zwei Wegen berechnete Zeitableitung der geometrischen Jacobi-Matrix
+    DiffgD_abs = JgD_rot_euljac - JgD_rot;
+    DiffgD_rel = DiffgD_abs ./ JgD_rot;
+    if any( abs(DiffgD_abs(:)) > 1e9*eps(1+max(abs(JgD_rot(:)))) & abs(DiffgD_rel(:)) > 1e-3)
+      error('Zeitableitung der geometrischen und analytischen Jacobi-Matrizen stimmen nicht überein (Körper %d)', jb);
+    end
+    % Berechnung der analytischen Jacobi-Matrix aus der geometrischen (d/dt)
+    % Zeitableitung der inversen Euler-Transformationsmatrix 
+    JD_rpy_inv = -J_rpy\JD_rpy/J_rpy; % [2], Gl. 20
+    % Zeitableitung der analytischen Jacobi (Rotationsteil)
+    JaD_rot_euljac = J_rpy\JgD_rot + JD_rpy_inv *Jg_rot;
+    DiffaD_abs = JaD_rot - JaD_rot_euljac;
+    DiffaD_rel = DiffaD_abs ./ JaD_rot;
+    if any( abs(DiffaD_abs(:)) > 1e9*eps(1+max(abs(JaD_rot(:)))) & abs(DiffaD_rel(:)) > 1e-3 )
+      error('Zeitableitung der analytischen und geometrischen Jacobi-Matrizen stimmen nicht überein (Körper %d)', jb);
+    end
+  end
+end
+fprintf('Erfolgreich analytische gegen geometrische Jacobi-Matrix (Rotationsteil) getestet (und Zeitableitung).\n');
+
+%% Teste Geometrische Jacobi gegen Rotationsmatrix-Jacobi
+for ie = uint8(1:12) % Über alle Euler-Konventionen
+  for iq = 1:size(Q, 1) % Über Zufallsposen
+    for jb  = 0:NL-1 % Über alle Körper
+    
+      q = Q(iq,:)';
+      qD = QD(iq,:)';
+
+      % direkte Kinematik (mit gleichem Modell berechnet. Gleichheit der
+      % Modelle wird in anderer Testfunktion  verifiziert)
+      Tc_mdh = KAS5m7TE_fkine_fixb_rotmat_mdh_sym_varpar(q, pkin);
+      T_jb = Tc_mdh(:,:,jb+1);
+
+      % Winkelkonvention und Umrechnungsfaktor
+      phi = r2eul(t2r(T_jb), ie);
+      J_phi = euljac(phi, ie);
+
+      % Prüfe, ob Winkelkonvention für diese Körper-KS-Rotationsmatrix
+      % gültig ist
+      if rank(J_phi) == 2
+        if iq == 1
+          fprintf('Euler-Winkel-Konvention %s führt zu singulärer Orientierungsdarstellung für Körper-KS-Jacobi %d (Das ist kein Fehler)\n', euler_angle_properties(ie), jb);
+        end
+        continue;
+      end
+      
+      % Geometrische Jacobi-Matrix (Rotationsteil)
+      Jg_rot = KAS5m7TE_jacobig_rot_sym_varpar(q, uint8(jb), pkin);
+
+      % Rotationsmatrix-Jacobi
+      JR = KAS5m7TE_jacobiR_rot_sym_varpar(q, uint8(jb), pkin);
+
+      % Testausdruck für Zusammenhang zwischen den beiden Jacobi-Matrizen:
+      % Berechnung der analytischen Jacobi aus der Rotationsmatrix-Jacobi
+      % Herleitung: Kettenregel bei Ableitung Euler-Winkel nach Gelenkkoord.
+      test_lhs = J_phi\Jg_rot;
+      test_rhs = eul_diff_rotmat(t2r(T_jb), ie)*JR;
+      test_abs = test_lhs - test_rhs;
+      test_rel = test_abs ./ test_rhs;
+      if any(abs(test_abs(:)) > 1e-10*thrfac^2 & abs(test_rel(:)) > 1e-5)
+        error('Geometrische und Rotationsmatrix-Jacobi stimmen nicht überein');
+      end
+      
+      % Berechnung der Rotationsmatrix-Jacobi aus der geometrischen Jacobi
+      % [3], Gl. (A14)
+      b11=T_jb(1,1);b12=T_jb(1,2);b13=T_jb(1,3);
+      b21=T_jb(2,1);b22=T_jb(2,2);b23=T_jb(2,3);
+      b31=T_jb(3,1);b32=T_jb(3,2);b33=T_jb(3,3);
+      dPidRb1 = [b11 0 0 b21 0 0 b31 0 0; 0 b11 0 0 b21 0 0 b31 0; 0 0 b11 0 0 b21 0 0 b31; b12 0 0 b22 0 0 b32 0 0; 0 b12 0 0 b22 0 0 b32 0; 0 0 b12 0 0 b22 0 0 b32; b13 0 0 b23 0 0 b33 0 0; 0 b13 0 0 b23 0 0 b33 0; 0 0 b13 0 0 b23 0 0 b33;];
+      skewgrad = [0 0 0; 0 0 1; 0 -1 0; 0 0 -1; 0 0 0; 1 0 0; 0 1 0; -1 0 0; 0 0 0;];
+      JR_test = dPidRb1 * skewgrad * Jg_rot; % Terme I, II, III in [3]/(A14)
+      test2_abs = JR_test - JR;
+      test2_rel = test2_abs ./ JR;
+      if any(abs(test2_abs(:)) > 1e-10 & abs(test2_rel(:)) > 1e-5)
+        error('Berechnung der Rotationsmatrix-Jacobi aus geometrischer Jacobi stimmt nicht');
+      end
+
+      % Zeitableitung der Rotationsmatrix-Jacobi-Matrix testen
+      % Berechne zweite Matrix basierend auf Inkrement der Gelenkkoordinaten
+      % (Differenzenquotient mit Ein-Schritt-Verfahren)
+      dt = 1e-6;
+      q2 = q + qD*dt;
+      JR2 = KAS5m7TE_jacobiR_rot_sym_varpar(q2, uint8(jb), pkin);
+
+      JRD1 = KAS5m7TE_jacobiRD_rot_sym_varpar(q, qD, uint8(jb), pkin);
+      JR2_diff = JR + JRD1*dt;
+      JRD_diff = (JR2 - JR)/dt;
+      % Teste auch relativen Fehler da Linearisierungsfehler bei
+      % Differenzenquotient größer als Numerik-Fehler
+      test1_abs = JR2 - JR2_diff;
+      test1_rel = test1_abs ./ JR2;
+      test2_abs = JRD_diff - JRD1;
+      test2_rel = test2_abs ./ JRD1;
+      if any(abs(test1_abs(:)) > 1e-10 & abs(test1_rel(:)) > thrfac^2*1e-8) || ...
+         any(abs(test2_abs(:)) >  thrfac*1e-5 & abs(test2_rel(:)) > thrfac^4*1e-3) % TODO: Toleranz muss für fivebar1 sehr groß sein
+        error('Zeitableitung der Rotationsmatrix-Jacobi stimmt nicht');
+      end
+    end
+  end
+end
+fprintf('Erfolgreich geometrische gegen Rotationsmatrix-Jacobi getestet.\n');
+
+%% Kompiliere alle Jacobi-bezogenen Funktionen
+matlabfcn2mex({ 'KAS5m7TE_jacobigD_rot_sym_varpar', ...
+                'KAS5m7TE_jacobiaD_rot_sym_varpar', ...
+                'KAS5m7TE_jacobigD_sym_varpar', ...
+                'KAS5m7TE_jacobiaD_sym_varpar', ...
+                'KAS5m7TE_jacobig_sym_varpar', ...
+                'KAS5m7TE_jacobia_sym_varpar', ...
+                'KAS5m7TE_jacobig_rot_sym_varpar', ...
+                'KAS5m7TE_jacobia_rot_sym_varpar', ...
+                'KAS5m7TE_jacobia_transl_sym_varpar', ...
+                'KAS5m7TE_jacobiaD_transl_sym_varpar', ...
+                'KAS5m7TE_jacobiR_rot_sym_varpar', ...
+                'KAS5m7TE_jacobiRD_rot_sym_varpar'});
+

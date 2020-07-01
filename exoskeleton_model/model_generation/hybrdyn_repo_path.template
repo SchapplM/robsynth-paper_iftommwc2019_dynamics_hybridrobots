@@ -1,0 +1,9 @@
+# Diese Datei ist eine Vorlage für die Verknüpfung zur HybrDyn-Toolbox
+# aus https://github.com/SchapplM/robsynth-modelgen oder
+# https://gitlab.projekt.uni-hannover.de/imes-gruppe-robotik/hybriddyn
+% Diese Toolbox muss heruntergeladen werden und der Pfad hier an den tatsächlichen
+% Pfad auf dem Rechner angepasst werden.
+% Das ".template" muss aus dem Dateinamen entfernt werden und das der richtige
+% Pfad und Code für das Betriebssystem ausgewählt werden.
+% Die Datei darf als einzigen Inhalt nur den Pfad zum Repo haben (als eine Zeile, ohne diesen Kommentar). z.B.:
+/home/schappler/IMES/REPO/maple

@@ -1,0 +1,8 @@
+# Definition für implizite Zwangsbedingungen
+
+robot_name := "KAS5m7IC":
+robot_name_OL := "KAS5m7OL":
+robot_name_DE := "KAS5m7DE1":
+robot_name_TE := "KAS5m7TE":
+
+codegen_opt := 1:
