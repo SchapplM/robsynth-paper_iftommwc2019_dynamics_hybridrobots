@@ -14,7 +14,7 @@ clc
 if isempty(which('hybroblib_path_init.m'))
   error('the hybrid robot library is not in the Matlab path');
 end
-
+exo_example_path_init;
 %% Initialize robot class.
 % Initialize the matlab class from the matlab robotics repository
 % use the hybrid robots library for the initialization routine

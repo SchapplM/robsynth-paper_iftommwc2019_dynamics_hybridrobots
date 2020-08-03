@@ -3,4 +3,5 @@
 *.blg
 *.log
 *.synctex.gz
+*.soc
 root.pdf
